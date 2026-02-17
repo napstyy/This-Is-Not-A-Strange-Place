@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c0gm1tgqmhqlh"]
+
+[ext_resource type="Script" uid="uid://cikc3ihxmt272" path="res://scripts/Torch.gd" id="1_hl714"]
+[ext_resource type="Texture2D" uid="uid://by4suideexthj" path="res://assets/Circular 1 - 128x128.png" id="2_gspwy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2o12b"]
+
+[node name="Torch" type="RigidBody2D" unique_id=1509374204]
+input_pickable = true
+script = ExtResource("1_hl714")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=2067323248]
+energy = 1.38
+blend_mode = 2
+texture = ExtResource("2_gspwy")
+height = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=55226187]
+rotation = 3.1415927
+scale = Vector2(2.658398, 2.658398)
+shape = SubResource("CircleShape2D_2o12b")

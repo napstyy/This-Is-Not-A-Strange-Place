@@ -11,32 +11,27 @@ var state := "idle"
 var timer := 0.0
 
 func _ready():
-	randomize()
 	pick_new_state()
 
 func _physics_process(delta):
 	# Apply gravity
 	if not is_on_floor():
 		velocity.y += get_gravity().y * delta
-	else:
-		velocity.y = 0
 
-	# Timer for switching states
 	timer -= delta
+
 	if timer <= 0:
 		pick_new_state()
 
-	# Movement
 	if state == "walk":
 		velocity.x = direction * speed
 	else:
 		velocity.x = 0
 
-	# Flip sprite
-	if direction != 0:
-		$Sprite2D.flip_h = direction < 0
+
 
 	move_and_slide()
+
 
 func pick_new_state():
 	if randi() % 2 == 0:

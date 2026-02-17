@@ -1,14 +1,20 @@
 [gd_scene format=3 uid="uid://dh88on2b31yws"]
 
 [ext_resource type="Texture2D" uid="uid://bk16xff7vslyh" path="res://icon.svg" id="1_ovom5"]
+[ext_resource type="Script" uid="uid://cikc3ihxmt272" path="res://scripts/Torch.gd" id="2_1ub2o"]
+[ext_resource type="Texture2D" uid="uid://by4suideexthj" path="res://assets/Circular 1 - 128x128.png" id="2_2o12b"]
+[ext_resource type="Texture2D" uid="uid://b77v2ldoivfku" path="res://assets/all-current-posters-v0-evzgpsbdd5jg1.webp" id="4_dscsm"]
+[ext_resource type="PackedScene" uid="uid://c0gm1tgqmhqlh" path="res://prefabs/Torch.tscn" id="5_sv3j7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2o12b"]
 size = Vector2(130.64426, 124)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2o12b"]
+
 [node name="TorchRoom" type="Node2D" unique_id=5330240]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=905524752]
-position = Vector2(583, 707)
+position = Vector2(586, 707)
 scale = Vector2(15.125, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1786651310]
@@ -18,3 +24,33 @@ texture = ExtResource("1_ovom5")
 position = Vector2(0, -1)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_2o12b")
+
+[node name="Light" type="RigidBody2D" parent="." unique_id=1506880443]
+position = Vector2(145, 476)
+input_pickable = true
+script = ExtResource("2_1ub2o")
+
+[node name="PointLight2D" type="PointLight2D" parent="Light" unique_id=566860490]
+energy = 1.38
+blend_mode = 2
+texture = ExtResource("2_2o12b")
+height = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Light" unique_id=1384004606]
+rotation = 3.1415927
+scale = Vector2(2.658398, 2.658398)
+shape = SubResource("CircleShape2D_2o12b")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1337817144]
+color = Color(0, 0, 0, 1)
+
+[node name="AllCurrentPostersV0Evzgpsbdd5Jg1" type="Sprite2D" parent="." unique_id=200384428]
+position = Vector2(610, 342.00003)
+scale = Vector2(1.5799179, 0.7081379)
+texture = ExtResource("4_dscsm")
+
+[node name="Torch" parent="." unique_id=1509374204 instance=ExtResource("5_sv3j7")]
+position = Vector2(901, 422)
+
+[node name="Torch2" parent="." unique_id=966111193 instance=ExtResource("5_sv3j7")]
+position = Vector2(459, 294)
