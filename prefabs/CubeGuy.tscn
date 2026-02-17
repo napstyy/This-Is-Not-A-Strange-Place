@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://br2jy4ris6au2"]
+
+[ext_resource type="Script" uid="uid://cg5rb06wti1lw" path="res://scripts/SquareMovement.gd" id="1_hjsws"]
+[ext_resource type="Texture2D" uid="uid://0hf4wm0xoybo" path="res://assets/CubePerson.png" id="2_i76r4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kass0"]
+size = Vector2(17, 20)
+
+[node name="CubeGuy" type="CharacterBody2D" unique_id=929557763]
+scale = Vector2(6.309507, 6.309507)
+script = ExtResource("1_hjsws")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=87556120]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_kass0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2057010065]
+position = Vector2(-0.99999994, -1)
+scale = Vector2(0.6875, 0.6875)
+texture = ExtResource("2_i76r4")

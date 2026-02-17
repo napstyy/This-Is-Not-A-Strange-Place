@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bk16xff7vslyh" path="res://icon.svg" id="1_kanam"]
 [ext_resource type="Script" uid="uid://cg5rb06wti1lw" path="res://scripts/SquareMovement.gd" id="2_kass0"]
 [ext_resource type="Texture2D" uid="uid://0hf4wm0xoybo" path="res://assets/CubePerson.png" id="2_r0dau"]
+[ext_resource type="PackedScene" uid="uid://br2jy4ris6au2" path="res://prefabs/CubeGuy.tscn" id="4_y6abp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r0dau"]
 size = Vector2(130.64426, 124)
@@ -37,3 +38,6 @@ shape = SubResource("RectangleShape2D_kass0")
 position = Vector2(-0.99999994, -1)
 scale = Vector2(0.6875, 0.6875)
 texture = ExtResource("2_r0dau")
+
+[node name="CubeGuy" parent="." unique_id=929557763 instance=ExtResource("4_y6abp")]
+position = Vector2(228, 514)
