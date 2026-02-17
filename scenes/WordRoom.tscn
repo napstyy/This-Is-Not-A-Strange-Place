@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cnlo8f6njs3qi"]
+
+[ext_resource type="FontFile" uid="uid://d3cf40f66420h" path="res://assets/fonts/Pix32.ttf" id="1_y8rhd"]
+[ext_resource type="Script" uid="uid://nw3vuy2r8yoh" path="res://scripts/ColorSwap.gd" id="2_svafy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_75evl"]
+font = ExtResource("1_y8rhd")
+font_size = 146
+font_color = Color(0, 0, 0, 1)
+
+[node name="WordRoom" type="Node2D" unique_id=1283631081]
+
+[node name="Label" type="Label" parent="." unique_id=1756049784]
+offset_left = 203.0
+offset_top = 194.00002
+offset_right = 1688.0
+offset_bottom = 595.0
+scale = Vector2(0.68778807, 0.68778807)
+text = "THIS IS NOT
+A STRANGE PLACE"
+label_settings = SubResource("LabelSettings_75evl")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=831964667]
+offset_left = 704.0
+offset_top = 216.0
+offset_right = 744.0
+offset_bottom = 256.0
+scale = Vector2(6.0446906, 2.0408835)
+color = Color(0, 0, 0, 1)
+script = ExtResource("2_svafy")
+
+[node name="Timer" type="Timer" parent="ColorRect" unique_id=1698410119]
+wait_time = 2.0
+autostart = true
