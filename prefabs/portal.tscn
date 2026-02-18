@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://ysxlk2d6grno"]
+
+[ext_resource type="Texture2D" uid="uid://co3dybp5adecx" path="res://assets/Portal3.png" id="1_gbxor"]
+
+[sub_resource type="Animation" id="Animation_y2eew"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_srbon"]
+resource_name = "spin"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ooq7"]
+_data = {
+&"RESET": SubResource("Animation_y2eew"),
+&"spin": SubResource("Animation_srbon")
+}
+
+[node name="Portal" type="Sprite2D" unique_id=1307911027]
+texture = ExtResource("1_gbxor")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1605942604]
+libraries/ = SubResource("AnimationLibrary_4ooq7")
+autoplay = &"spin"
