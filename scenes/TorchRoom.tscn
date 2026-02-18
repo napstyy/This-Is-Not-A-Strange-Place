@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://by4suideexthj" path="res://assets/Circular 1 - 128x128.png" id="2_2o12b"]
 [ext_resource type="Texture2D" uid="uid://b77v2ldoivfku" path="res://assets/all-current-posters-v0-evzgpsbdd5jg1.webp" id="4_dscsm"]
 [ext_resource type="PackedScene" uid="uid://c0gm1tgqmhqlh" path="res://prefabs/Torch.tscn" id="5_sv3j7"]
+[ext_resource type="PackedScene" uid="uid://br2jy4ris6au2" path="res://prefabs/CubeGuy.tscn" id="6_idcqs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2o12b"]
 size = Vector2(130.64426, 124)
@@ -54,3 +55,6 @@ position = Vector2(901, 422)
 
 [node name="Torch2" parent="." unique_id=966111193 instance=ExtResource("5_sv3j7")]
 position = Vector2(459, 294)
+
+[node name="CubeGuy" parent="." unique_id=929557763 instance=ExtResource("6_idcqs")]
+position = Vector2(629, 393)

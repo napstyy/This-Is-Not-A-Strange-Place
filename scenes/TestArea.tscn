@@ -1,15 +1,10 @@
 [gd_scene format=3 uid="uid://u1f5i0nqpyee"]
 
 [ext_resource type="Texture2D" uid="uid://bk16xff7vslyh" path="res://icon.svg" id="1_kanam"]
-[ext_resource type="Script" uid="uid://cg5rb06wti1lw" path="res://scripts/SquareMovement.gd" id="2_kass0"]
-[ext_resource type="Texture2D" uid="uid://0hf4wm0xoybo" path="res://assets/CubePerson.png" id="2_r0dau"]
 [ext_resource type="PackedScene" uid="uid://br2jy4ris6au2" path="res://prefabs/CubeGuy.tscn" id="4_y6abp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r0dau"]
 size = Vector2(130.64426, 124)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kass0"]
-size = Vector2(17, 20)
 
 [node name="TestArea" type="Node2D" unique_id=1822666280]
 
@@ -25,19 +20,17 @@ position = Vector2(0, -1)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_r0dau")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=696659103]
-position = Vector2(527, 547)
-scale = Vector2(6.309507, 6.309507)
-script = ExtResource("2_kass0")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1281277715]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_kass0")
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=2132691890]
-position = Vector2(-0.99999994, -1)
-scale = Vector2(0.6875, 0.6875)
-texture = ExtResource("2_r0dau")
-
 [node name="CubeGuy" parent="." unique_id=929557763 instance=ExtResource("4_y6abp")]
 position = Vector2(228, 514)
+
+[node name="CubeGuy2" parent="." unique_id=206369987 instance=ExtResource("4_y6abp")]
+position = Vector2(510, 513)
+
+[node name="CubeGuy3" parent="." unique_id=1298652838 instance=ExtResource("4_y6abp")]
+position = Vector2(758, 474)
+
+[node name="CubeGuy4" parent="." unique_id=545581490 instance=ExtResource("4_y6abp")]
+position = Vector2(905, 501)
+
+[node name="CubeGuy5" parent="." unique_id=1994300529 instance=ExtResource("4_y6abp")]
+position = Vector2(67, 507)

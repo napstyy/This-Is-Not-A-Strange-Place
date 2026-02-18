@@ -1,27 +1,56 @@
+# SquareMovement.gd
+# Scene requirements:
+# - Root: CharacterBody2D (this script)
+# - Child: Sprite2D (optional) named "Sprite2D"
+# - Child: Area2D named "FeetArea" with a small CollisionShape2D placed at the bottom
+
 extends CharacterBody2D
 
-@export var speed := 100
-@export var min_pause := 0.5
-@export var max_pause := 2.0
-@export var min_walk := 1.0
-@export var max_walk := 3.0
+@export var speed: float = 100.0
+@export var min_pause: float = 0.5
+@export var max_pause: float = 2.0
+@export var min_walk: float = 1.0
+@export var max_walk: float = 3.0
 
-var direction := 0
-var state := "idle"
-var timer := 0.0
+# NodePath to the feet Area2D (change if your node is named differently)
+@export var feet_area_path: NodePath = NodePath("FeetArea")
 
-var is_held := false
-var snap_target = null  # you can remove this line entirely if you want
+var direction: int = 0
+var state: String = "idle"
+var timer: float = 0.0
 
-func _ready():
+var is_held: bool = false
+
+# snapping state
+var attached_to: CharacterBody2D = null
+var attached_offset: Vector2 = Vector2.ZERO
+
+@onready var feet_area: Area2D = get_node_or_null(feet_area_path)
+
+func _ready() -> void:
 	randomize()
 	pick_new_state()
+	if feet_area:
+		feet_area.body_entered.connect(_on_feet_body_entered)
+		feet_area.body_exited.connect(_on_feet_body_exited)
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
+	# follow mouse when held (detaches if necessary)
 	if is_held:
+		if attached_to:
+			_detach()
 		global_position = get_global_mouse_position()
 		velocity = Vector2.ZERO
 		return
+
+	# when attached, follow the attached body exactly
+	if attached_to:
+		if not attached_to.is_inside_tree():
+			_detach()
+		else:
+			global_position = attached_to.global_position + attached_offset
+			velocity = Vector2.ZERO
+			return
 
 	# gravity
 	if not is_on_floor():
@@ -40,14 +69,47 @@ func _physics_process(delta):
 	else:
 		velocity.x = 0
 
-	# flip sprite
-	if direction != 0 and $Sprite2D:
+	# flip sprite if present
+	if $Sprite2D:
 		$Sprite2D.flip_h = direction < 0
 
-	# apply movement
+	# move
 	move_and_slide()
 
-func pick_new_state():
+func _on_feet_body_entered(body: Node) -> void:
+	# only snap to other CharacterBody2D, not self
+	if attached_to:
+		return
+	if body == self:
+		return
+	if body is CharacterBody2D:
+		# ensure the other body is below
+		if body.global_position.y > global_position.y:
+			attached_to = body
+			attached_offset = global_position - attached_to.global_position
+			state = "idle"
+			velocity = Vector2.ZERO
+
+func _on_feet_body_exited(body: Node) -> void:
+	if attached_to == body:
+		_detach()
+
+# clicking on the NPC
+func _input_event(viewport, event, shape_idx) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		is_held = true
+
+# release anywhere
+func _input(event) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+		if is_held:
+			is_held = false
+
+func _detach() -> void:
+	attached_to = null
+	attached_offset = Vector2.ZERO
+
+func pick_new_state() -> void:
 	if randi() % 2 == 0:
 		state = "walk"
 		direction = [-1, 1].pick_random()
@@ -55,14 +117,3 @@ func pick_new_state():
 	else:
 		state = "idle"
 		timer = randf_range(min_pause, max_pause)
-
-# clicking on the NPC (CollisionShape2D must have "Input Pickable" enabled)
-func _input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		is_held = true
-
-# release anywhere -> drop (left button)
-func _input(event):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
-		if is_held:
-			is_held = false

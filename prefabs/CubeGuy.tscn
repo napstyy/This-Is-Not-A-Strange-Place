@@ -4,18 +4,30 @@
 [ext_resource type="Texture2D" uid="uid://0hf4wm0xoybo" path="res://assets/CubePerson.png" id="2_i76r4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kass0"]
-size = Vector2(17, 20)
+size = Vector2(11.411348, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hjsws"]
+size = Vector2(11.252857, 2.9962583)
 
 [node name="CubeGuy" type="CharacterBody2D" unique_id=929557763]
 scale = Vector2(6.309507, 6.309507)
 input_pickable = true
 script = ExtResource("1_hjsws")
+feet_area_path = NodePath("Area2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=87556120]
-position = Vector2(-0.5, 0)
+position = Vector2(-0.15849102, 0)
+scale = Vector2(1.0000002, 1.0000002)
 shape = SubResource("RectangleShape2D_kass0")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2057010065]
 position = Vector2(-0.99999994, -1)
 scale = Vector2(0.6875, 0.6875)
 texture = ExtResource("2_i76r4")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1735207969]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=131548049]
+position = Vector2(-0.15849099, 8.717005)
+scale = Vector2(1.0000002, 1.0000002)
+shape = SubResource("RectangleShape2D_hjsws")
