@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://daavhwsrpaomr" path="res://prefabs/custom_cursor.tscn" id="1_64dlc"]
 [ext_resource type="PackedScene" uid="uid://bkeh62c4hysg5" path="res://prefabs/hoverable_zone.tscn" id="2_bgubf"]
+[ext_resource type="PackedScene" uid="uid://ysxlk2d6grno" path="res://prefabs/portal.tscn" id="3_e6o4q"]
 
 [node name="TestArea2" type="Node2D" unique_id=907868413]
 
@@ -22,4 +23,8 @@ level = "res://scenes/TestArea.tscn"
 [node name="Camera2D" type="Camera2D" parent="." unique_id=530147147]
 
 [node name="CustomCursor" parent="." unique_id=1188223711 instance=ExtResource("1_64dlc")]
+visible = false
 animation = &"default"
+
+[node name="Portal" parent="." unique_id=1307911027 instance=ExtResource("3_e6o4q")]
+position = Vector2(0, 2)
