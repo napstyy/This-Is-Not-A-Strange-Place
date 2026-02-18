@@ -59,5 +59,4 @@ animations = [{
 
 [node name="CustomCursor" type="AnimatedSprite2D" unique_id=1188223711]
 sprite_frames = SubResource("SpriteFrames_1bhxd")
-animation = &"dark"
 script = ExtResource("2_upq8y")

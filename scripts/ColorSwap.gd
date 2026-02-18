@@ -19,4 +19,4 @@ func _update_color():
 	if is_black:
 		color = Color.BLACK
 	else:
-		color = Color.WHITE
+		color = Color(0.99,0.95,0.81,0)

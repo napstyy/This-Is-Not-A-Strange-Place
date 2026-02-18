@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://63hhkfdnrbcr"]
 
+[ext_resource type="Texture2D" uid="uid://by4suideexthj" path="res://assets/Circular 1 - 128x128.png" id="1_b74ql"]
 [ext_resource type="FontFile" uid="uid://jcagdl68pown" path="res://assets/fonts/Parisienne/Parisienne-Regular.ttf" id="1_fjgfx"]
 [ext_resource type="Script" uid="uid://nw3vuy2r8yoh" path="res://scripts/ColorSwap.gd" id="2_svafy"]
 [ext_resource type="PackedScene" uid="uid://bc7qxmqbha1hw" path="res://prefabs/SquareLabel.tscn" id="4_7wd0t"]
@@ -9,11 +10,15 @@
 [ext_resource type="PackedScene" uid="uid://hexrmn8li4vd" path="res://prefabs/WaterLabel.tscn" id="7_b74ql"]
 [ext_resource type="PackedScene" uid="uid://bsujp5tt2l873" path="res://prefabs/AnimalLabel.tscn" id="8_p8ecs"]
 [ext_resource type="PackedScene" uid="uid://bp6a5n2atpuwd" path="res://prefabs/ManLabel.tscn" id="9_1rj1m"]
+[ext_resource type="PackedScene" uid="uid://bkeh62c4hysg5" path="res://prefabs/hoverable_zone.tscn" id="11_1rj1m"]
+[ext_resource type="PackedScene" uid="uid://daavhwsrpaomr" path="res://prefabs/custom_cursor.tscn" id="12_tlxbp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_75evl"]
 font = ExtResource("1_fjgfx")
 font_size = 100
 font_color = Color(0, 0, 0, 1)
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 0.14117648)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_svafy"]
 radius = 34.0147
@@ -27,6 +32,14 @@ offset_right = 1152.0
 offset_bottom = 661.0
 mouse_filter = 2
 color = Color(0.99215686, 0.9529412, 0.8156863, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Background" unique_id=59657607]
+modulate = Color(1, 1, 1, 0.14901961)
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 661.0
+mouse_filter = 2
+texture = ExtResource("1_b74ql")
 
 [node name="Label" type="Label" parent="Background" unique_id=1756049784]
 layout_mode = 0
@@ -81,3 +94,24 @@ position = Vector2(155, 585)
 
 [node name="RigidBody2D2" parent="." unique_id=1618973461 instance=ExtResource("9_1rj1m")]
 position = Vector2(753, 535)
+
+[node name="CustomCursor" parent="." unique_id=1188223711 instance=ExtResource("12_tlxbp")]
+visible = false
+
+[node name="Level Transitions" type="Node" parent="." unique_id=335535766]
+
+[node name="Cave_Zone" parent="Level Transitions" unique_id=761841129 node_paths=PackedStringArray("mouseCursor") instance=ExtResource("11_1rj1m")]
+position = Vector2(86, 66)
+mouseCursor = NodePath("../../CustomCursor")
+hoverCursor = "cave"
+
+[node name="Torch_Zone" parent="Level Transitions" unique_id=1607652756 node_paths=PackedStringArray("mouseCursor") instance=ExtResource("11_1rj1m")]
+position = Vector2(1063, 66)
+mouseCursor = NodePath("../../CustomCursor")
+hoverCursor = "dark"
+level = "res://scenes/TorchRoom.tscn"
+
+[node name="Cube_Zone" parent="Level Transitions" unique_id=2139133167 node_paths=PackedStringArray("mouseCursor") instance=ExtResource("11_1rj1m")]
+position = Vector2(1047, 581)
+mouseCursor = NodePath("../../CustomCursor")
+hoverCursor = "cube"
