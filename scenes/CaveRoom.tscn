@@ -1,3 +1,38 @@
 [gd_scene format=3 uid="uid://c358intsx2h3q"]
 
-[node name="CaveRoom" type="Node2D" unique_id=959066562]
+[ext_resource type="PackedScene" uid="uid://brni1ea1fo23o" path="res://prefabs/Human.tscn" id="1_tqoec"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tqoec"]
+
+[node name="CaveRoom" type="Node2D" unique_id=921493798]
+
+[node name="RigidBody2D" parent="." unique_id=1029679774 instance=ExtResource("1_tqoec")]
+position = Vector2(429, 204)
+
+[node name="Borders" type="Node2D" parent="." unique_id=1254710909]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders" unique_id=900317472]
+rotation = -3.1415925
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D" unique_id=1116895048]
+shape = SubResource("WorldBoundaryShape2D_tqoec")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Borders" unique_id=1857342512]
+position = Vector2(0, 650)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D2" unique_id=1157554185]
+shape = SubResource("WorldBoundaryShape2D_tqoec")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Borders" unique_id=1092953664]
+position = Vector2(0, 650)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D3" unique_id=1642535753]
+shape = SubResource("WorldBoundaryShape2D_tqoec")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Borders" unique_id=1203861079]
+position = Vector2(1153, 650)
+rotation = -1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D4" unique_id=821651989]
+shape = SubResource("WorldBoundaryShape2D_tqoec")

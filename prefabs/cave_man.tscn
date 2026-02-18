@@ -93,9 +93,18 @@ _data = {
 &"walk": SubResource("Animation_7dvfk")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wwwg"]
+size = Vector2(20, 28)
+
 [node name="caveMan" type="Sprite2D" unique_id=318034712]
 texture = ExtResource("1_0wwwg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=175978289]
 libraries/ = SubResource("AnimationLibrary_38not")
 autoplay = &"idle"
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1278636014]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1689003787]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_0wwwg")

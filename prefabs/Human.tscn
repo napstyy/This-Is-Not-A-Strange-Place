@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://brni1ea1fo23o"]
+
+[ext_resource type="Texture2D" uid="uid://dwglfki61as02" path="res://assets/Bowman.png" id="1_4kiml"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1qrlg"]
+size = Vector2(20, 28)
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=1029679774]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=47918763]
+position = Vector2(0, 1)
+scale = Vector2(4.519569, 4.519569)
+shape = SubResource("RectangleShape2D_1qrlg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1840849131]
+scale = Vector2(4.519569, 4.519569)
+texture = ExtResource("1_4kiml")
