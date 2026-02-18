@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://c5f0hm8hlh04s"]
+[gd_scene format=3 uid="uid://bmhc5uka8kcdn"]
 
-[ext_resource type="PackedScene" uid="uid://daavhwsrpaomr" path="res://prefabs/custom_cursor.tscn" id="1_64dlc"]
-[ext_resource type="PackedScene" uid="uid://bkeh62c4hysg5" path="res://prefabs/hoverable_zone.tscn" id="2_bgubf"]
+[ext_resource type="PackedScene" path="res://prefabs/custom_cursor.tscn" id="1_64dlc"]
+[ext_resource type="PackedScene" path="res://prefabs/hoverable_zone.tscn" id="2_bgubf"]
 
 [node name="TestArea2" type="Node2D" unique_id=907868413]
 

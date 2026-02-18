@@ -11,8 +11,7 @@ var state := "idle"
 var timer := 0.0
 
 var is_held := false
-var is_snapped := false
-var snap_target = null  # nullable
+var snap_target = null  # you can remove this line entirely if you want
 
 func _ready():
 	randomize()
@@ -21,10 +20,6 @@ func _ready():
 func _physics_process(delta):
 	if is_held:
 		global_position = get_global_mouse_position()
-		velocity = Vector2.ZERO
-		return
-
-	if is_snapped:
 		velocity = Vector2.ZERO
 		return
 
@@ -65,23 +60,9 @@ func pick_new_state():
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		is_held = true
-		is_snapped = false
 
-# release anywhere -> drop and snap (left button)
+# release anywhere -> drop (left button)
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 		if is_held:
 			is_held = false
-			if snap_target != null:
-				global_position = snap_target
-				velocity = Vector2.ZERO
-				state = "idle"
-				is_snapped = true
-				# keep snap_target while overlapping area; Area clears on exit
-
-# --- helper methods required by Area2D ---
-func set_snap_target(center):
-	snap_target = center
-
-func clear_snap_target():
-	snap_target = null
