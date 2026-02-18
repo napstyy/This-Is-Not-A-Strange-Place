@@ -102,7 +102,7 @@ texture = ExtResource("3_fstx5")
 position = Vector2(216, 147)
 sprite_frames = SubResource("SpriteFrames_fts0c")
 autoplay = "default"
-frame_progress = 0.71834964
+frame_progress = 0.49370468
 
 [node name="Boundary" type="Node" parent="." unique_id=793141304]
 
