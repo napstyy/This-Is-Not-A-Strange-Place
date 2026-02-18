@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://jcagdl68pown" path="res://assets/fonts/Parisienne/Parisienne-Regular.ttf" id="1_fjgfx"]
 [ext_resource type="Script" uid="uid://nw3vuy2r8yoh" path="res://scripts/ColorSwap.gd" id="2_svafy"]
 [ext_resource type="PackedScene" uid="uid://bc7qxmqbha1hw" path="res://prefabs/SquareLabel.tscn" id="4_7wd0t"]
-[ext_resource type="Script" uid="uid://3gaybbsgif2a" path="res://scenes/Slot.gd" id="4_75evl"]
+[ext_resource type="Script" uid="uid://3gaybbsgif2a" path="res://scripts/Slot.gd" id="4_75evl"]
 [ext_resource type="PackedScene" uid="uid://k4oey5wgsgq4" path="res://prefabs/CircleLabel.tscn" id="4_i2bln"]
 [ext_resource type="PackedScene" uid="uid://bucqw4g3b7u6l" path="res://prefabs/FireLabel.tscn" id="6_fjgfx"]
 [ext_resource type="PackedScene" uid="uid://hexrmn8li4vd" path="res://prefabs/WaterLabel.tscn" id="7_b74ql"]
