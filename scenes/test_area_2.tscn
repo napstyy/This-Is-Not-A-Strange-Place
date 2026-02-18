@@ -6,15 +6,19 @@
 [node name="TestArea2" type="Node2D" unique_id=907868413]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1453533300]
-offset_left = 2.0
-offset_top = -138.0
-offset_right = 599.0
-offset_bottom = 340.0
+offset_left = -229.0
+offset_top = -232.0
+offset_right = 368.0
+offset_bottom = 246.0
+mouse_filter = 2
 color = Color(0.8509804, 0.79607844, 0.68235296, 1)
+
+[node name="HoverableZone" parent="." unique_id=761841129 node_paths=PackedStringArray("mouseCursor") instance=ExtResource("2_bgubf")]
+position = Vector2(0, 4)
+mouseCursor = NodePath("../CustomCursor")
+hoverCursor = "cube"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=530147147]
 
-[node name="HoverableZone" parent="." unique_id=761841129 instance=ExtResource("2_bgubf")]
-position = Vector2(1, -79)
-
 [node name="CustomCursor" parent="." unique_id=1188223711 instance=ExtResource("1_64dlc")]
+animation = &"default"
