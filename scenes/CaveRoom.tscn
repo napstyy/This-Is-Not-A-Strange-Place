@@ -1,13 +1,19 @@
 [gd_scene format=3 uid="uid://c358intsx2h3q"]
 
+[ext_resource type="Texture2D" uid="uid://b77v2ldoivfku" path="res://assets/all-current-posters-v0-evzgpsbdd5jg1.webp" id="1_m7vs3"]
 [ext_resource type="PackedScene" uid="uid://brni1ea1fo23o" path="res://prefabs/Human.tscn" id="1_tqoec"]
+[ext_resource type="PackedScene" uid="uid://bgi8l7xltgpt5" path="res://prefabs/Campfire.tscn" id="2_hfnui"]
+[ext_resource type="PackedScene" uid="uid://c0gm1tgqmhqlh" path="res://prefabs/Torch.tscn" id="3_24ulf"]
+[ext_resource type="PackedScene" uid="uid://ofmghndjf21h" path="res://prefabs/Light.tscn" id="4_qhogg"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tqoec"]
 
 [node name="CaveRoom" type="Node2D" unique_id=921493798]
 
-[node name="RigidBody2D" parent="." unique_id=1029679774 instance=ExtResource("1_tqoec")]
-position = Vector2(429, 204)
+[node name="AllCurrentPostersV0Evzgpsbdd5Jg1" type="Sprite2D" parent="." unique_id=102149489]
+position = Vector2(611, 297)
+scale = Vector2(1.6799986, 0.72)
+texture = ExtResource("1_m7vs3")
 
 [node name="Borders" type="Node2D" parent="." unique_id=1254710909]
 
@@ -36,3 +42,26 @@ rotation = -1.5707964
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D4" unique_id=821651989]
 shape = SubResource("WorldBoundaryShape2D_tqoec")
+
+[node name="RigidBody2D" parent="." unique_id=1029679774 instance=ExtResource("1_tqoec")]
+position = Vector2(387, 581)
+
+[node name="RigidBody2D2" parent="." unique_id=109504776 instance=ExtResource("2_hfnui")]
+position = Vector2(497, 590)
+light_scene = ExtResource("4_qhogg")
+
+[node name="RigidBody2D3" parent="." unique_id=154381190 instance=ExtResource("1_tqoec")]
+position = Vector2(256, 578)
+
+[node name="RigidBody2D4" parent="." unique_id=1957007147 instance=ExtResource("1_tqoec")]
+position = Vector2(708, 571)
+
+[node name="Torch" parent="." unique_id=1509374204 instance=ExtResource("3_24ulf")]
+position = Vector2(911, 530)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1942765965]
+color = Color(0, 0, 0, 1)
+
+[node name="PointLight2D" parent="." unique_id=531505811 instance=ExtResource("4_qhogg")]
+position = Vector2(496, 594)
+scale = Vector2(3.847576, 3.847576)

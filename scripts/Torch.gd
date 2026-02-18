@@ -9,6 +9,8 @@ var original_collision_mask: int = 0
 @onready var attach_area: Area2D = $AttachArea
 
 func _ready() -> void:
+	add_to_group("torch")
+
 	original_collision_layer = collision_layer
 	original_collision_mask = collision_mask
 	if attach_area:

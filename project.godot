@@ -19,6 +19,15 @@ run/main_scene="uid://u1f5i0nqpyee"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://prefabs/": "orange",
+"res://scenes/": "yellow",
+"res://scripts/": "green"
+}
+
 [gui]
 
 theme/default_font_multichannel_signed_distance_field=true
