@@ -10,7 +10,6 @@ size = Vector2(11.411348, 20)
 size = Vector2(11.252857, 2.9962583)
 
 [node name="CubeGuy" type="CharacterBody2D" unique_id=929557763]
-scale = Vector2(6.309507, 6.309507)
 input_pickable = true
 script = ExtResource("1_hjsws")
 feet_area_path = NodePath("Area2D")
