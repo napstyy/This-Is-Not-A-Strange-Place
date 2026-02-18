@@ -1,28 +1,36 @@
 [gd_scene format=3 uid="uid://bsujp5tt2l873"]
 
-[ext_resource type="Script" uid="uid://csn48whq70jw3" path="res://scripts/SquareLabel.gd" id="1_cxyre"]
-[ext_resource type="FontFile" uid="uid://d3cf40f66420h" path="res://assets/fonts/Pix32.ttf" id="2_238y3"]
+[ext_resource type="Script" path="res://scripts/SquareLabel.gd" id="1_cxyre"]
+[ext_resource type="FontFile" uid="uid://jcagdl68pown" path="res://assets/fonts/Parisienne/Parisienne-Regular.ttf" id="2_cxyre"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svafy"]
-size = Vector2(215, 70)
+size = Vector2(272, 83)
 
 [sub_resource type="LabelSettings" id="LabelSettings_7wd0t"]
-font = ExtResource("2_238y3")
-font_size = 73
+font = ExtResource("2_cxyre")
+font_size = 100
 
 [node name="RigidBody2D" type="RigidBody2D" unique_id=2070540883]
 script = ExtResource("1_cxyre")
 prefab_id = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=794037456]
-position = Vector2(0.5, 0)
+position = Vector2(5, -12.5)
 shape = SubResource("RectangleShape2D_svafy")
 
 [node name="Label" type="Label" parent="." unique_id=1464385172]
-offset_left = -90.0
-offset_top = -50.0
-offset_right = 129.0
-offset_bottom = 24.0
-text = "ANIMAL"
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -307.5
+offset_top = -68.2
+offset_right = 307.5
+offset_bottom = 68.2
+grow_horizontal = 2
+grow_vertical = 2
+text = "animal"
 label_settings = SubResource("LabelSettings_7wd0t")
+horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
