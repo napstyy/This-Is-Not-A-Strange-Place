@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://63hhkfdnrbcr"]
 
-[ext_resource type="FontFile" uid="uid://d3cf40f66420h" path="res://assets/fonts/Pix32.ttf" id="1_y8rhd"]
+[ext_resource type="FontFile" uid="uid://jcagdl68pown" path="res://assets/fonts/Parisienne/Parisienne-Regular.ttf" id="1_fjgfx"]
 [ext_resource type="Script" uid="uid://nw3vuy2r8yoh" path="res://scripts/ColorSwap.gd" id="2_svafy"]
-[ext_resource type="PackedScene" path="res://prefabs/SquareLabel.tscn" id="4_7wd0t"]
+[ext_resource type="PackedScene" uid="uid://bc7qxmqbha1hw" path="res://prefabs/SquareLabel.tscn" id="4_7wd0t"]
 [ext_resource type="Script" uid="uid://3gaybbsgif2a" path="res://scenes/Slot.gd" id="4_75evl"]
 [ext_resource type="PackedScene" path="res://prefabs/CircleLabel.tscn" id="4_i2bln"]
 [ext_resource type="PackedScene" uid="uid://bucqw4g3b7u6l" path="res://prefabs/FireLabel.tscn" id="6_fjgfx"]
@@ -11,33 +11,39 @@
 [ext_resource type="PackedScene" uid="uid://bp6a5n2atpuwd" path="res://prefabs/ManLabel.tscn" id="9_1rj1m"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_75evl"]
-font = ExtResource("1_y8rhd")
-font_size = 146
+font = ExtResource("1_fjgfx")
+font_size = 100
 font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8rhd"]
-size = Vector2(0.84320605, 124)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_svafy"]
 radius = 34.0147
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fjgfx"]
+
 [node name="WordRoom" type="Node2D" unique_id=1283631081]
 
-[node name="Label" type="Label" parent="." unique_id=1756049784]
-offset_left = 203.0
-offset_top = 194.00002
-offset_right = 1688.0
-offset_bottom = 595.0
-scale = Vector2(0.68778807, 0.68778807)
-text = "THIS IS NOT
-A STRANGE PLACE"
+[node name="Background" type="ColorRect" parent="." unique_id=429987171]
+offset_right = 1152.0
+offset_bottom = 661.0
+mouse_filter = 2
+color = Color(0.99215686, 0.9529412, 0.8156863, 1)
+
+[node name="Label" type="Label" parent="Background" unique_id=1756049784]
+layout_mode = 0
+offset_left = 284.0
+offset_top = 195.0
+offset_right = 826.00006
+offset_bottom = 471.6111
+pivot_offset = Vector2(255.93256, 137.69168)
+text = "This is not
+a strange place."
 label_settings = SubResource("LabelSettings_75evl")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=831964667]
-offset_left = 704.0
-offset_top = 216.0
-offset_right = 744.0
-offset_bottom = 256.0
+offset_left = 692.0
+offset_top = 217.0
+offset_right = 732.0
+offset_bottom = 257.0
 scale = Vector2(6.0446906, 2.0408835)
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
@@ -47,23 +53,25 @@ script = ExtResource("2_svafy")
 wait_time = 2.0
 autostart = true
 
+[node name="Area2D" type="Area2D" parent="ColorRect" unique_id=933034278]
+position = Vector2(18.85952, 20.089333)
+scale = Vector2(0.16543444, 0.48998383)
+input_pickable = false
+script = ExtResource("4_75evl")
+color_rect_path = NodePath("..")
+replacement_scenes = Array[PackedScene]([ExtResource("4_i2bln"), ExtResource("4_7wd0t"), ExtResource("6_fjgfx"), ExtResource("7_b74ql"), ExtResource("8_p8ecs"), ExtResource("9_1rj1m")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Area2D" unique_id=1811734576]
+shape = SubResource("CircleShape2D_svafy")
+
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1115365397]
 position = Vector2(571, 775.00006)
 scale = Vector2(1382.8175, 2.0408833)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1489506687]
+position = Vector2(0.0007231612, -55.858196)
 scale = Vector2(0.9999999, 0.9999999)
-shape = SubResource("RectangleShape2D_y8rhd")
-
-[node name="Area2D" type="Area2D" parent="." unique_id=933034278]
-position = Vector2(818, 257)
-input_pickable = false
-script = ExtResource("4_75evl")
-color_rect_path = NodePath("../ColorRect")
-replacement_scenes = Array[PackedScene]([ExtResource("4_i2bln"), ExtResource("4_7wd0t"), ExtResource("6_fjgfx"), ExtResource("7_b74ql"), ExtResource("8_p8ecs"), ExtResource("9_1rj1m")])
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1811734576]
-shape = SubResource("CircleShape2D_svafy")
+shape = SubResource("WorldBoundaryShape2D_fjgfx")
 
 [node name="RigidBody2D" parent="." unique_id=2070540883 instance=ExtResource("4_7wd0t")]
 position = Vector2(461, 549)
@@ -72,4 +80,4 @@ position = Vector2(461, 549)
 position = Vector2(155, 585)
 
 [node name="RigidBody2D2" parent="." unique_id=1618973461 instance=ExtResource("9_1rj1m")]
-position = Vector2(710, 563)
+position = Vector2(753, 535)
