@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bmtvb1qxn5h2w"]
 
 [ext_resource type="FontFile" uid="uid://d3cf40f66420h" path="res://assets/fonts/Pix32.ttf" id="1_43r68"]
+[ext_resource type="Script" uid="uid://csn48whq70jw3" path="res://scripts/SquareLabel.gd" id="2_04lgr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svafy"]
 size = Vector2(215, 70)
@@ -10,6 +11,8 @@ font = ExtResource("1_43r68")
 font_size = 73
 
 [node name="RigidBody2D" type="RigidBody2D" unique_id=2070540883]
+script = ExtResource("2_04lgr")
+prefab_id = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=794037456]
 position = Vector2(0.5, 0)
