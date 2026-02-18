@@ -8,6 +8,7 @@ size = Vector2(17, 20)
 
 [node name="CubeGuy" type="CharacterBody2D" unique_id=929557763]
 scale = Vector2(6.309507, 6.309507)
+input_pickable = true
 script = ExtResource("1_hjsws")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=87556120]

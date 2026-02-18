@@ -2,11 +2,15 @@
 
 [ext_resource type="FontFile" uid="uid://d3cf40f66420h" path="res://assets/fonts/Pix32.ttf" id="1_y8rhd"]
 [ext_resource type="Script" uid="uid://nw3vuy2r8yoh" path="res://scripts/ColorSwap.gd" id="2_svafy"]
+[ext_resource type="PackedScene" uid="uid://br2jy4ris6au2" path="res://prefabs/CubeGuy.tscn" id="3_svafy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_75evl"]
 font = ExtResource("1_y8rhd")
 font_size = 146
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8rhd"]
+size = Vector2(0.84320605, 124)
 
 [node name="WordRoom" type="Node2D" unique_id=1283631081]
 
@@ -32,3 +36,17 @@ script = ExtResource("2_svafy")
 [node name="Timer" type="Timer" parent="ColorRect" unique_id=1698410119]
 wait_time = 2.0
 autostart = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ColorRect" unique_id=1115365397]
+position = Vector2(-22.002777, 273.901)
+scale = Vector2(228.76564, 0.99999994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/StaticBody2D2" unique_id=1489506687]
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_y8rhd")
+
+[node name="CubeGuy" parent="." unique_id=929557763 instance=ExtResource("3_svafy")]
+position = Vector2(574.99994, 484.99997)
+
+[node name="Slot" type="Node2D" parent="." unique_id=578177613]
+position = Vector2(818, 257)
