@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://cnlo8f6njs3qi"]
+[gd_scene format=3 uid="uid://63hhkfdnrbcr"]
 
 [ext_resource type="FontFile" uid="uid://d3cf40f66420h" path="res://assets/fonts/Pix32.ttf" id="1_y8rhd"]
 [ext_resource type="Script" uid="uid://nw3vuy2r8yoh" path="res://scripts/ColorSwap.gd" id="2_svafy"]
-[ext_resource type="PackedScene" uid="uid://eq7mpa0cxyro" path="res://prefabs/SquareLabel.tscn" id="4_7wd0t"]
+[ext_resource type="PackedScene" path="res://prefabs/SquareLabel.tscn" id="4_7wd0t"]
 [ext_resource type="Script" uid="uid://3gaybbsgif2a" path="res://scenes/Slot.gd" id="4_75evl"]
-[ext_resource type="PackedScene" uid="uid://bmtvb1qxn5h2w" path="res://prefabs/CircleLabel.tscn" id="4_i2bln"]
+[ext_resource type="PackedScene" path="res://prefabs/CircleLabel.tscn" id="4_i2bln"]
 [ext_resource type="PackedScene" uid="uid://bucqw4g3b7u6l" path="res://prefabs/FireLabel.tscn" id="6_fjgfx"]
 [ext_resource type="PackedScene" uid="uid://hexrmn8li4vd" path="res://prefabs/WaterLabel.tscn" id="7_b74ql"]
 [ext_resource type="PackedScene" uid="uid://bsujp5tt2l873" path="res://prefabs/AnimalLabel.tscn" id="8_p8ecs"]
