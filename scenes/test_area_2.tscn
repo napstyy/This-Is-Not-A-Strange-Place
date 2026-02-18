@@ -16,7 +16,7 @@ color = Color(0.8509804, 0.79607844, 0.68235296, 1)
 [node name="HoverableZone" parent="." unique_id=761841129 node_paths=PackedStringArray("mouseCursor") instance=ExtResource("2_bgubf")]
 position = Vector2(0, 4)
 mouseCursor = NodePath("../CustomCursor")
-hoverCursor = "cube"
+hoverCursor = "cave"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=530147147]
 
