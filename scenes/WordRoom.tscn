@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://d3cf40f66420h" path="res://assets/fonts/Pix32.ttf" id="1_y8rhd"]
 [ext_resource type="Script" uid="uid://nw3vuy2r8yoh" path="res://scripts/ColorSwap.gd" id="2_svafy"]
-[ext_resource type="PackedScene" uid="uid://br2jy4ris6au2" path="res://prefabs/CubeGuy.tscn" id="3_svafy"]
+[ext_resource type="PackedScene" uid="uid://eq7mpa0cxyro" path="res://prefabs/SquareLabel.tscn" id="4_7wd0t"]
 [ext_resource type="Script" uid="uid://3gaybbsgif2a" path="res://scenes/Slot.gd" id="4_75evl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_75evl"]
@@ -42,9 +42,6 @@ script = ExtResource("2_svafy")
 wait_time = 2.0
 autostart = true
 
-[node name="CubeGuy" parent="." unique_id=929557763 instance=ExtResource("3_svafy")]
-position = Vector2(574.99994, 484.99997)
-
 [node name="Slot" type="Node2D" parent="." unique_id=578177613]
 position = Vector2(818, 257)
 
@@ -64,4 +61,5 @@ script = ExtResource("4_75evl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1811734576]
 shape = SubResource("CircleShape2D_svafy")
 
-[connection signal="body_entered" from="Area2D" to="CubeGuy" method="_on_area_2d_body_entered"]
+[node name="RigidBody2D" parent="." unique_id=2070540883 instance=ExtResource("4_7wd0t")]
+position = Vector2(615, 502)

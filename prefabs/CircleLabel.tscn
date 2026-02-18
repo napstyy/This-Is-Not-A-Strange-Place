@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bmtvb1qxn5h2w"]
+
+[ext_resource type="FontFile" uid="uid://d3cf40f66420h" path="res://assets/fonts/Pix32.ttf" id="1_43r68"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_svafy"]
+size = Vector2(215, 70)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7wd0t"]
+font = ExtResource("1_43r68")
+font_size = 73
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=2070540883]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=794037456]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_svafy")
+
+[node name="Label" type="Label" parent="." unique_id=1464385172]
+offset_left = -90.0
+offset_top = -50.0
+offset_right = 129.0
+offset_bottom = 24.0
+text = "CIRCLE"
+label_settings = SubResource("LabelSettings_7wd0t")
+metadata/_edit_use_anchors_ = true
