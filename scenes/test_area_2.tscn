@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c5f0hm8hlh04s"]
+
+[ext_resource type="PackedScene" uid="uid://daavhwsrpaomr" path="res://prefabs/custom_cursor.tscn" id="1_64dlc"]
+[ext_resource type="PackedScene" uid="uid://bkeh62c4hysg5" path="res://prefabs/hoverable_zone.tscn" id="2_bgubf"]
+
+[node name="TestArea2" type="Node2D" unique_id=907868413]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1453533300]
+offset_left = 2.0
+offset_top = -138.0
+offset_right = 599.0
+offset_bottom = 340.0
+color = Color(0.8509804, 0.79607844, 0.68235296, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=530147147]
+
+[node name="HoverableZone" parent="." unique_id=761841129 instance=ExtResource("2_bgubf")]
+position = Vector2(1, -79)
+
+[node name="CustomCursor" parent="." unique_id=1188223711 instance=ExtResource("1_64dlc")]

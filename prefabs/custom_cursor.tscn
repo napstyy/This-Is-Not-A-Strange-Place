@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://daavhwsrpaomr"]
+
+[ext_resource type="Texture2D" uid="uid://lofg42pu8gr0" path="res://assets/CustomCursor.png" id="1_d1fg2"]
+[ext_resource type="Script" uid="uid://c1e0o70ifrof1" path="res://scripts/custom_cursor.gd" id="2_upq8y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1a07"]
+atlas = ExtResource("1_d1fg2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1bhxd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1a07")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CustomCursor" type="AnimatedSprite2D" unique_id=1188223711]
+sprite_frames = SubResource("SpriteFrames_1bhxd")
+script = ExtResource("2_upq8y")

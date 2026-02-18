@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bkeh62c4hysg5"]
+
+[ext_resource type="Script" uid="uid://c4crpyol5catb" path="res://scripts/hoverablezone.gd" id="1_d75l5"]
+[ext_resource type="Texture2D" uid="uid://c1jbgmbsjigks" path="res://assets/CubeCursor.png" id="2_uaxwx"]
+[ext_resource type="PackedScene" uid="uid://daavhwsrpaomr" path="res://prefabs/custom_cursor.tscn" id="3_l0ssp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uaxwx"]
+size = Vector2(163, 121)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0ssp"]
+atlas = ExtResource("2_uaxwx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d75l5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0ssp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="HoverableZone" type="Area2D" unique_id=761841129 node_paths=PackedStringArray("hoverSprite", "defaultSprite")]
+script = ExtResource("1_d75l5")
+hoverSprite = NodePath("AnimatedSprite2D")
+defaultSprite = NodePath("CustomCursor")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=951381031]
+shape = SubResource("RectangleShape2D_uaxwx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1931347004]
+visible = false
+sprite_frames = SubResource("SpriteFrames_d75l5")
+
+[node name="CustomCursor" parent="." unique_id=1188223711 instance=ExtResource("3_l0ssp")]
+visible = false
+script = null
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
