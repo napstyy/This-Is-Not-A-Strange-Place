@@ -3,6 +3,7 @@
 [ext_resource type="FontFile" uid="uid://d3cf40f66420h" path="res://assets/fonts/Pix32.ttf" id="1_y8rhd"]
 [ext_resource type="Script" uid="uid://nw3vuy2r8yoh" path="res://scripts/ColorSwap.gd" id="2_svafy"]
 [ext_resource type="PackedScene" uid="uid://br2jy4ris6au2" path="res://prefabs/CubeGuy.tscn" id="3_svafy"]
+[ext_resource type="Script" uid="uid://3gaybbsgif2a" path="res://scenes/Slot.gd" id="4_75evl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_75evl"]
 font = ExtResource("1_y8rhd")
@@ -11,6 +12,9 @@ font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8rhd"]
 size = Vector2(0.84320605, 124)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_svafy"]
+radius = 34.0147
 
 [node name="WordRoom" type="Node2D" unique_id=1283631081]
 
@@ -30,6 +34,7 @@ offset_top = 216.0
 offset_right = 744.0
 offset_bottom = 256.0
 scale = Vector2(6.0446906, 2.0408835)
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("2_svafy")
 
@@ -37,16 +42,26 @@ script = ExtResource("2_svafy")
 wait_time = 2.0
 autostart = true
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="ColorRect" unique_id=1115365397]
-position = Vector2(-22.002777, 273.901)
-scale = Vector2(228.76564, 0.99999994)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/StaticBody2D2" unique_id=1489506687]
-scale = Vector2(0.9999999, 0.9999999)
-shape = SubResource("RectangleShape2D_y8rhd")
-
 [node name="CubeGuy" parent="." unique_id=929557763 instance=ExtResource("3_svafy")]
 position = Vector2(574.99994, 484.99997)
 
 [node name="Slot" type="Node2D" parent="." unique_id=578177613]
 position = Vector2(818, 257)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1115365397]
+position = Vector2(571, 775.00006)
+scale = Vector2(1382.8175, 2.0408833)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1489506687]
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_y8rhd")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=933034278]
+position = Vector2(818, 257)
+input_pickable = false
+script = ExtResource("4_75evl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1811734576]
+shape = SubResource("CircleShape2D_svafy")
+
+[connection signal="body_entered" from="Area2D" to="CubeGuy" method="_on_area_2d_body_entered"]

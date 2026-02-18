@@ -11,39 +11,45 @@ var state := "idle"
 var timer := 0.0
 
 var is_held := false
+var is_snapped := false
+var snap_target = null  # nullable
 
 func _ready():
 	randomize()
 	pick_new_state()
 
 func _physics_process(delta):
-	# If held → follow mouse, ignore AI + gravity
 	if is_held:
 		global_position = get_global_mouse_position()
 		velocity = Vector2.ZERO
 		return
 
-	# Apply gravity
+	if is_snapped:
+		velocity = Vector2.ZERO
+		return
+
+	# gravity
 	if not is_on_floor():
 		velocity.y += get_gravity().y * delta
 	else:
 		velocity.y = 0
 
-	# Timer for switching states
+	# AI timer
 	timer -= delta
 	if timer <= 0:
 		pick_new_state()
 
-	# Movement
+	# horizontal movement
 	if state == "walk":
 		velocity.x = direction * speed
 	else:
 		velocity.x = 0
 
-	# Flip sprite
-	if direction != 0:
+	# flip sprite
+	if direction != 0 and $Sprite2D:
 		$Sprite2D.flip_h = direction < 0
 
+	# apply movement
 	move_and_slide()
 
 func pick_new_state():
@@ -55,12 +61,27 @@ func pick_new_state():
 		state = "idle"
 		timer = randf_range(min_pause, max_pause)
 
-# Detect mouse click ON the NPC
+# clicking on the NPC (CollisionShape2D must have "Input Pickable" enabled)
 func _input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton and event.pressed:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		is_held = true
+		is_snapped = false
 
-# Drop when mouse released (anywhere)
+# release anywhere -> drop and snap (left button)
 func _input(event):
-	if event is InputEventMouseButton and not event.pressed:
-		is_held = false
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+		if is_held:
+			is_held = false
+			if snap_target != null:
+				global_position = snap_target
+				velocity = Vector2.ZERO
+				state = "idle"
+				is_snapped = true
+				# keep snap_target while overlapping area; Area clears on exit
+
+# --- helper methods required by Area2D ---
+func set_snap_target(center):
+	snap_target = center
+
+func clear_snap_target():
+	snap_target = null
