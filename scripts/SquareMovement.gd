@@ -1,4 +1,4 @@
-
+class_name Square_Movement
 extends CharacterBody2D
 
 @export var speed: float = 100.0

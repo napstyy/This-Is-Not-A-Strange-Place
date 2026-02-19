@@ -104,6 +104,7 @@ libraries/ = SubResource("AnimationLibrary_38not")
 autoplay = &"idle"
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1278636014]
+input_pickable = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1689003787]
 position = Vector2(0, 1)
