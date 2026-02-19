@@ -37,6 +37,7 @@ func _input_event(viewport, event, shape_idx) -> void:
 				_detach()
 			dragging = true
 		else:
+			print("hello")
 			dragging = false
 			_try_attach_on_drop()
 

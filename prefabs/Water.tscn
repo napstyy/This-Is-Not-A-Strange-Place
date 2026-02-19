@@ -2,13 +2,23 @@
 
 [ext_resource type="Texture2D" uid="uid://dvikiworj4um6" path="res://assets/WaterSphere.png" id="1_4lphj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fnlao"]
-size = Vector2(26, 30)
+[sub_resource type="CircleShape2D" id="CircleShape2D_4lphj"]
+radius = 13.038404
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4lphj"]
+size = Vector2(27, 32.25)
 
 [node name="RigidBody2D" type="RigidBody2D" unique_id=1131744029]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=382331951]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_4lphj")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1082549121]
 texture = ExtResource("1_4lphj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=382331951]
-shape = SubResource("RectangleShape2D_fnlao")
+[node name="AttachArea" type="Area2D" parent="." unique_id=1590858956]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttachArea" unique_id=118829447]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_4lphj")
