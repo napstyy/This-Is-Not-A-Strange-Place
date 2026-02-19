@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dxecvs1ue856e"]
+
+[ext_resource type="Texture2D" uid="uid://dliqplij4ob3p" path="res://assets/CaveAnimal.png" id="1_d0xp3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ax00"]
+size = Vector2(30, 32)
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=1922156329]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1560058167]
+shape = SubResource("RectangleShape2D_8ax00")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=625692921]
+texture = ExtResource("1_d0xp3")

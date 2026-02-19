@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://btyv5g25njvh7"]
+
+[ext_resource type="Texture2D" uid="uid://dvikiworj4um6" path="res://assets/WaterSphere.png" id="1_4lphj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fnlao"]
+size = Vector2(26, 30)
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=1131744029]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1082549121]
+texture = ExtResource("1_4lphj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=382331951]
+shape = SubResource("RectangleShape2D_fnlao")
