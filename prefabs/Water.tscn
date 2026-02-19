@@ -1,9 +1,55 @@
 [gd_scene format=3 uid="uid://btyv5g25njvh7"]
 
-[ext_resource type="Texture2D" uid="uid://dvikiworj4um6" path="res://assets/WaterSphere.png" id="1_4lphj"]
+[ext_resource type="Texture2D" uid="uid://cdd6bmo813tiq" path="res://assets/particletest.png" id="1_fnlao"]
+[ext_resource type="Texture2D" uid="uid://tnehlhgojnnl" path="res://assets/WaterSphere2.png" id="2_rmc38"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4lphj"]
 radius = 13.038404
+
+[sub_resource type="Curve" id="Curve_biesi"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5067568, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_n8pbt"]
+curve = SubResource("Curve_biesi")
+
+[sub_resource type="Gradient" id="Gradient_v8lit"]
+offsets = PackedFloat32Array(0, 0.4180328, 1)
+colors = PackedColorArray(0, 0.37254903, 0.54901963, 1, 0, 0.7254902, 0.74509805, 1, 0.62352943, 0.95686275, 0.8980392, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_uv20p"]
+gradient = SubResource("Gradient_v8lit")
+
+[sub_resource type="Gradient" id="Gradient_gpbl4"]
+offsets = PackedFloat32Array(0, 0.4918033, 0.9672131)
+colors = PackedColorArray(0, 0.37254903, 0.54901963, 1, 0, 0.7254902, 0.74509805, 1, 0.62352943, 0.95686275, 0.8980392, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_h3vct"]
+gradient = SubResource("Gradient_gpbl4")
+
+[sub_resource type="Curve" id="Curve_cew0w"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.79775286), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xkr26"]
+curve = SubResource("Curve_cew0w")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4lphj"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 11.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 98, 0)
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_xkr26")
+color = Color(1, 1, 1, 0.45882353)
+color_ramp = SubResource("GradientTexture1D_h3vct")
+color_initial_ramp = SubResource("GradientTexture1D_uv20p")
+alpha_curve = SubResource("CurveTexture_n8pbt")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = -2.2351742e-08
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4lphj"]
 size = Vector2(27, 32.25)
@@ -14,8 +60,15 @@ size = Vector2(27, 32.25)
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_4lphj")
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=368558775]
+position = Vector2(0, -2)
+amount = 3
+texture = ExtResource("1_fnlao")
+lifetime = 0.7
+process_material = SubResource("ParticleProcessMaterial_4lphj")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1082549121]
-texture = ExtResource("1_4lphj")
+texture = ExtResource("2_rmc38")
 
 [node name="AttachArea" type="Area2D" parent="." unique_id=1590858956]
 

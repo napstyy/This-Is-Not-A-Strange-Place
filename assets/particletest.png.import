@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvikiworj4um6"
-path="res://.godot/imported/WaterSphere.png-2241f3e443edd9b6cee6fbcca7ccf94d.ctex"
+uid="uid://cdd6bmo813tiq"
+path="res://.godot/imported/particletest.png-b34697747d9dc891f23f394c50dc04a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/WaterSphere.png"
-dest_files=["res://.godot/imported/WaterSphere.png-2241f3e443edd9b6cee6fbcca7ccf94d.ctex"]
+source_file="res://assets/particletest.png"
+dest_files=["res://.godot/imported/particletest.png-b34697747d9dc891f23f394c50dc04a0.ctex"]
 
 [params]
 
