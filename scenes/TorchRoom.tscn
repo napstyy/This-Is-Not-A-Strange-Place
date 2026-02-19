@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://dh88on2b31yws"]
 
-[ext_resource type="Script" path="res://scenes/torch_room.gd" id="1_sv3j7"]
-[ext_resource type="PackedScene" path="res://prefabs/SphereGuy.tscn" id="2_idcqs"]
+[ext_resource type="Script" uid="uid://dp8nbpfl6vfjt" path="res://scripts/torch_room.gd" id="1_sv3j7"]
+[ext_resource type="PackedScene" uid="uid://c8esr1mm2apye" path="res://prefabs/SphereGuy.tscn" id="2_idcqs"]
 [ext_resource type="PackedScene" uid="uid://btyv5g25njvh7" path="res://prefabs/Water.tscn" id="4_ambhg"]
 [ext_resource type="Texture2D" uid="uid://b77v2ldoivfku" path="res://assets/all-current-posters-v0-evzgpsbdd5jg1.webp" id="4_dscsm"]
 [ext_resource type="PackedScene" uid="uid://dqidpxlao7vx2" path="res://prefabs/Torch.tscn" id="5_sv3j7"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://daavhwsrpaomr" path="res://prefabs/custom_cursor.tscn" id="10_r3faa"]
 [ext_resource type="PackedScene" uid="uid://ysxlk2d6grno" path="res://prefabs/portal.tscn" id="11_3wgc2"]
 [ext_resource type="PackedScene" uid="uid://bkeh62c4hysg5" path="res://prefabs/hoverable_zone.tscn" id="12_ju56b"]
+[ext_resource type="Script" uid="uid://gadvn8jnxpyg" path="res://scripts/torch_drop.gd" id="13_3wgc2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3wgc2"]
 texture = ExtResource("8_r3faa")
@@ -41,6 +42,9 @@ sources/0 = SubResource("TileSetAtlasSource_3wgc2")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3wgc2"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ju56b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ju56b"]
+size = Vector2(185, 142)
 
 [node name="TorchRoom" type="Node2D" unique_id=5330240 node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_sv3j7")
@@ -83,7 +87,7 @@ rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_ju56b")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1337817144]
-color = Color(0, 0, 0, 1)
+color = Color(0.6028429, 0.6028429, 0.602843, 1)
 
 [node name="AllCurrentPostersV0Evzgpsbdd5Jg1" type="Sprite2D" parent="." unique_id=200384428]
 visible = false
@@ -116,3 +120,13 @@ level = "res://scenes/WordRoom.tscn"
 scale = Vector2(15.124999, 0.99999994)
 anchor_mode = 0
 zoom = Vector2(3, 3)
+
+[node name="Drop" type="Area2D" parent="." unique_id=785858209]
+position = Vector2(29.000002, 39.000004)
+scale = Vector2(0.16036896, 0.16036896)
+script = ExtResource("13_3wgc2")
+target_room_name = "WordRoom"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Drop" unique_id=659636407]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_ju56b")

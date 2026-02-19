@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://c2f6tqkcygwor"]
 
 [ext_resource type="Texture2D" uid="uid://b2mkimk3c24mp" path="res://assets/officebg.png" id="1_3itya"]
-[ext_resource type="Script" uid="uid://dp8nbpfl6vfjt" path="res://scenes/torch_room.gd" id="1_7wkem"]
+[ext_resource type="Script" uid="uid://dp8nbpfl6vfjt" path="res://scripts/torch_room.gd" id="1_7wkem"]
 [ext_resource type="PackedScene" uid="uid://br2jy4ris6au2" path="res://prefabs/CubeGuy.tscn" id="2_fht1v"]
 [ext_resource type="Texture2D" uid="uid://ci0jljvs8m18n" path="res://assets/desk.png" id="2_l76xo"]
 [ext_resource type="Texture2D" uid="uid://c06iif6cun0rc" path="res://assets/watercooler.png" id="3_fstx5"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://hxdrkn7ptgyp" path="res://prefabs/cubeprogressbar.tscn" id="8_q01df"]
 [ext_resource type="PackedScene" uid="uid://ysxlk2d6grno" path="res://prefabs/portal.tscn" id="9_peehg"]
 [ext_resource type="PackedScene" uid="uid://bkeh62c4hysg5" path="res://prefabs/hoverable_zone.tscn" id="10_pfh58"]
+[ext_resource type="Script" uid="uid://gadvn8jnxpyg" path="res://scripts/torch_drop.gd" id="17_w00ee"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fht1v"]
 texture = ExtResource("1_3itya")
@@ -85,6 +86,9 @@ animations = [{
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rc4vf"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pn0b1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ht2y"]
+size = Vector2(185, 142)
 
 [node name="Node2D" type="Node2D" unique_id=770963908 node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_7wkem")
@@ -175,3 +179,13 @@ level = "res://scenes/WordRoom.tscn"
 
 [node name="Spawn" type="Node2D" parent="." unique_id=898311912]
 position = Vector2(143, 92)
+
+[node name="Drop" type="Area2D" parent="." unique_id=1321877250]
+position = Vector2(21.000008, 88)
+scale = Vector2(0.16036896, 0.16036896)
+script = ExtResource("17_w00ee")
+target_room_name = "WordRoom"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Drop" unique_id=1954598626]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_6ht2y")

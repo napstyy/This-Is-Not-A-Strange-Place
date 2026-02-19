@@ -1,8 +1,3 @@
-# SquareMovement.gd
-# Scene requirements:
-# - Root: CharacterBody2D (this script)
-# - Child: Sprite2D (optional) named "Sprite2D"
-# - Child: Area2D named "FeetArea" with a small CollisionShape2D placed at the bottom
 
 extends CharacterBody2D
 
@@ -12,7 +7,8 @@ extends CharacterBody2D
 @export var min_walk: float = 1.0
 @export var max_walk: float = 3.0
 
-# NodePath to the feet Area2D (change if your node is named differently)
+@export var prefab_id := 6
+
 @export var feet_area_path: NodePath = NodePath("FeetArea")
 
 var direction: int = 0

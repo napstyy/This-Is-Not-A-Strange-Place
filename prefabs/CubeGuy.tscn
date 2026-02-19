@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://0hf4wm0xoybo" path="res://assets/CubePerson.png" id="2_i76r4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kass0"]
-size = Vector2(11.411348, 20)
+size = Vector2(13.999996, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hjsws"]
 size = Vector2(11.252857, 2.9962583)
@@ -15,7 +15,7 @@ script = ExtResource("1_hjsws")
 feet_area_path = NodePath("Area2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=87556120]
-position = Vector2(-0.15849102, 0)
+position = Vector2(1.7881393e-07, 0)
 scale = Vector2(1.0000002, 1.0000002)
 shape = SubResource("RectangleShape2D_kass0")
 

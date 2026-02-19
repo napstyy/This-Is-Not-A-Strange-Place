@@ -5,6 +5,10 @@ extends Node2D
 @export var spawn_point: Node2D
 
 func _ready():
+	if spawn_point == null:
+		push_error("spawn_point is not assigned")
+		return
+
 	var items = GameState.get_room_items(room_name)
 	
 	for id in items:

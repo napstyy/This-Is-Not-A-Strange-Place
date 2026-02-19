@@ -8,6 +8,8 @@ var original_collision_mask: int = 0
 
 @onready var attach_area: Area2D = $AttachArea
 
+@export var prefab_id := 8
+
 func _ready() -> void:
 	add_to_group("torch")
 

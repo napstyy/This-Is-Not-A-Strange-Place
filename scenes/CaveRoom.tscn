@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://c358intsx2h3q"]
 
 [ext_resource type="Texture2D" uid="uid://cfrpl0nvunqc0" path="res://assets/CaveBG.png" id="1_asb7r"]
-[ext_resource type="Script" uid="uid://dp8nbpfl6vfjt" path="res://scenes/torch_room.gd" id="1_ga6sr"]
+[ext_resource type="Script" uid="uid://dp8nbpfl6vfjt" path="res://scripts/torch_room.gd" id="1_ga6sr"]
 [ext_resource type="Texture2D" uid="uid://b77v2ldoivfku" path="res://assets/all-current-posters-v0-evzgpsbdd5jg1.webp" id="1_m7vs3"]
 [ext_resource type="PackedScene" uid="uid://brni1ea1fo23o" path="res://prefabs/Human.tscn" id="1_tqoec"]
 [ext_resource type="PackedScene" uid="uid://br2jy4ris6au2" path="res://prefabs/CubeGuy.tscn" id="2_24su6"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://ysxlk2d6grno" path="res://prefabs/portal.tscn" id="9_t1umm"]
 [ext_resource type="PackedScene" uid="uid://bkeh62c4hysg5" path="res://prefabs/hoverable_zone.tscn" id="10_w4ggp"]
 [ext_resource type="PackedScene" uid="uid://daavhwsrpaomr" path="res://prefabs/custom_cursor.tscn" id="11_n1yii"]
+[ext_resource type="Script" uid="uid://gadvn8jnxpyg" path="res://scripts/torch_drop.gd" id="17_24su6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ooh35"]
 texture = ExtResource("1_asb7r")
@@ -81,6 +82,9 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_celd6"]
+size = Vector2(185, 142)
 
 [node name="CaveRoom" type="Node2D" unique_id=921493798 node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_ga6sr")
@@ -149,8 +153,7 @@ scale = Vector2(1, 1)
 position = Vector2(61, 206)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1942765965]
-visible = false
-color = Color(0, 0, 0, 1)
+color = Color(0.49433076, 0.49433076, 0.49433064, 1)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1385911268]
 anchor_mode = 0
@@ -175,3 +178,13 @@ visible = false
 
 [node name="Spawn" type="Node2D" parent="." unique_id=178329879]
 position = Vector2(235, 122)
+
+[node name="Drop" type="Area2D" parent="." unique_id=1514143038]
+position = Vector2(38, 132)
+scale = Vector2(0.16036896, 0.16036896)
+script = ExtResource("17_24su6")
+target_room_name = "WordRoom"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Drop" unique_id=158957141]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_celd6")
