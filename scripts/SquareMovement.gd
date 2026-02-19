@@ -92,6 +92,7 @@ func _on_feet_body_exited(body: Node) -> void:
 
 # clicking on the NPC
 func _input_event(viewport, event, shape_idx) -> void:
+	print("hi")
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		is_held = true
 
