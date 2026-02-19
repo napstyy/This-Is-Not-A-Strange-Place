@@ -17,3 +17,9 @@ func _process(delta: float) -> void:
 
 func _on_texture_progress_bar_value_changed(value: float) -> void:
 	progress_end.position.x = value + 3.0
+	
+func set_value(value: float):
+	texture_progress_bar.value = value
+
+func get_value():
+	return texture_progress_bar.value
