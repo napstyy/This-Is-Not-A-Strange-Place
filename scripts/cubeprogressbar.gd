@@ -3,6 +3,7 @@ extends Node2D
 #Progress bar has to start at 7 or else it looks weird
 @onready var progress_end: Sprite2D = $ProgressEnd
 @onready var texture_progress_bar: TextureProgressBar = $TextureProgressBar
+@onready var label: Label = $Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,7 +12,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	label.text = "Work Efficiency: " + str(int((texture_progress_bar.value/240)*100)) + "%"
 
 
 func _on_texture_progress_bar_value_changed(value: float) -> void:

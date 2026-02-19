@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://c06iif6cun0rc" path="res://assets/watercooler.png" id="3_fstx5"]
 [ext_resource type="PackedScene" uid="uid://daavhwsrpaomr" path="res://prefabs/custom_cursor.tscn" id="3_rc4vf"]
 [ext_resource type="Texture2D" uid="uid://dpcgrit4b60q3" path="res://assets/Treadmill.png" id="4_wodt7"]
+[ext_resource type="Texture2D" uid="uid://bpasvim34ttdh" path="res://assets/cactus.png" id="5_wodt7"]
+[ext_resource type="PackedScene" uid="uid://hxdrkn7ptgyp" path="res://prefabs/cubeprogressbar.tscn" id="8_q01df"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fht1v"]
 texture = ExtResource("1_3itya")
@@ -104,6 +106,10 @@ sprite_frames = SubResource("SpriteFrames_fts0c")
 autoplay = "default"
 frame_progress = 0.13462196
 
+[node name="cactus" type="Sprite2D" parent="TileMapLayer" unique_id=1384491386]
+position = Vector2(65, 147)
+texture = ExtResource("5_wodt7")
+
 [node name="Boundary" type="Node" parent="." unique_id=793141304]
 
 [node name="bottom" type="StaticBody2D" parent="Boundary" unique_id=1333651794]
@@ -142,3 +148,6 @@ visible = false
 position = Vector2(145, 82)
 rotation = -3.1415925
 zoom = Vector2(4, 4)
+
+[node name="CubeProgressBar" parent="." unique_id=8158731 instance=ExtResource("8_q01df")]
+position = Vector2(5, 5)

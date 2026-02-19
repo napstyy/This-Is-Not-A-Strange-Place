@@ -5,6 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://dm54cimuqtmdl" path="res://assets/ProgressbarEnd.png" id="2_x3u6p"]
 [ext_resource type="Texture2D" uid="uid://c5oh7if7t2wru" path="res://assets/ProgressBarFill3.png" id="3_v48ds"]
 [ext_resource type="Texture2D" uid="uid://cvr31muuwfvck" path="res://assets/ProgressBarOverlay.png" id="4_rodft"]
+[ext_resource type="FontFile" uid="uid://d3cf40f66420h" path="res://assets/fonts/Pix32.ttf" id="6_v48ds"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rodft"]
+font = ExtResource("6_v48ds")
+font_size = 11
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.05882353)
 
 [node name="CubeProgressBar" type="Node2D" unique_id=8158731]
 script = ExtResource("1_x3u6p")
@@ -28,5 +36,13 @@ texture_progress = ExtResource("3_v48ds")
 [node name="Overlay" type="Sprite2D" parent="." unique_id=289969449]
 position = Vector2(124, 16)
 texture = ExtResource("4_rodft")
+
+[node name="Label" type="Label" parent="." unique_id=733677564]
+offset_left = 10.0
+offset_top = 32.0
+offset_right = 119.0
+offset_bottom = 55.0
+text = "Work Efficiency: "
+label_settings = SubResource("LabelSettings_rodft")
 
 [connection signal="value_changed" from="TextureProgressBar" to="." method="_on_texture_progress_bar_value_changed"]

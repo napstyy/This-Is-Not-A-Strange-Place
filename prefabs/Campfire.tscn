@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bgi8l7xltgpt5"]
+[gd_scene format=3 uid="uid://cabjmmy5wr18j"]
 
 [ext_resource type="Script" uid="uid://bu65ypsgdof44" path="res://scripts/campfire.gd" id="1_0dg7e"]
 [ext_resource type="Texture2D" uid="uid://bfi1eebkkdki2" path="res://assets/unlitcampfire.png" id="1_8nxpw"]
@@ -8,7 +8,7 @@
 size = Vector2(30, 30)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lscuj"]
-radius = 58.077534
+radius = 13.0
 
 [node name="RigidBody2D" type="StaticBody2D" unique_id=1809265699]
 disable_mode = 1
@@ -18,16 +18,12 @@ lit_texture = ExtResource("3_lscuj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1731181379]
 position = Vector2(0, 1)
-scale = Vector2(3.4631605, 3.4631605)
 shape = SubResource("RectangleShape2D_0dg7e")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1484710827]
-scale = Vector2(3.4631605, 3.4631605)
 texture = ExtResource("1_8nxpw")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=325510878]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1414535292]
-position = Vector2(1.1920929e-07, -6)
-scale = Vector2(0.8504068, 0.7935837)
 shape = SubResource("CircleShape2D_lscuj")

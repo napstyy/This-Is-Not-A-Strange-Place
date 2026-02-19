@@ -134,16 +134,17 @@ position = Vector2(0, 6)
 scale = Vector2(1, 1)
 
 [node name="Torch" parent="." unique_id=1509374204 instance=ExtResource("3_24ulf")]
-position = Vector2(29, 148)
+position = Vector2(61, 206)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1942765965]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1385911268]
 anchor_mode = 0
 zoom = Vector2(3, 3)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1627727516]
+[node name="Bricks" type="AnimatedSprite2D" parent="." unique_id=1627727516]
 position = Vector2(298, 200)
 sprite_frames = SubResource("SpriteFrames_eexvf")
 autoplay = "default"
