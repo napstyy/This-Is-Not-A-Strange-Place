@@ -124,11 +124,29 @@ level = "res://scenes/CubeRoom.tscn"
 
 [node name="Node" type="Node" parent="." unique_id=1674591379]
 
+[node name="Cave_Drop" type="Area2D" parent="Node" unique_id=1720526156]
+position = Vector2(95, 75)
+script = ExtResource("13_tlxbp")
+target_room_name = "CaveRoom"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Cave_Drop" unique_id=2063318359]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_1rj1m")
+
+[node name="Cube_Drop" type="Area2D" parent="Node" unique_id=23924178]
+position = Vector2(1043, 579)
+script = ExtResource("13_tlxbp")
+target_room_name = "CubeRoom"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Cube_Drop" unique_id=327469400]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_1rj1m")
+
 [node name="Torch_Drop" type="Area2D" parent="Node" unique_id=1863593157]
-position = Vector2(550, 116)
+position = Vector2(1060, 73)
 script = ExtResource("13_tlxbp")
 target_room_name = "TorchRoom"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Torch_Drop" unique_id=1482835372]
-position = Vector2(511.5, -47)
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_1rj1m")
