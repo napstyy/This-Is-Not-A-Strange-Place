@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://dh88on2b31yws"]
 
-[ext_resource type="Script" uid="uid://dp8nbpfl6vfjt" path="res://scripts/torch_room.gd" id="1_sv3j7"]
+[ext_resource type="Script" uid="uid://dp8nbpfl6vfjt" path="res://scripts/Room_Manager.gd" id="1_sv3j7"]
 [ext_resource type="PackedScene" uid="uid://c8esr1mm2apye" path="res://prefabs/SphereGuy.tscn" id="2_idcqs"]
 [ext_resource type="PackedScene" uid="uid://btyv5g25njvh7" path="res://prefabs/Water.tscn" id="4_ambhg"]
 [ext_resource type="Texture2D" uid="uid://b77v2ldoivfku" path="res://assets/all-current-posters-v0-evzgpsbdd5jg1.webp" id="4_dscsm"]

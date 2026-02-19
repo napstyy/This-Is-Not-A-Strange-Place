@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://by4suideexthj" path="res://assets/Circular 1 - 128x128.png" id="1_b74ql"]
 [ext_resource type="FontFile" uid="uid://jcagdl68pown" path="res://assets/fonts/Parisienne/Parisienne-Regular.ttf" id="1_fjgfx"]
-[ext_resource type="Script" uid="uid://dp8nbpfl6vfjt" path="res://scripts/torch_room.gd" id="1_vugbi"]
+[ext_resource type="Script" uid="uid://dp8nbpfl6vfjt" path="res://scripts/Room_Manager.gd" id="1_vugbi"]
 [ext_resource type="Script" uid="uid://nw3vuy2r8yoh" path="res://scripts/ColorSwap.gd" id="2_svafy"]
 [ext_resource type="PackedScene" uid="uid://bc7qxmqbha1hw" path="res://prefabs/SquareLabel.tscn" id="4_7wd0t"]
-[ext_resource type="Script" path="res://scripts/Slot.gd" id="4_75evl"]
+[ext_resource type="Script" uid="uid://3gaybbsgif2a" path="res://scripts/Slot.gd" id="4_75evl"]
 [ext_resource type="PackedScene" uid="uid://k4oey5wgsgq4" path="res://prefabs/CircleLabel.tscn" id="4_i2bln"]
 [ext_resource type="PackedScene" uid="uid://bucqw4g3b7u6l" path="res://prefabs/FireLabel.tscn" id="6_fjgfx"]
 [ext_resource type="PackedScene" uid="uid://hexrmn8li4vd" path="res://prefabs/WaterLabel.tscn" id="7_b74ql"]
@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bp6a5n2atpuwd" path="res://prefabs/ManLabel.tscn" id="9_1rj1m"]
 [ext_resource type="PackedScene" uid="uid://bkeh62c4hysg5" path="res://prefabs/hoverable_zone.tscn" id="11_1rj1m"]
 [ext_resource type="PackedScene" uid="uid://daavhwsrpaomr" path="res://prefabs/custom_cursor.tscn" id="12_tlxbp"]
-[ext_resource type="Script" path="res://scripts/torch_drop.gd" id="13_tlxbp"]
+[ext_resource type="Script" uid="uid://gadvn8jnxpyg" path="res://scripts/torch_drop.gd" id="13_tlxbp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_75evl"]
 font = ExtResource("1_fjgfx")

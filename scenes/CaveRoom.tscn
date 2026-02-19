@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://c358intsx2h3q"]
 
 [ext_resource type="Texture2D" uid="uid://cfrpl0nvunqc0" path="res://assets/CaveBG.png" id="1_asb7r"]
-[ext_resource type="Script" uid="uid://dp8nbpfl6vfjt" path="res://scripts/torch_room.gd" id="1_ga6sr"]
+[ext_resource type="Script" uid="uid://dp8nbpfl6vfjt" path="res://scripts/Room_Manager.gd" id="1_ga6sr"]
 [ext_resource type="Texture2D" uid="uid://b77v2ldoivfku" path="res://assets/all-current-posters-v0-evzgpsbdd5jg1.webp" id="1_m7vs3"]
 [ext_resource type="PackedScene" uid="uid://brni1ea1fo23o" path="res://prefabs/Human.tscn" id="1_tqoec"]
 [ext_resource type="PackedScene" uid="uid://br2jy4ris6au2" path="res://prefabs/CubeGuy.tscn" id="2_24su6"]
