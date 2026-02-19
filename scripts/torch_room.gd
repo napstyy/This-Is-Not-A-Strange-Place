@@ -1,3 +1,4 @@
+class_name Room_Manager
 extends Node2D
 
 @export var room_name: String
