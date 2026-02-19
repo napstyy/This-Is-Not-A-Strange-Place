@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://hxdrkn7ptgyp"]
+
+[ext_resource type="Texture2D" uid="uid://7cv8qwo38qa4" path="res://assets/ProgressBarUnderlay.png" id="1_ihn7e"]
+[ext_resource type="Texture2D" uid="uid://dm54cimuqtmdl" path="res://assets/ProgressbarEnd.png" id="2_x3u6p"]
+[ext_resource type="Texture2D" uid="uid://c5oh7if7t2wru" path="res://assets/ProgressBarFill3.png" id="3_v48ds"]
+[ext_resource type="Texture2D" uid="uid://cvr31muuwfvck" path="res://assets/ProgressBarOverlay.png" id="4_rodft"]
+
+[node name="Node2D" type="Node2D" unique_id=8158731]
+
+[node name="Underlay" type="Sprite2D" parent="." unique_id=408607697]
+position = Vector2(124, 16)
+texture = ExtResource("1_ihn7e")
+
+[node name="ProgressEnd" type="Sprite2D" parent="." unique_id=1784826045]
+position = Vector2(243, 16)
+texture = ExtResource("2_x3u6p")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=2064499383]
+offset_left = 1.0
+offset_right = 257.0
+offset_bottom = 40.0
+max_value = 240.0
+value = 1.0
+texture_progress = ExtResource("3_v48ds")
+
+[node name="Overlay" type="Sprite2D" parent="." unique_id=289969449]
+position = Vector2(124, 16)
+texture = ExtResource("4_rodft")
