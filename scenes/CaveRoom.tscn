@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://ofmghndjf21h" path="res://prefabs/Light.tscn" id="4_qhogg"]
 [ext_resource type="Texture2D" uid="uid://dds4kc00mckjp" path="res://assets/brickwagon.png" id="7_sh4bg"]
 [ext_resource type="Texture2D" uid="uid://b7ppsavxa8eb0" path="res://assets/brickpile.png" id="8_4l40k"]
+[ext_resource type="PackedScene" uid="uid://ysxlk2d6grno" path="res://prefabs/portal.tscn" id="9_t1umm"]
+[ext_resource type="PackedScene" uid="uid://bkeh62c4hysg5" path="res://prefabs/hoverable_zone.tscn" id="10_w4ggp"]
+[ext_resource type="PackedScene" uid="uid://daavhwsrpaomr" path="res://prefabs/custom_cursor.tscn" id="11_n1yii"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ooh35"]
 texture = ExtResource("1_asb7r")
@@ -148,3 +151,15 @@ zoom = Vector2(3, 3)
 position = Vector2(298, 200)
 sprite_frames = SubResource("SpriteFrames_eexvf")
 autoplay = "default"
+
+[node name="Portal" parent="." unique_id=1307911027 instance=ExtResource("9_t1umm")]
+position = Vector2(37, 133)
+
+[node name="HoverableZone" parent="Portal" unique_id=761841129 node_paths=PackedStringArray("mouseCursor") instance=ExtResource("10_w4ggp")]
+scale = Vector2(0.2, 0.2)
+mouseCursor = NodePath("../../CustomCursor")
+hoverCursor = "default"
+level = "res://scenes/WordRoom.tscn"
+
+[node name="CustomCursor" parent="." unique_id=1188223711 instance=ExtResource("11_n1yii")]
+visible = false

@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dpcgrit4b60q3" path="res://assets/Treadmill.png" id="4_wodt7"]
 [ext_resource type="Texture2D" uid="uid://bpasvim34ttdh" path="res://assets/cactus.png" id="5_wodt7"]
 [ext_resource type="PackedScene" uid="uid://hxdrkn7ptgyp" path="res://prefabs/cubeprogressbar.tscn" id="8_q01df"]
+[ext_resource type="PackedScene" uid="uid://ysxlk2d6grno" path="res://prefabs/portal.tscn" id="9_peehg"]
+[ext_resource type="PackedScene" uid="uid://bkeh62c4hysg5" path="res://prefabs/hoverable_zone.tscn" id="10_pfh58"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fht1v"]
 texture = ExtResource("1_3itya")
@@ -151,3 +153,12 @@ zoom = Vector2(4, 4)
 
 [node name="CubeProgressBar" parent="." unique_id=8158731 instance=ExtResource("8_q01df")]
 position = Vector2(5, 5)
+
+[node name="Portal" parent="." unique_id=1307911027 instance=ExtResource("9_peehg")]
+position = Vector2(22, 89)
+
+[node name="HoverableZone" parent="Portal" unique_id=761841129 node_paths=PackedStringArray("mouseCursor") instance=ExtResource("10_pfh58")]
+scale = Vector2(0.2, 0.2)
+mouseCursor = NodePath("../../CustomCursor")
+hoverCursor = "default"
+level = "res://scenes/WordRoom.tscn"

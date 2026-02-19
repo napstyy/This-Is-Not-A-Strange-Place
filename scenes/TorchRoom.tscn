@@ -1,14 +1,17 @@
 [gd_scene format=3 uid="uid://dh88on2b31yws"]
 
 [ext_resource type="Texture2D" uid="uid://bk16xff7vslyh" path="res://icon.svg" id="1_ovom5"]
-[ext_resource type="Script" uid="uid://dp8nbpfl6vfjt" path="res://scenes/torch_room.gd" id="1_sv3j7"]
-[ext_resource type="PackedScene" uid="uid://c8esr1mm2apye" path="res://prefabs/SphereGuy.tscn" id="2_idcqs"]
+[ext_resource type="Script" path="res://scenes/torch_room.gd" id="1_sv3j7"]
+[ext_resource type="PackedScene" path="res://prefabs/SphereGuy.tscn" id="2_idcqs"]
 [ext_resource type="PackedScene" uid="uid://btyv5g25njvh7" path="res://prefabs/Water.tscn" id="4_ambhg"]
 [ext_resource type="Texture2D" uid="uid://b77v2ldoivfku" path="res://assets/all-current-posters-v0-evzgpsbdd5jg1.webp" id="4_dscsm"]
 [ext_resource type="PackedScene" uid="uid://dqidpxlao7vx2" path="res://prefabs/Torch.tscn" id="5_sv3j7"]
 [ext_resource type="PackedScene" uid="uid://brni1ea1fo23o" path="res://prefabs/Human.tscn" id="6_4g2yf"]
 [ext_resource type="PackedScene" uid="uid://br2jy4ris6au2" path="res://prefabs/CubeGuy.tscn" id="6_idcqs"]
 [ext_resource type="PackedScene" uid="uid://dxecvs1ue856e" path="res://prefabs/Animal.tscn" id="7_3y2sx"]
+[ext_resource type="PackedScene" uid="uid://daavhwsrpaomr" path="res://prefabs/custom_cursor.tscn" id="10_r3faa"]
+[ext_resource type="PackedScene" uid="uid://ysxlk2d6grno" path="res://prefabs/portal.tscn" id="11_3wgc2"]
+[ext_resource type="PackedScene" uid="uid://bkeh62c4hysg5" path="res://prefabs/hoverable_zone.tscn" id="12_ju56b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2o12b"]
 size = Vector2(130.64426, 124)
@@ -47,3 +50,15 @@ position = Vector2(629, 393)
 
 [node name="Spawn" type="Node2D" parent="." unique_id=848601627]
 position = Vector2(597, 298)
+
+[node name="CustomCursor" parent="." unique_id=1188223711 instance=ExtResource("10_r3faa")]
+visible = false
+
+[node name="Portal" parent="." unique_id=1307911027 instance=ExtResource("11_3wgc2")]
+position = Vector2(109, 188)
+
+[node name="HoverableZone" parent="Portal" unique_id=761841129 node_paths=PackedStringArray("mouseCursor") instance=ExtResource("12_ju56b")]
+scale = Vector2(0.2, 0.2)
+mouseCursor = NodePath("../../CustomCursor")
+hoverCursor = "default"
+level = "res://scenes/WordRoom.tscn"
