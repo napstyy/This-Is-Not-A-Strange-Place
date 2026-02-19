@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bgi8l7xltgpt5"]
 
-[ext_resource type="Script" uid="uid://bu65ypsgdof44" path="res://prefabs/campfire.gd" id="1_0dg7e"]
+[ext_resource type="Script" uid="uid://bu65ypsgdof44" path="res://scripts/campfire.gd" id="1_0dg7e"]
 [ext_resource type="Texture2D" uid="uid://bfi1eebkkdki2" path="res://assets/unlitcampfire.png" id="1_8nxpw"]
 [ext_resource type="Texture2D" uid="uid://g1e10c23arl5" path="res://assets/campfire.png" id="3_lscuj"]
 

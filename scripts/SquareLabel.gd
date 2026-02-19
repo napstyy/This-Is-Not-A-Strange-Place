@@ -104,3 +104,6 @@ func replace_with_scene(packed_scene: PackedScene) -> Node:
 			snap_area.call("replace_snapped_body_reference", self, new_node)
 	queue_free()
 	return new_node
+
+func get_prefab_id() -> int:
+	return prefab_id

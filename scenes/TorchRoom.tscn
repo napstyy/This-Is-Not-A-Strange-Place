@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dh88on2b31yws"]
 
 [ext_resource type="Texture2D" uid="uid://bk16xff7vslyh" path="res://icon.svg" id="1_ovom5"]
+[ext_resource type="Script" uid="uid://dp8nbpfl6vfjt" path="res://scenes/torch_room.gd" id="1_sv3j7"]
 [ext_resource type="Texture2D" uid="uid://b77v2ldoivfku" path="res://assets/all-current-posters-v0-evzgpsbdd5jg1.webp" id="4_dscsm"]
 [ext_resource type="PackedScene" uid="uid://c0gm1tgqmhqlh" path="res://prefabs/Torch.tscn" id="5_sv3j7"]
 [ext_resource type="PackedScene" uid="uid://br2jy4ris6au2" path="res://prefabs/CubeGuy.tscn" id="6_idcqs"]
@@ -9,6 +10,8 @@
 size = Vector2(130.64426, 124)
 
 [node name="TorchRoom" type="Node2D" unique_id=5330240]
+script = ExtResource("1_sv3j7")
+room_name = "TorchRoom"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=905524752]
 position = Vector2(586, 707)
@@ -23,7 +26,7 @@ scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_2o12b")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1337817144]
-color = Color(0, 0, 0, 1)
+color = Color(0.37716255, 0.37716258, 0.37716255, 1)
 
 [node name="AllCurrentPostersV0Evzgpsbdd5Jg1" type="Sprite2D" parent="." unique_id=200384428]
 position = Vector2(610, 342.00003)
