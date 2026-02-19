@@ -5,10 +5,105 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ax00"]
 size = Vector2(30, 32)
 
+[sub_resource type="Animation" id="Animation_d0xp3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.2617994]
+}
+
+[sub_resource type="Animation" id="Animation_8ax00"]
+resource_name = "idle"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.8)]
+}
+
+[sub_resource type="Animation" id="Animation_exkxq"]
+resource_name = "walk"
+length = 0.25
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -2), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.2617994, 0.0, 0.2617994]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fojpm"]
+_data = {
+&"RESET": SubResource("Animation_d0xp3"),
+&"idle": SubResource("Animation_8ax00"),
+&"walk": SubResource("Animation_exkxq")
+}
+
 [node name="RigidBody2D" type="CharacterBody2D" unique_id=1987141347]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1560058167]
 shape = SubResource("RectangleShape2D_8ax00")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=625692921]
+rotation = -0.2617994
 texture = ExtResource("1_d0xp3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=747823662]
+libraries/ = SubResource("AnimationLibrary_fojpm")
