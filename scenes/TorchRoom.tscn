@@ -1,27 +1,17 @@
 [gd_scene format=3 uid="uid://dh88on2b31yws"]
 
-<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://bk16xff7vslyh" path="res://icon.svg" id="1_ovom5"]
 [ext_resource type="Script" uid="uid://dp8nbpfl6vfjt" path="res://scenes/torch_room.gd" id="1_sv3j7"]
 [ext_resource type="PackedScene" uid="uid://c8esr1mm2apye" path="res://prefabs/SphereGuy.tscn" id="2_idcqs"]
 [ext_resource type="PackedScene" uid="uid://btyv5g25njvh7" path="res://prefabs/Water.tscn" id="4_ambhg"]
-=======
-[ext_resource type="Script" path="res://scenes/torch_room.gd" id="1_sv3j7"]
-[ext_resource type="PackedScene" path="res://prefabs/SphereGuy.tscn" id="2_idcqs"]
->>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://b77v2ldoivfku" path="res://assets/all-current-posters-v0-evzgpsbdd5jg1.webp" id="4_dscsm"]
 [ext_resource type="PackedScene" uid="uid://dqidpxlao7vx2" path="res://prefabs/Torch.tscn" id="5_sv3j7"]
 [ext_resource type="PackedScene" uid="uid://brni1ea1fo23o" path="res://prefabs/Human.tscn" id="6_4g2yf"]
 [ext_resource type="PackedScene" uid="uid://br2jy4ris6au2" path="res://prefabs/CubeGuy.tscn" id="6_idcqs"]
 [ext_resource type="PackedScene" uid="uid://dxecvs1ue856e" path="res://prefabs/Animal.tscn" id="7_3y2sx"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sv3j7"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_idcqs"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ambhg"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_j5bll"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2o12b"]
+size = Vector2(130.64426, 124)
 
 [node name="TorchRoom" type="Node2D" unique_id=5330240 node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_sv3j7")
@@ -29,34 +19,17 @@ room_name = "TorchRoom"
 replacement_scenes = Array[PackedScene]([ExtResource("6_idcqs"), ExtResource("2_idcqs"), ExtResource("4_ambhg"), ExtResource("5_sv3j7"), ExtResource("6_4g2yf"), ExtResource("7_3y2sx")])
 spawn_point = NodePath("Spawn")
 
-[node name="Boundaries" type="Node" parent="." unique_id=1078097528]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=905524752]
+position = Vector2(586, 707)
+scale = Vector2(15.125, 1)
 
-[node name="Bottom" type="StaticBody2D" parent="Boundaries" unique_id=905524752]
-position = Vector2(295, 219)
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1786651310]
+texture = ExtResource("1_ovom5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Bottom" unique_id=452824086]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=452824086]
 position = Vector2(0, -1)
 scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("WorldBoundaryShape2D_sv3j7")
-
-[node name="Left" type="StaticBody2D" parent="Boundaries" unique_id=1981955103]
-rotation = 1.5707964
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Left" unique_id=2072569246]
-shape = SubResource("WorldBoundaryShape2D_idcqs")
-
-[node name="Right" type="StaticBody2D" parent="Boundaries" unique_id=278538513]
-position = Vector2(386, 96)
-rotation = -1.5707964
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Right" unique_id=1314540477]
-shape = SubResource("WorldBoundaryShape2D_ambhg")
-
-[node name="Top" type="StaticBody2D" parent="Boundaries" unique_id=259889252]
-rotation = 3.1415927
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Top" unique_id=111338072]
-shape = SubResource("WorldBoundaryShape2D_j5bll")
+shape = SubResource("RectangleShape2D_2o12b")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1337817144]
 color = Color(0.37716255, 0.37716258, 0.37716255, 1)
@@ -67,14 +40,10 @@ scale = Vector2(1.5799179, 0.7081379)
 texture = ExtResource("4_dscsm")
 
 [node name="Torch2" parent="." unique_id=966111193 instance=ExtResource("5_sv3j7")]
-position = Vector2(233, 119)
+position = Vector2(459, 294)
 
 [node name="CubeGuy" parent="." unique_id=929557763 instance=ExtResource("6_idcqs")]
-position = Vector2(165, 158)
+position = Vector2(629, 393)
 
 [node name="Spawn" type="Node2D" parent="." unique_id=848601627]
-position = Vector2(17, 24)
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1957792216]
-anchor_mode = 0
-zoom = Vector2(3, 3)
+position = Vector2(597, 298)

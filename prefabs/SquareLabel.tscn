@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bc7qxmqbha1hw"]
 
-[ext_resource type="Script" uid="uid://csn48whq70jw3" path="res://scripts/SquareLabel.gd" id="1_o3b07"]
+[ext_resource type="Script" path="res://scripts/SquareLabel.gd" id="1_o3b07"]
 [ext_resource type="FontFile" uid="uid://jcagdl68pown" path="res://assets/fonts/Parisienne/Parisienne-Regular.ttf" id="2_o3b07"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svafy"]
