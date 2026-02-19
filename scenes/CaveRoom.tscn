@@ -1,67 +1,149 @@
-[gd_scene format=3 uid="uid://c358intsx2h3q"]
+[gd_scene format=4 uid="uid://c358intsx2h3q"]
 
+[ext_resource type="Texture2D" uid="uid://cfrpl0nvunqc0" path="res://assets/CaveBG.png" id="1_asb7r"]
 [ext_resource type="Texture2D" uid="uid://b77v2ldoivfku" path="res://assets/all-current-posters-v0-evzgpsbdd5jg1.webp" id="1_m7vs3"]
 [ext_resource type="PackedScene" uid="uid://brni1ea1fo23o" path="res://prefabs/Human.tscn" id="1_tqoec"]
-[ext_resource type="PackedScene" uid="uid://bgi8l7xltgpt5" path="res://prefabs/Campfire.tscn" id="2_hfnui"]
-[ext_resource type="PackedScene" uid="uid://c0gm1tgqmhqlh" path="res://prefabs/Torch.tscn" id="3_24ulf"]
+[ext_resource type="PackedScene" uid="uid://cabjmmy5wr18j" path="res://prefabs/Campfire.tscn" id="2_hfnui"]
+[ext_resource type="PackedScene" uid="uid://dqidpxlao7vx2" path="res://prefabs/Torch.tscn" id="3_24ulf"]
 [ext_resource type="PackedScene" uid="uid://ofmghndjf21h" path="res://prefabs/Light.tscn" id="4_qhogg"]
+[ext_resource type="Texture2D" uid="uid://dds4kc00mckjp" path="res://assets/brickwagon.png" id="7_sh4bg"]
+[ext_resource type="Texture2D" uid="uid://b7ppsavxa8eb0" path="res://assets/brickpile.png" id="8_4l40k"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ooh35"]
+texture = ExtResource("1_asb7r")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+0:4/0 = 0
+0:5/0 = 0
+0:6/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_sh4bg"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_ooh35")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tqoec"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0aye"]
+atlas = ExtResource("7_sh4bg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1umm"]
+atlas = ExtResource("7_sh4bg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4ggp"]
+atlas = ExtResource("7_sh4bg")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1yii"]
+atlas = ExtResource("7_sh4bg")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vp5r"]
+atlas = ExtResource("8_4l40k")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eexvf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0aye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1umm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4ggp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1yii")
+}],
+"loop": true,
+"name": &"cart",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vp5r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="CaveRoom" type="Node2D" unique_id=921493798]
 
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2133725666]
+tile_map_data = PackedByteArray("AAAAAAEAAAAAAAEAAAAAAAIAAAAAAAIAAAAAAAMAAAAAAAMAAAAAAAQAAAAAAAQAAAAAAAUAAAAAAAUAAAABAAEAAAAAAAEAAAABAAIAAAAAAAIAAAABAAMAAAAAAAMAAAABAAQAAAAAAAQAAAABAAUAAAAAAAUAAAACAAEAAAAAAAEAAAACAAIAAAAAAAIAAAACAAMAAAAAAAMAAAACAAQAAAAAAAQAAAACAAUAAAAAAAUAAAADAAEAAAAAAAEAAAADAAIAAAAAAAIAAAADAAMAAAAAAAMAAAADAAQAAAAAAAQAAAADAAUAAAAAAAUAAAAEAAEAAAAAAAEAAAAEAAIAAAAAAAIAAAAEAAMAAAAAAAMAAAAEAAQAAAAAAAQAAAAEAAUAAAAAAAUAAAAFAAEAAAAAAAEAAAAFAAIAAAAAAAIAAAAFAAMAAAAAAAMAAAAFAAQAAAAAAAQAAAAFAAUAAAAAAAUAAAAGAAEAAAAAAAEAAAAGAAIAAAAAAAIAAAAGAAMAAAAAAAMAAAAGAAQAAAAAAAQAAAAGAAUAAAAAAAUAAAAHAAEAAAAAAAEAAAAHAAIAAAAAAAIAAAAHAAMAAAAAAAMAAAAHAAQAAAAAAAQAAAAHAAUAAAAAAAUAAAAIAAEAAAAAAAEAAAAIAAIAAAAAAAIAAAAIAAMAAAAAAAMAAAAIAAQAAAAAAAQAAAAIAAUAAAAAAAUAAAAAAAYAAAAAAAYAAAABAAYAAAAAAAYAAAACAAYAAAAAAAYAAAADAAYAAAAAAAYAAAAEAAYAAAAAAAYAAAAFAAYAAAAAAAYAAAAGAAYAAAAAAAYAAAAHAAYAAAAAAAYAAAAIAAYAAAAAAAYAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAJAAEAAAAAAAEAAAAKAAEAAAAAAAEAAAALAAEAAAAAAAEAAAAJAAIAAAAAAAIAAAAKAAIAAAAAAAIAAAALAAIAAAAAAAIAAAAJAAMAAAAAAAMAAAAKAAMAAAAAAAMAAAALAAMAAAAAAAMAAAAJAAQAAAAAAAQAAAAKAAQAAAAAAAQAAAALAAQAAAAAAAQAAAAJAAUAAAAAAAUAAAAKAAUAAAAAAAUAAAALAAUAAAAAAAUAAAAJAAYAAAAAAAYAAAAKAAYAAAAAAAYAAAALAAYAAAAAAAYAAAA=")
+tile_set = SubResource("TileSet_sh4bg")
+
 [node name="AllCurrentPostersV0Evzgpsbdd5Jg1" type="Sprite2D" parent="." unique_id=102149489]
+visible = false
 position = Vector2(611, 297)
 scale = Vector2(1.6799986, 0.72)
 texture = ExtResource("1_m7vs3")
 
 [node name="Borders" type="Node2D" parent="." unique_id=1254710909]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Borders" unique_id=900317472]
+[node name="top" type="StaticBody2D" parent="Borders" unique_id=900317472]
 rotation = -3.1415925
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D" unique_id=1116895048]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/top" unique_id=1116895048]
 shape = SubResource("WorldBoundaryShape2D_tqoec")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="Borders" unique_id=1857342512]
-position = Vector2(0, 650)
+[node name="bottom" type="StaticBody2D" parent="Borders" unique_id=1857342512]
+position = Vector2(192, 218)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D2" unique_id=1157554185]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/bottom" unique_id=1157554185]
 shape = SubResource("WorldBoundaryShape2D_tqoec")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="Borders" unique_id=1092953664]
-position = Vector2(0, 650)
+[node name="left" type="StaticBody2D" parent="Borders" unique_id=1092953664]
+position = Vector2(0, 196)
 rotation = 1.5707964
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D3" unique_id=1642535753]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/left" unique_id=1642535753]
 shape = SubResource("WorldBoundaryShape2D_tqoec")
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="Borders" unique_id=1203861079]
-position = Vector2(1153, 650)
+[node name="right" type="StaticBody2D" parent="Borders" unique_id=1203861079]
+position = Vector2(386, 105)
 rotation = -1.5707964
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D4" unique_id=821651989]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/right" unique_id=821651989]
 shape = SubResource("WorldBoundaryShape2D_tqoec")
 
-[node name="RigidBody2D" parent="." unique_id=1029679774 instance=ExtResource("1_tqoec")]
-position = Vector2(387, 581)
+[node name="CavePeople" type="Node" parent="." unique_id=1400962017]
 
-[node name="RigidBody2D2" parent="." unique_id=109504776 instance=ExtResource("2_hfnui")]
-position = Vector2(497, 590)
+[node name="CavePerson" parent="CavePeople" unique_id=1029679774 instance=ExtResource("1_tqoec")]
+position = Vector2(267, 197)
+
+[node name="CavePerson2" parent="CavePeople" unique_id=154381190 instance=ExtResource("1_tqoec")]
+position = Vector2(132, 197)
+
+[node name="CavePerson3" parent="CavePeople" unique_id=653354321 instance=ExtResource("1_tqoec")]
+position = Vector2(203, 197)
+
+[node name="Campfire" parent="." unique_id=109504776 instance=ExtResource("2_hfnui")]
+position = Vector2(168, 200)
 light_scene = ExtResource("4_qhogg")
 
-[node name="RigidBody2D3" parent="." unique_id=154381190 instance=ExtResource("1_tqoec")]
-position = Vector2(256, 578)
-
-[node name="RigidBody2D4" parent="." unique_id=1957007147 instance=ExtResource("1_tqoec")]
-position = Vector2(708, 571)
+[node name="PointLight2D" parent="Campfire" unique_id=531505811 instance=ExtResource("4_qhogg")]
+position = Vector2(0, 6)
+scale = Vector2(1, 1)
 
 [node name="Torch" parent="." unique_id=1509374204 instance=ExtResource("3_24ulf")]
-position = Vector2(911, 530)
+position = Vector2(29, 148)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1942765965]
 color = Color(0, 0, 0, 1)
 
-[node name="PointLight2D" parent="." unique_id=531505811 instance=ExtResource("4_qhogg")]
-position = Vector2(496, 594)
-scale = Vector2(3.847576, 3.847576)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1385911268]
+anchor_mode = 0
+zoom = Vector2(3, 3)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1627727516]
+position = Vector2(298, 200)
+sprite_frames = SubResource("SpriteFrames_eexvf")
+autoplay = "default"

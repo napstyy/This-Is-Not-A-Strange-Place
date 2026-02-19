@@ -1,39 +1,37 @@
-[gd_scene format=3 uid="uid://c0gm1tgqmhqlh"]
+[gd_scene format=3 uid="uid://dqidpxlao7vx2"]
 
 [ext_resource type="Script" uid="uid://cikc3ihxmt272" path="res://scripts/Torch.gd" id="1_hl714"]
 [ext_resource type="Texture2D" uid="uid://by4suideexthj" path="res://assets/Circular 1 - 128x128.png" id="2_gspwy"]
 [ext_resource type="Texture2D" uid="uid://npwc481vcwqj" path="res://assets/Fire.png" id="3_gspwy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2o12b"]
-radius = 2.9811475
+radius = 2.0880911
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gspwy"]
-size = Vector2(46, 50)
+size = Vector2(27, 32.25)
 
 [node name="Torch" type="RigidBody2D" unique_id=1509374204]
 input_pickable = true
 script = ExtResource("1_hl714")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=2067323248]
-scale = Vector2(3.9836297, 3.9836297)
 energy = 1.32
 blend_mode = 2
 texture = ExtResource("2_gspwy")
 height = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=55226187]
-position = Vector2(4.2632564e-14, -6.000001)
+position = Vector2(-4.2632564e-14, -6.9999995)
 rotation = 3.1415927
 scale = Vector2(7.209855, 5.6161747)
 shape = SubResource("CircleShape2D_2o12b")
 
 [node name="Fire" type="Sprite2D" parent="." unique_id=472171824]
 position = Vector2(-1, -7)
-scale = Vector2(1.5573289, 1.5573289)
 texture = ExtResource("3_gspwy")
 
 [node name="AttachArea" type="Area2D" parent="." unique_id=723502114]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttachArea" unique_id=903854087]
-position = Vector2(0, -6)
+position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_gspwy")

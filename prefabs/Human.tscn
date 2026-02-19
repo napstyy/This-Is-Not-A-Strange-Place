@@ -1,17 +1,148 @@
 [gd_scene format=3 uid="uid://brni1ea1fo23o"]
 
 [ext_resource type="Texture2D" uid="uid://dwglfki61as02" path="res://assets/Bowman.png" id="1_4kiml"]
+[ext_resource type="Texture2D" uid="uid://gl3ugv1k37p0" path="res://assets/cavepersonpush.png" id="2_1qrlg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qrlg"]
-size = Vector2(20, 28)
+size = Vector2(5.531501, 6.637801)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tg7xu"]
+atlas = ExtResource("1_4kiml")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hatuw"]
+atlas = ExtResource("2_1qrlg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpm42"]
+atlas = ExtResource("2_1qrlg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ty728"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tg7xu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_hatuw")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_gpm42")
+}],
+"loop": true,
+"name": &"push",
+"speed": 2.0
+}]
+
+[sub_resource type="Animation" id="Animation_4kiml"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1qrlg"]
+resource_name = "idle"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.8)]
+}
+
+[sub_resource type="Animation" id="Animation_tg7xu"]
+resource_name = "walk"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -2), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.2617994, 0.0, 0.2617994]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hatuw"]
+_data = {
+&"RESET": SubResource("Animation_4kiml"),
+&"idle": SubResource("Animation_1qrlg"),
+&"walk": SubResource("Animation_tg7xu")
+}
 
 [node name="RigidBody2D" type="RigidBody2D" unique_id=1029679774]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=47918763]
-position = Vector2(0, 1)
+position = Vector2(-1.4999971, 0)
 scale = Vector2(4.519569, 4.519569)
 shape = SubResource("RectangleShape2D_1qrlg")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1840849131]
-scale = Vector2(4.519569, 4.519569)
-texture = ExtResource("1_4kiml")
+[node name="AnimSprite2D" type="AnimatedSprite2D" parent="." unique_id=1088753231]
+sprite_frames = SubResource("SpriteFrames_ty728")
+autoplay = "default"
+frame_progress = 0.7944387
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimSprite2D" unique_id=1469921985]
+libraries/ = SubResource("AnimationLibrary_hatuw")
+autoplay = &"idle"
