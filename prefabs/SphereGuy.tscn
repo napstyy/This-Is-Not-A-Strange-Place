@@ -1,10 +1,107 @@
 [gd_scene format=3 uid="uid://c8esr1mm2apye"]
 
-[ext_resource type="Texture2D" uid="uid://ggl5hvx2l2lr" path="res://assets/CirclePerson.png" id="1_4abfb"]
 [ext_resource type="Script" uid="uid://cg5rb06wti1lw" path="res://scripts/SquareMovement.gd" id="2_ep1pc"]
+[ext_resource type="Texture2D" uid="uid://bnwsws3ly248r" path="res://assets/CirclePersonUpdated.png" id="2_vshiu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ep1pc"]
 size = Vector2(21, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_di88p"]
+atlas = ExtResource("2_vshiu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_firt4"]
+atlas = ExtResource("2_vshiu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3phs"]
+atlas = ExtResource("2_vshiu")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke6d8"]
+atlas = ExtResource("2_vshiu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkpsf"]
+atlas = ExtResource("2_vshiu")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upy8x"]
+atlas = ExtResource("2_vshiu")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vycb7"]
+atlas = ExtResource("2_vshiu")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftxoo"]
+atlas = ExtResource("2_vshiu")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oyy6y"]
+atlas = ExtResource("2_vshiu")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcd8v"]
+atlas = ExtResource("2_vshiu")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntyku"]
+atlas = ExtResource("2_vshiu")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78odi"]
+atlas = ExtResource("2_vshiu")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s5ggb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_di88p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_firt4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3phs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ke6d8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkpsf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upy8x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vycb7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftxoo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oyy6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcd8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntyku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78odi")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [node name="RigidBody2D" type="CharacterBody2D" unique_id=156628446]
 input_pickable = true
@@ -15,5 +112,8 @@ prefab_id = 7
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_ep1pc")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1997339263]
-texture = ExtResource("1_4abfb")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1383546910]
+sprite_frames = SubResource("SpriteFrames_s5ggb")
+animation = &"walk"
+autoplay = "idle"
+frame_progress = 0.14469284
