@@ -39,5 +39,7 @@ position = Vector2(2, 216)
 shape = SubResource("WorldBoundaryShape2D_tjnb5")
 
 [node name="RigidBody2D" parent="." unique_id=156628446 instance=ExtResource("4_o7n15")]
+position = Vector2(-29, 198)
 
 [node name="CubeGuy" parent="." unique_id=929557763 instance=ExtResource("5_2imeg")]
+position = Vector2(-56, 193)

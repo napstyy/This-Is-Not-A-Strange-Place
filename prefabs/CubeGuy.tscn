@@ -3,9 +3,6 @@
 [ext_resource type="Script" uid="uid://cg5rb06wti1lw" path="res://scripts/SquareMovement.gd" id="1_hjsws"]
 [ext_resource type="Texture2D" uid="uid://xxdrka073y32" path="res://assets/CubePersonUpdated.png" id="2_hjsws"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kass0"]
-size = Vector2(13.999996, 20)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_i76r4"]
 atlas = ExtResource("2_hjsws")
 region = Rect2(0, 0, 32, 32)
@@ -103,6 +100,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kass0"]
+size = Vector2(21.999996, 27.999992)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hjsws"]
 size = Vector2(11.252857, 2.9962583)
 
@@ -111,22 +111,20 @@ input_pickable = true
 script = ExtResource("1_hjsws")
 feet_area_path = NodePath("Area2D")
 
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=167601114]
+sprite_frames = SubResource("SpriteFrames_n2y7o")
+animation = &"idle"
+autoplay = "idle"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=87556120]
-position = Vector2(1.7881393e-07, 0)
+position = Vector2(0.99999976, 1.0000002)
 scale = Vector2(1.0000002, 1.0000002)
 shape = SubResource("RectangleShape2D_kass0")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=167601114]
-position = Vector2(-0.99999994, -1)
-scale = Vector2(0.6875, 0.6875)
-sprite_frames = SubResource("SpriteFrames_n2y7o")
-animation = &"walk"
-autoplay = "idle"
-frame_progress = 0.2223864
-
 [node name="Area2D" type="Area2D" parent="." unique_id=1735207969]
+position = Vector2(1, 6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=131548049]
-position = Vector2(-0.15849099, 8.717005)
+position = Vector2(0.84150887, 8.717005)
 scale = Vector2(1.0000002, 1.0000002)
 shape = SubResource("RectangleShape2D_hjsws")

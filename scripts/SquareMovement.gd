@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var max_pause: float = 2.0
 @export var min_walk: float = 1.0
 @export var max_walk: float = 3.0
+@onready var sprite_2d: AnimatedSprite2D = $Sprite2D #for walking animation
 
 @export var prefab_id := 6
 
@@ -109,8 +110,10 @@ func _detach() -> void:
 func pick_new_state() -> void:
 	if randi() % 2 == 0:
 		state = "walk"
+		sprite_2d.play("walk")
 		direction = [-1, 1].pick_random()
 		timer = randf_range(min_walk, max_walk)
 	else:
 		state = "idle"
+		sprite_2d.play("idle")
 		timer = randf_range(min_pause, max_pause)
