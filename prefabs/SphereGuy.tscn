@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://c8esr1mm2apye"]
 
 [ext_resource type="Texture2D" uid="uid://ggl5hvx2l2lr" path="res://assets/CirclePerson.png" id="1_4abfb"]
-[ext_resource type="Script" uid="uid://cg5rb06wti1lw" path="res://scripts/SquareMovement.gd" id="2_ep1pc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ep1pc"]
 size = Vector2(21, 31)
@@ -14,5 +13,3 @@ texture = ExtResource("1_4abfb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=630008673]
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_ep1pc")
-script = ExtResource("2_ep1pc")
-prefab_id = 7

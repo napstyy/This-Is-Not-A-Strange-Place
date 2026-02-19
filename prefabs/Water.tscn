@@ -1,13 +1,11 @@
 [gd_scene format=3 uid="uid://btyv5g25njvh7"]
 
 [ext_resource type="Texture2D" uid="uid://dvikiworj4um6" path="res://assets/WaterSphere.png" id="1_4lphj"]
-[ext_resource type="Script" uid="uid://cikc3ihxmt272" path="res://scripts/Torch.gd" id="2_fnlao"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fnlao"]
 size = Vector2(26, 30)
 
 [node name="RigidBody2D" type="RigidBody2D" unique_id=1131744029]
-script = ExtResource("2_fnlao")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1082549121]
 texture = ExtResource("1_4lphj")
