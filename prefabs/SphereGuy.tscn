@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c8esr1mm2apye"]
+
+[ext_resource type="Texture2D" uid="uid://ggl5hvx2l2lr" path="res://assets/CirclePerson.png" id="1_4abfb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ep1pc"]
+size = Vector2(21, 31)
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=811869768]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1997339263]
+texture = ExtResource("1_4abfb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=630008673]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_ep1pc")

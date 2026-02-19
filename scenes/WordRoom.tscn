@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bp6a5n2atpuwd" path="res://prefabs/ManLabel.tscn" id="9_1rj1m"]
 [ext_resource type="PackedScene" uid="uid://bkeh62c4hysg5" path="res://prefabs/hoverable_zone.tscn" id="11_1rj1m"]
 [ext_resource type="PackedScene" uid="uid://daavhwsrpaomr" path="res://prefabs/custom_cursor.tscn" id="12_tlxbp"]
-[ext_resource type="Script" uid="uid://c61dl2b5pfsa" path="res://scenes/DropZone.gd" id="13_tlxbp"]
+[ext_resource type="Script" uid="uid://gadvn8jnxpyg" path="res://scenes/torch_drop.gd" id="13_tlxbp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_75evl"]
 font = ExtResource("1_fjgfx")
@@ -127,8 +127,7 @@ level = "res://scenes/CubeRoom.tscn"
 [node name="Torch_Drop" type="Area2D" parent="Node" unique_id=1863593157]
 position = Vector2(550, 116)
 script = ExtResource("13_tlxbp")
-target_room = "TorchRoom"
-target_zone = "Torch_Drop"
+target_room_name = "TorchRoom"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Torch_Drop" unique_id=1482835372]
 position = Vector2(511.5, -47)
