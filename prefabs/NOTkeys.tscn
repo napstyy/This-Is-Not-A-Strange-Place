@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://cmlkqvcxyp6q1"]
+
+[ext_resource type="Texture2D" uid="uid://bsaqfsfefh32j" path="res://assets/NOTkeys.png" id="1_wkj64"]
+[ext_resource type="Texture2D" uid="uid://by4suideexthj" path="res://assets/Circular 1 - 128x128.png" id="2_pqd1g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqd1g"]
+atlas = ExtResource("1_wkj64")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nytar"]
+atlas = ExtResource("1_wkj64")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryc1x"]
+atlas = ExtResource("1_wkj64")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l3cj4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqd1g")
+}],
+"loop": true,
+"name": &"N",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nytar")
+}],
+"loop": true,
+"name": &"O",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryc1x")
+}],
+"loop": true,
+"name": &"T",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_wkj64"]
+offsets = PackedFloat32Array(0.22950819, 0.6229508, 0.86885244)
+colors = PackedColorArray(0.8980392, 0.74509805, 0.13333334, 1, 0.8509804, 0.49411765, 0.08627451, 1, 0.8509804, 0.49411765, 0.08627451, 0.4392157)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pqd1g"]
+gradient = SubResource("Gradient_wkj64")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nytar"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_max = 1.0
+radial_velocity_min = 4.9999776
+radial_velocity_max = 21.999977
+gravity = Vector3(0, 0, 0)
+scale_min = 0.29999998
+scale_max = 0.59999996
+color_ramp = SubResource("GradientTexture1D_pqd1g")
+
+[sub_resource type="Animation" id="Animation_gb3q4"]
+resource_name = "Float"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -3), Vector2(0, 3), Vector2(0, -3), Vector2(0, 3), Vector2(0, -3), Vector2(0, 3), Vector2(0, -15), Vector2(0, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3, 3.25, 3.5, 3.75, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(-1, 1), Vector2(1, 1), Vector2(-1, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kixv0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yg1xs"]
+_data = {
+&"Float": SubResource("Animation_gb3q4"),
+&"RESET": SubResource("Animation_kixv0")
+}
+
+[node name="Node" type="Node" unique_id=84275779]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1512500067]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_l3cj4")
+animation = &"N"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="AnimatedSprite2D" unique_id=1352896348]
+z_index = -1
+rotation = 3.1415927
+scale = Vector2(4.4590464, -0.99999994)
+emitting = false
+amount = 5
+amount_ratio = 0.8
+texture = ExtResource("2_pqd1g")
+lifetime = 0.65
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_nytar")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D" unique_id=2080389753]
+libraries/ = SubResource("AnimationLibrary_yg1xs")
