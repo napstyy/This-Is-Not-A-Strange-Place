@@ -1,16 +1,75 @@
 [gd_scene format=3 uid="uid://dh88on2b31yws"]
 
 [ext_resource type="Texture2D" uid="uid://bk16xff7vslyh" path="res://icon.svg" id="1_ovom5"]
-[ext_resource type="Script" uid="uid://dp8nbpfl6vfjt" path="res://scenes/torch_room.gd" id="1_sv3j7"]
 [ext_resource type="Texture2D" uid="uid://b77v2ldoivfku" path="res://assets/all-current-posters-v0-evzgpsbdd5jg1.webp" id="4_dscsm"]
-[ext_resource type="PackedScene" uid="uid://c0gm1tgqmhqlh" path="res://prefabs/Torch.tscn" id="5_sv3j7"]
+[ext_resource type="PackedScene" uid="uid://dqidpxlao7vx2" path="res://prefabs/Torch.tscn" id="5_sv3j7"]
 [ext_resource type="PackedScene" uid="uid://br2jy4ris6au2" path="res://prefabs/CubeGuy.tscn" id="6_idcqs"]
+
+[sub_resource type="GDScript" id="GDScript_dscsm"]
+script/source = "extends Node
+
+@export var room_name: String = \"\"
+@export var prefab_map: Dictionary = {}
+
+
+var zones_by_name: Dictionary = {}
+
+func _ready():
+
+	for child in get_tree().get_nodes_in_group(\"room_zones\"):
+		if child.has_meta(\"zone_name\"):
+			zones_by_name[child.get_meta(\"zone_name\")] = child
+		elif child.has_method(\"get_zone_name\"):
+			zones_by_name[child.get_zone_name()] = child
+		elif child.name != \"\":
+
+			zones_by_name[child.name] = child
+
+
+	var spawns = GameState.consume_spawns(room_name)
+	for spawn in spawns:
+		_process_spawn(spawn)
+
+func _process_spawn(spawn: Dictionary) -> void:
+	var id = int(spawn.get(\"id\", -1))
+	var zone_name = str(spawn.get(\"zone\", \"\"))
+	var world_pos = spawn.get(\"position\", null)
+
+	if not prefab_map.has(id):
+		push_error(\"Room '%s' has no prefab for id %s\" % [room_name, str(id)])
+		return
+
+	var scene: PackedScene = prefab_map[id]
+	var inst = scene.instantiate()
+	add_child(inst)
+
+
+	if zone_name != \"\" and zones_by_name.has(zone_name):
+		var zone_node = zones_by_name[zone_name]
+		zone_node.add_child(inst)
+
+		if world_pos != null:
+
+			var local = zone_node.to_local(world_pos)
+			if inst is Node2D:
+				inst.position = local
+			elif inst is Node3D:
+				inst.translation = Vector3(local.x, local.y, 0)
+	else:
+
+		if world_pos != null:
+
+			if inst is Node2D:
+				inst.global_position = world_pos
+			elif inst is Node3D:
+				inst.global_transform.origin = Vector3(world_pos.x, world_pos.y, 0)
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2o12b"]
 size = Vector2(130.64426, 124)
 
 [node name="TorchRoom" type="Node2D" unique_id=5330240]
-script = ExtResource("1_sv3j7")
+script = SubResource("GDScript_dscsm")
 room_name = "TorchRoom"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=905524752]
