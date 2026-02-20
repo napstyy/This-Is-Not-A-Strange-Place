@@ -8,7 +8,7 @@ var counters = {
 	"Animal": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0}, #3
 	"Fire": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 1, "WordRoom":0}, #4
 	"Water": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0}, #5
-	"CubeLabel": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":3},#6
+	"CubeLabel": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0},#6
 	"SphereLabel": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0}, #7
 	"HumanLabel": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0}, #8
 	"AnimalLabel": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0}, #9
