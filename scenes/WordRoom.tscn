@@ -107,6 +107,7 @@ position = Vector2(284, 313)
 [node name="Cave_Drop" type="Area2D" parent="Teleporters" unique_id=1976469382]
 position = Vector2(93, 68)
 script = ExtResource("13_tlxbp")
+current_room_name = "WordRoom"
 target_room_name = "CaveRoom"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporters/Cave_Drop" unique_id=1788187004]
@@ -137,6 +138,7 @@ level = "res://scenes/CubeRoom.tscn"
 [node name="Torch_Drop" type="Area2D" parent="Teleporters" unique_id=1863593157]
 position = Vector2(1055, 71)
 script = ExtResource("13_tlxbp")
+current_room_name = "WordRoom"
 target_room_name = "TorchRoom"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporters/Torch_Drop" unique_id=1482835372]

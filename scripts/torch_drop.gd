@@ -1,19 +1,29 @@
 # Zone.gd
 extends Area2D
 
+@export var current_room_name: String = ""
 @export var target_room_name: String = ""  # e.g. "Room2"
+
+var bodyDict = {}
 
 func _ready() -> void:
 	if not is_connected("body_entered", Callable(self, "_on_body_entered")):
 		connect("body_entered", Callable(self, "_on_body_entered"))
+	
+	var count = 0
+	for i in GameManager.counters:
+		bodyDict[count] = i
+		count+=1
+	print(bodyDict)
 
 func _on_body_entered(body: Node) -> void:
 	var id := _extract_prefab_id(body)
 	if id == -1:
 		return
 
-	GameState.add_to_room(target_room_name, id)
-	GameState.mark_consumed(id)
+	#GameState.add_to_room(target_room_name, id)
+	#GameState.mark_consumed(id)
+	
 	body.queue_free()
 
 # returns -1 if no id found

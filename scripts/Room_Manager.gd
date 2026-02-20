@@ -4,7 +4,7 @@ extends Node2D
 @export var room_name: String
 #@export var replacement_scenes: Dictionary[int, PackedScene] #Make sure this matches ObjectID
 enum ObjectID {CUBE, SPHERE, HUMAN, ANIMAL, FIRE, WATER, CUBELABEL, SPHERELABEL, HUMANLABEL, ANIMALLABEL, FIRELABEL, WATERLABEL}
-var idDict = {}
+var idDict = {} #Dictionary of ObjType:int
 @export var spawn_point: Node2D
 var spawn_override = [] #Maybe useful for positioning the spawns (does nothing currently)
 
@@ -39,7 +39,7 @@ func spawn():
 			for i in GameManager.counters[instances][room_name]:
 						var newObj = GameManager.replacement_scenes[idDict[instances]].instantiate()
 						add_child(newObj)
-						print(newObj.get_tree().g)
+						#print(newObj)
 						if newObj is Node2D:
 							newObj.global_position = spawn_point.global_position
 							
