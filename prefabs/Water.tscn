@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://btyv5g25njvh7"]
 
 [ext_resource type="Texture2D" uid="uid://cdd6bmo813tiq" path="res://assets/particletest.png" id="1_fnlao"]
+[ext_resource type="Script" uid="uid://iyf50g3yhcqu" path="res://prefabs/Water.gd" id="1_rmc38"]
 [ext_resource type="Texture2D" uid="uid://tnehlhgojnnl" path="res://assets/WaterSphere2.png" id="2_rmc38"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4lphj"]
@@ -55,6 +56,7 @@ hue_variation_max = -2.2351742e-08
 size = Vector2(27, 32.25)
 
 [node name="RigidBody2D" type="RigidBody2D" unique_id=1131744029]
+script = ExtResource("1_rmc38")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=382331951]
 position = Vector2(0, -2)
