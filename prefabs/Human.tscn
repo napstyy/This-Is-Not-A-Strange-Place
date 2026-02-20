@@ -136,6 +136,7 @@ _data = {
 script = ExtResource("1_tg7xu")
 speed = 0.0
 sprite_2d = NodePath("AnimSprite2D")
+prefab_id = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=47918763]
 position = Vector2(-1.4999971, 0)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dxecvs1ue856e"]
 
-[ext_resource type="Script" uid="uid://coqmrv0r6hfvl" path="res://prefabs/animal.gd" id="1_8ax00"]
+[ext_resource type="Script" path="res://prefabs/animal.gd" id="1_8ax00"]
 [ext_resource type="Texture2D" uid="uid://dliqplij4ob3p" path="res://assets/CaveAnimal.png" id="1_d0xp3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ax00"]
@@ -100,6 +100,7 @@ _data = {
 [node name="RigidBody2D" type="CharacterBody2D" unique_id=1987141347]
 input_pickable = true
 script = ExtResource("1_8ax00")
+prefab_id = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1560058167]
 shape = SubResource("RectangleShape2D_8ax00")

@@ -45,3 +45,6 @@ func spawn():
 							
 func spawn_with_override():
 	pass
+	
+func get_room_name():
+	return room_name

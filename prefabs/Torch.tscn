@@ -13,7 +13,7 @@ size = Vector2(27, 32.25)
 [node name="Torch" type="RigidBody2D" unique_id=1509374204]
 input_pickable = true
 script = ExtResource("1_hl714")
-prefab_id = 9
+prefab_id = 4
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=2067323248]
 energy = 1.32

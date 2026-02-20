@@ -12,6 +12,7 @@ font_size = 100
 
 [node name="RigidBody2D" type="RigidBody2D" unique_id=2070540883]
 script = ExtResource("1_o3b07")
+prefab_id = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=794037456]
 position = Vector2(0, 3.5)

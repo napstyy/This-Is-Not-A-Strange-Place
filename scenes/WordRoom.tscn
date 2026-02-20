@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://dp8nbpfl6vfjt" path="res://scripts/Room_Manager.gd" id="1_vugbi"]
 [ext_resource type="Script" uid="uid://nw3vuy2r8yoh" path="res://scripts/ColorSwap.gd" id="2_svafy"]
 [ext_resource type="PackedScene" uid="uid://bc7qxmqbha1hw" path="res://prefabs/SquareLabel.tscn" id="4_7wd0t"]
-[ext_resource type="Script" path="res://scripts/Slot.gd" id="4_75evl"]
+[ext_resource type="Script" uid="uid://3gaybbsgif2a" path="res://scripts/Slot.gd" id="4_75evl"]
 [ext_resource type="PackedScene" uid="uid://k4oey5wgsgq4" path="res://prefabs/CircleLabel.tscn" id="4_i2bln"]
 [ext_resource type="PackedScene" uid="uid://bucqw4g3b7u6l" path="res://prefabs/FireLabel.tscn" id="6_fjgfx"]
 [ext_resource type="PackedScene" uid="uid://hexrmn8li4vd" path="res://prefabs/WaterLabel.tscn" id="7_b74ql"]
@@ -107,7 +107,6 @@ position = Vector2(284, 313)
 [node name="Cave_Drop" type="Area2D" parent="Teleporters" unique_id=1976469382]
 position = Vector2(93, 68)
 script = ExtResource("13_tlxbp")
-current_room_name = "WordRoom"
 target_room_name = "CaveRoom"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporters/Cave_Drop" unique_id=1788187004]
@@ -138,7 +137,6 @@ level = "res://scenes/CubeRoom.tscn"
 [node name="Torch_Drop" type="Area2D" parent="Teleporters" unique_id=1863593157]
 position = Vector2(1055, 71)
 script = ExtResource("13_tlxbp")
-current_room_name = "WordRoom"
 target_room_name = "TorchRoom"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporters/Torch_Drop" unique_id=1482835372]

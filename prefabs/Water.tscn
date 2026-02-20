@@ -57,6 +57,7 @@ size = Vector2(27, 32.25)
 
 [node name="RigidBody2D" type="RigidBody2D" unique_id=1131744029]
 script = ExtResource("1_rmc38")
+prefab_id = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=382331951]
 position = Vector2(0, -2)

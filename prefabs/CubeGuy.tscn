@@ -110,6 +110,7 @@ size = Vector2(11.252857, 2.9962583)
 input_pickable = true
 script = ExtResource("1_hjsws")
 sprite_2d = NodePath("Sprite2D")
+prefab_id = 0
 feet_area_path = NodePath("Area2D")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=167601114]

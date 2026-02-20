@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bsujp5tt2l873"]
 
-[ext_resource type="Script" path="res://scripts/SquareLabel.gd" id="1_cxyre"]
+[ext_resource type="Script" uid="uid://csn48whq70jw3" path="res://scripts/SquareLabel.gd" id="1_cxyre"]
 [ext_resource type="FontFile" uid="uid://jcagdl68pown" path="res://assets/fonts/Parisienne/Parisienne-Regular.ttf" id="2_cxyre"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svafy"]
@@ -12,7 +12,7 @@ font_size = 100
 
 [node name="RigidBody2D" type="RigidBody2D" unique_id=2070540883]
 script = ExtResource("1_cxyre")
-prefab_id = 5
+prefab_id = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=794037456]
 position = Vector2(5, -12.5)

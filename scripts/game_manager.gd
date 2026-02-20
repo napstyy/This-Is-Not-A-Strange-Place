@@ -6,7 +6,7 @@ var counters = {
 	"SpherePeople": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0},
 	"Human": {"CubeRoom": 0, "CaveRoom": 3, "TorchRoom": 0, "WordRoom":0},
 	"Animal": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0},
-	"Fire": {"CubeRoom": 0, "CaveRoom": 1, "TorchRoom": 0, "WordRoom":0},
+	"Fire": {"CubeRoom": 0, "CaveRoom": 1, "TorchRoom": 1, "WordRoom":0},
 	"Water": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0},
 	"CubeLabel": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0},
 	"SphereLabel": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0},

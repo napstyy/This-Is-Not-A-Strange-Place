@@ -4,12 +4,19 @@ extends Area2D
 @export var replacement_scenes: Array[PackedScene] = []
 
 var current_snapped: Node = null
+var bodyDict = {}
 
 func _ready():
 	if not is_connected("body_entered", Callable(self, "_on_body_entered")):
 		connect("body_entered", Callable(self, "_on_body_entered"))
 	if not is_connected("body_exited", Callable(self, "_on_body_exited")):
 		connect("body_exited", Callable(self, "_on_body_exited"))
+
+	#Generates bodyDict
+	var count = 0
+	for i in GameManager.counters:
+		bodyDict[count] = i
+		count+=1
 
 	if color_rect_path != NodePath(""):
 		var cr = get_node_or_null(color_rect_path)
@@ -47,11 +54,19 @@ func _on_color_toggled(_is_black: bool) -> void:
 		return
 
 	var id: int = current_snapped.prefab_id
-	if id < 0 or id >= replacement_scenes.size():
-		push_warning("Invalid prefab_id: %d" % id)
-		return
+	#if id < 0 or id >= replacement_scenes.size():
+		#push_warning("Invalid prefab_id: %d" % id)
+		#return
+	
+	#This code is horrendous and not scalable but it works. Flips labels based on even or odd.
+	#Reliant on proper ordering in GameManager
+	var idoffset = 0
+	if (id%2==0):
+		idoffset=+1
+	else:
+		idoffset=-1
 
-	var target_scene: PackedScene = replacement_scenes[id]
+	var target_scene: PackedScene = GameManager.replacement_scenes[id+idoffset]
 	if target_scene == null:
 		push_warning("Replacement scene at index %d is null" % id)
 		return
@@ -68,3 +83,9 @@ func _on_color_toggled(_is_black: bool) -> void:
 		new_node.sleeping = false
 
 	current_snapped = null
+	
+	#Update counters
+	#count down a label
+	GameManager.counters[bodyDict[id]]["WordRoom"] = GameManager.counters[bodyDict[id]]["WordRoom"] - 1
+	#count up its opposite
+	GameManager.counters[bodyDict[id+idoffset]]["WordRoom"] = GameManager.counters[bodyDict[id+idoffset]]["WordRoom"] + 1
