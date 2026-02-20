@@ -132,15 +132,10 @@ _data = {
 &"walk": SubResource("Animation_tg7xu")
 }
 
-[node name="RigidBody2D2" type="CharacterBody2D" unique_id=1114350461]
+[node name="RigidBody2D2" type="CharacterBody2D" unique_id=1114350461 node_paths=PackedStringArray("sprite_2d")]
 script = ExtResource("1_tg7xu")
 speed = 0.0
-min_pause = null
-max_pause = null
-min_walk = null
-max_walk = null
-prefab_id = null
-feet_area_path = null
+sprite_2d = NodePath("AnimSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=47918763]
 position = Vector2(-1.4999971, 0)

@@ -103,9 +103,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ep1pc"]
 size = Vector2(21, 31)
 
-[node name="RigidBody2D" type="CharacterBody2D" unique_id=156628446]
+[node name="RigidBody2D" type="CharacterBody2D" unique_id=156628446 node_paths=PackedStringArray("sprite_2d")]
 input_pickable = true
 script = ExtResource("2_ep1pc")
+sprite_2d = NodePath("Sprite2D")
 prefab_id = 7
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1383546910]

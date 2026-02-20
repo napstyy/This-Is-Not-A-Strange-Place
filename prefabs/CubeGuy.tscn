@@ -106,9 +106,10 @@ size = Vector2(21.999996, 27.999992)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hjsws"]
 size = Vector2(11.252857, 2.9962583)
 
-[node name="CubeGuy" type="CharacterBody2D" unique_id=929557763]
+[node name="CubeGuy" type="CharacterBody2D" unique_id=929557763 node_paths=PackedStringArray("sprite_2d")]
 input_pickable = true
 script = ExtResource("1_hjsws")
+sprite_2d = NodePath("Sprite2D")
 feet_area_path = NodePath("Area2D")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=167601114]

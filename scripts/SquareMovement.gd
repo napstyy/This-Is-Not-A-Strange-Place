@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var max_pause: float = 2.0
 @export var min_walk: float = 1.0
 @export var max_walk: float = 3.0
-@onready var sprite_2d: AnimatedSprite2D = $Sprite2D #for walking animation
+@export var sprite_2d: AnimatedSprite2D #for walking animation
 
 @export var prefab_id := 6
 
@@ -67,8 +67,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 
 	# flip sprite if present
-	if $Sprite2D:
-		$Sprite2D.flip_h = direction < 0
+	if sprite_2d:
+		sprite_2d.flip_h = direction < 0
 
 	# move
 	move_and_slide()
