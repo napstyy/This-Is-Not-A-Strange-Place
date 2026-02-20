@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://hxdrkn7ptgyp" path="res://prefabs/cubeprogressbar.tscn" id="8_q01df"]
 [ext_resource type="PackedScene" uid="uid://ysxlk2d6grno" path="res://prefabs/portal.tscn" id="9_peehg"]
 [ext_resource type="PackedScene" uid="uid://bkeh62c4hysg5" path="res://prefabs/hoverable_zone.tscn" id="10_pfh58"]
+[ext_resource type="PackedScene" uid="uid://c4mfd7uqnh276" path="res://prefabs/Watercooler.tscn" id="17_6ht2y"]
 [ext_resource type="Script" uid="uid://gadvn8jnxpyg" path="res://scripts/torch_drop.gd" id="17_w00ee"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fht1v"]
@@ -188,5 +189,8 @@ shape = SubResource("RectangleShape2D_6ht2y")
 [node name="Timer" type="Timer" parent="." unique_id=210339253]
 wait_time = 0.2
 autostart = true
+
+[node name="RigidBody2D" parent="." unique_id=1809265699 instance=ExtResource("17_6ht2y")]
+position = Vector2(273, 147)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
