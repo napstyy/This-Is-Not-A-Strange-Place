@@ -87,11 +87,11 @@ replacement_scenes = Array[PackedScene]([ExtResource("4_i2bln"), ExtResource("4_
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Area2D" unique_id=1811734576]
 shape = SubResource("CircleShape2D_svafy")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1115365397]
+[node name="World Border Bottom" type="StaticBody2D" parent="." unique_id=1115365397]
 position = Vector2(588, 761)
 scale = Vector2(1382.8175, 2.0408833)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1489506687]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World Border Bottom" unique_id=1489506687]
 position = Vector2(0.0007231612, -55.858196)
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("WorldBoundaryShape2D_fjgfx")
@@ -151,17 +151,29 @@ level = "res://scenes/TorchRoom.tscn"
 [node name="Spawners" type="Node" parent="." unique_id=966096494]
 
 [node name="Spawn" type="Node2D" parent="Spawners" unique_id=2076033002]
-position = Vector2(284, 313)
+position = Vector2(193, 345)
 script = ExtResource("13_pabv5")
 
-[node name="Spawner" parent="Spawners" unique_id=1040865886 instance=ExtResource("16_fdrim")]
-position = Vector2(392, 521)
-spawnID = 11
+[node name="SpawnCube" parent="Spawners" unique_id=1040865886 instance=ExtResource("16_fdrim")]
+position = Vector2(193, 607)
+spawnID = 6
 
-[node name="Spawner2" parent="Spawners" unique_id=2117151011 instance=ExtResource("16_fdrim")]
-position = Vector2(653, 521)
-spawnID = 11
-
-[node name="Spawner3" parent="Spawners" unique_id=1334588064 instance=ExtResource("16_fdrim")]
-position = Vector2(915, 521)
+[node name="SpawnSphere" parent="Spawners" unique_id=2117151011 instance=ExtResource("16_fdrim")]
+position = Vector2(193, 509)
 spawnID = 7
+
+[node name="SpawnerHuman" parent="Spawners" unique_id=1334588064 instance=ExtResource("16_fdrim")]
+position = Vector2(547, 509)
+spawnID = 8
+
+[node name="SpawnerAnimal" parent="Spawners" unique_id=623863595 instance=ExtResource("16_fdrim")]
+position = Vector2(547, 607)
+spawnID = 9
+
+[node name="SpawnFire" parent="Spawners" unique_id=1371879876 instance=ExtResource("16_fdrim")]
+position = Vector2(903, 509)
+spawnID = 10
+
+[node name="SpawnWater" parent="Spawners" unique_id=1254482894 instance=ExtResource("16_fdrim")]
+position = Vector2(903, 607)
+spawnID = 11

@@ -3,13 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://cfrpl0nvunqc0" path="res://assets/CaveBG.png" id="1_asb7r"]
 [ext_resource type="Script" uid="uid://dp8nbpfl6vfjt" path="res://scripts/Room_Manager.gd" id="1_ga6sr"]
 [ext_resource type="Texture2D" uid="uid://b77v2ldoivfku" path="res://assets/all-current-posters-v0-evzgpsbdd5jg1.webp" id="1_m7vs3"]
-[ext_resource type="PackedScene" uid="uid://brni1ea1fo23o" path="res://prefabs/Human.tscn" id="1_tqoec"]
 [ext_resource type="PackedScene" uid="uid://bgi8l7xltgpt5" path="res://prefabs/Campfire.tscn" id="2_hfnui"]
-[ext_resource type="PackedScene" uid="uid://c8esr1mm2apye" path="res://prefabs/SphereGuy.tscn" id="3_celd6"]
 [ext_resource type="PackedScene" uid="uid://ofmghndjf21h" path="res://prefabs/Light.tscn" id="4_qhogg"]
 [ext_resource type="PackedScene" uid="uid://ysxlk2d6grno" path="res://prefabs/portal.tscn" id="9_t1umm"]
 [ext_resource type="PackedScene" uid="uid://bkeh62c4hysg5" path="res://prefabs/hoverable_zone.tscn" id="10_w4ggp"]
 [ext_resource type="PackedScene" uid="uid://daavhwsrpaomr" path="res://prefabs/custom_cursor.tscn" id="11_n1yii"]
+[ext_resource type="Script" uid="uid://c61lcf3li17tt" path="res://scripts/spawners.gd" id="11_w4ggp"]
+[ext_resource type="PackedScene" uid="uid://c61fgju6ndi7c" path="res://prefabs/spawner.tscn" id="12_n1yii"]
 [ext_resource type="PackedScene" uid="uid://c1qvil12wh3bl" path="res://prefabs/BrickObjective.tscn" id="16_ga6sr"]
 [ext_resource type="Script" uid="uid://gadvn8jnxpyg" path="res://scripts/torch_drop.gd" id="17_24su6"]
 
@@ -36,7 +36,7 @@ size = Vector2(185, 142)
 [node name="CaveRoom" type="Node2D" unique_id=921493798 node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_ga6sr")
 room_name = "CaveRoom"
-spawn_point = NodePath("Spawn")
+spawn_point = NodePath("Node/Spawn")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2133725666]
 tile_map_data = PackedByteArray("AAAAAAEAAAAAAAEAAAAAAAIAAAAAAAIAAAAAAAMAAAAAAAMAAAAAAAQAAAAAAAQAAAAAAAUAAAAAAAUAAAABAAEAAAAAAAEAAAABAAIAAAAAAAIAAAABAAMAAAAAAAMAAAABAAQAAAAAAAQAAAABAAUAAAAAAAUAAAACAAEAAAAAAAEAAAACAAIAAAAAAAIAAAACAAMAAAAAAAMAAAACAAQAAAAAAAQAAAACAAUAAAAAAAUAAAADAAEAAAAAAAEAAAADAAIAAAAAAAIAAAADAAMAAAAAAAMAAAADAAQAAAAAAAQAAAADAAUAAAAAAAUAAAAEAAEAAAAAAAEAAAAEAAIAAAAAAAIAAAAEAAMAAAAAAAMAAAAEAAQAAAAAAAQAAAAEAAUAAAAAAAUAAAAFAAEAAAAAAAEAAAAFAAIAAAAAAAIAAAAFAAMAAAAAAAMAAAAFAAQAAAAAAAQAAAAFAAUAAAAAAAUAAAAGAAEAAAAAAAEAAAAGAAIAAAAAAAIAAAAGAAMAAAAAAAMAAAAGAAQAAAAAAAQAAAAGAAUAAAAAAAUAAAAHAAEAAAAAAAEAAAAHAAIAAAAAAAIAAAAHAAMAAAAAAAMAAAAHAAQAAAAAAAQAAAAHAAUAAAAAAAUAAAAIAAEAAAAAAAEAAAAIAAIAAAAAAAIAAAAIAAMAAAAAAAMAAAAIAAQAAAAAAAQAAAAIAAUAAAAAAAUAAAAAAAYAAAAAAAYAAAABAAYAAAAAAAYAAAACAAYAAAAAAAYAAAADAAYAAAAAAAYAAAAEAAYAAAAAAAYAAAAFAAYAAAAAAAYAAAAGAAYAAAAAAAYAAAAHAAYAAAAAAAYAAAAIAAYAAAAAAAYAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAJAAEAAAAAAAEAAAAKAAEAAAAAAAEAAAALAAEAAAAAAAEAAAAJAAIAAAAAAAIAAAAKAAIAAAAAAAIAAAALAAIAAAAAAAIAAAAJAAMAAAAAAAMAAAAKAAMAAAAAAAMAAAALAAMAAAAAAAMAAAAJAAQAAAAAAAQAAAAKAAQAAAAAAAQAAAALAAQAAAAAAAQAAAAJAAUAAAAAAAUAAAAKAAUAAAAAAAUAAAALAAUAAAAAAAUAAAAJAAYAAAAAAAYAAAAKAAYAAAAAAAYAAAALAAYAAAAAAAYAAAA=")
@@ -76,17 +76,6 @@ rotation = -1.5707964
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/right" unique_id=821651989]
 shape = SubResource("WorldBoundaryShape2D_tqoec")
 
-[node name="CavePeople" type="Node" parent="." unique_id=1400962017]
-
-[node name="CavePerson" parent="CavePeople" unique_id=1029679774 instance=ExtResource("1_tqoec")]
-position = Vector2(243, 201)
-
-[node name="CavePerson2" parent="CavePeople" unique_id=154381190 instance=ExtResource("1_tqoec")]
-position = Vector2(132, 197)
-
-[node name="CavePerson3" parent="CavePeople" unique_id=653354321 instance=ExtResource("1_tqoec")]
-position = Vector2(203, 197)
-
 [node name="Campfire" parent="." unique_id=109504776 instance=ExtResource("2_hfnui")]
 position = Vector2(168, 200)
 light_scene = ExtResource("4_qhogg")
@@ -102,23 +91,11 @@ color = Color(0.49433076, 0.49433076, 0.49433064, 1)
 anchor_mode = 0
 zoom = Vector2(3, 3)
 
-[node name="Portal" parent="." unique_id=1307911027 instance=ExtResource("9_t1umm")]
-position = Vector2(37, 133)
-
-[node name="HoverableZone" parent="Portal" unique_id=761841129 node_paths=PackedStringArray("mouseCursor") instance=ExtResource("10_w4ggp")]
-scale = Vector2(0.2, 0.2)
-mouseCursor = NodePath("../../CustomCursor")
-hoverCursor = "default"
-level = "res://scenes/WordRoom.tscn"
-
 [node name="CustomCursor" parent="." unique_id=1188223711 instance=ExtResource("11_n1yii")]
 visible = false
 
-[node name="Spawn" type="Node2D" parent="." unique_id=178329879]
-position = Vector2(184, 100)
-
 [node name="Drop" type="Area2D" parent="." unique_id=1514143038]
-position = Vector2(38, 132)
+position = Vector2(36, 33.000004)
 scale = Vector2(0.16036896, 0.16036896)
 script = ExtResource("17_24su6")
 target_room_name = "WordRoom"
@@ -127,8 +104,33 @@ target_room_name = "WordRoom"
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_celd6")
 
+[node name="Portal" parent="Drop" unique_id=1307911027 instance=ExtResource("9_t1umm")]
+position = Vector2(-6.235626, 6.2355957)
+scale = Vector2(6.23562, 6.23562)
+
+[node name="HoverableZone" parent="Drop/Portal" unique_id=761841129 node_paths=PackedStringArray("mouseCursor") instance=ExtResource("10_w4ggp")]
+scale = Vector2(0.2, 0.2)
+mouseCursor = NodePath("../../../CustomCursor")
+hoverCursor = "default"
+level = "res://scenes/WordRoom.tscn"
+
 [node name="RigidBody2D" parent="." unique_id=1984099935 instance=ExtResource("16_ga6sr")]
 position = Vector2(331, 216)
 
-[node name="RigidBody2D2" parent="." unique_id=156628446 instance=ExtResource("3_celd6")]
-position = Vector2(225, 142)
+[node name="Node" type="Node" parent="." unique_id=1002596879]
+
+[node name="Spawn" type="Node2D" parent="Node" unique_id=178329879]
+position = Vector2(35, 156)
+script = ExtResource("11_w4ggp")
+
+[node name="Spawner" parent="Node" unique_id=1040865886 instance=ExtResource("12_n1yii")]
+position = Vector2(126, 200)
+spawnID = 2
+
+[node name="Spawner2" parent="Node" unique_id=1516249448 instance=ExtResource("12_n1yii")]
+position = Vector2(214, 200)
+spawnID = 2
+
+[node name="Spawner3" parent="Node" unique_id=902193498 instance=ExtResource("12_n1yii")]
+position = Vector2(266, 200)
+spawnID = 2
