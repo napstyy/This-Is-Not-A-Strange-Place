@@ -20,6 +20,7 @@ var attached_offset: Vector2 = Vector2.ZERO
 @onready var feet_area: Area2D = get_node_or_null(feet_area_path)
 
 func _ready() -> void:
+	add_to_group("animal")
 	input_pickable = true
 	randomize()
 	if feet_area:
