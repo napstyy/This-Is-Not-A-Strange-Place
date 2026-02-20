@@ -5,12 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://br2jy4ris6au2" path="res://prefabs/CubeGuy.tscn" id="2_fht1v"]
 [ext_resource type="Texture2D" uid="uid://ci0jljvs8m18n" path="res://assets/desk.png" id="2_l76xo"]
 [ext_resource type="PackedScene" uid="uid://daavhwsrpaomr" path="res://prefabs/custom_cursor.tscn" id="3_rc4vf"]
-[ext_resource type="PackedScene" uid="uid://c8esr1mm2apye" path="res://prefabs/SphereGuy.tscn" id="3_w00ee"]
-[ext_resource type="PackedScene" uid="uid://btyv5g25njvh7" path="res://prefabs/Water.tscn" id="4_6ht2y"]
-[ext_resource type="Texture2D" uid="uid://dpcgrit4b60q3" path="res://assets/Treadmill.png" id="4_wodt7"]
-[ext_resource type="PackedScene" uid="uid://dqidpxlao7vx2" path="res://prefabs/Torch.tscn" id="5_ososb"]
 [ext_resource type="Texture2D" uid="uid://bpasvim34ttdh" path="res://assets/cactus.png" id="5_wodt7"]
-[ext_resource type="PackedScene" uid="uid://brni1ea1fo23o" path="res://prefabs/Human.tscn" id="6_yyspy"]
 [ext_resource type="PackedScene" uid="uid://dxecvs1ue856e" path="res://prefabs/Animal.tscn" id="7_gilpn"]
 [ext_resource type="PackedScene" uid="uid://hxdrkn7ptgyp" path="res://prefabs/cubeprogressbar.tscn" id="8_q01df"]
 [ext_resource type="PackedScene" uid="uid://ysxlk2d6grno" path="res://prefabs/portal.tscn" id="9_peehg"]
@@ -43,42 +38,6 @@ texture = ExtResource("1_3itya")
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_fht1v")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fstx5"]
-atlas = ExtResource("4_wodt7")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wodt7"]
-atlas = ExtResource("4_wodt7")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q01df"]
-atlas = ExtResource("4_wodt7")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_peehg"]
-atlas = ExtResource("4_wodt7")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_fts0c"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fstx5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wodt7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q01df")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_peehg")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_l76xo"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fht1v"]
@@ -93,7 +52,6 @@ size = Vector2(185, 142)
 [node name="Node2D" type="Node2D" unique_id=770963908 node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_fts0c")
 room_name = "CubeRoom"
-replacement_scenes = Array[PackedScene]([ExtResource("2_fht1v"), ExtResource("3_w00ee"), ExtResource("4_6ht2y"), ExtResource("5_ososb"), ExtResource("6_yyspy"), ExtResource("7_gilpn")])
 spawn_point = NodePath("Spawn")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=802128227]
@@ -111,12 +69,6 @@ texture = ExtResource("2_l76xo")
 [node name="table3" type="Sprite2D" parent="TileMapLayer" unique_id=1864669688]
 position = Vector2(93, 148)
 texture = ExtResource("2_l76xo")
-
-[node name="treadmill" type="AnimatedSprite2D" parent="TileMapLayer" unique_id=800905528]
-position = Vector2(216, 147)
-sprite_frames = SubResource("SpriteFrames_fts0c")
-autoplay = "default"
-frame_progress = 0.13462196
 
 [node name="cactus" type="Sprite2D" parent="TileMapLayer" unique_id=1384491386]
 position = Vector2(65, 147)
@@ -151,7 +103,7 @@ rotation = 3.1415927
 shape = SubResource("WorldBoundaryShape2D_pn0b1")
 
 [node name="CubeGuy" parent="." unique_id=929557763 instance=ExtResource("2_fht1v")]
-position = Vector2(228, 139)
+position = Vector2(15, 146)
 
 [node name="CustomCursor" parent="." unique_id=1188223711 instance=ExtResource("3_rc4vf")]
 visible = false
@@ -192,5 +144,8 @@ autostart = true
 
 [node name="RigidBody2D" parent="." unique_id=1809265699 instance=ExtResource("17_6ht2y")]
 position = Vector2(273, 147)
+
+[node name="RigidBody2D2" parent="." unique_id=1987141347 instance=ExtResource("7_gilpn")]
+position = Vector2(156, 101)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
