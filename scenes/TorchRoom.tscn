@@ -1,13 +1,9 @@
 [gd_scene format=4 uid="uid://dh88on2b31yws"]
 
 [ext_resource type="Script" uid="uid://dp8nbpfl6vfjt" path="res://scripts/Room_Manager.gd" id="1_sv3j7"]
-[ext_resource type="PackedScene" uid="uid://c8esr1mm2apye" path="res://prefabs/SphereGuy.tscn" id="2_idcqs"]
-[ext_resource type="PackedScene" uid="uid://btyv5g25njvh7" path="res://prefabs/Water.tscn" id="4_ambhg"]
 [ext_resource type="Texture2D" uid="uid://b77v2ldoivfku" path="res://assets/all-current-posters-v0-evzgpsbdd5jg1.webp" id="4_dscsm"]
 [ext_resource type="PackedScene" uid="uid://dqidpxlao7vx2" path="res://prefabs/Torch.tscn" id="5_sv3j7"]
-[ext_resource type="PackedScene" uid="uid://brni1ea1fo23o" path="res://prefabs/Human.tscn" id="6_4g2yf"]
 [ext_resource type="PackedScene" uid="uid://br2jy4ris6au2" path="res://prefabs/CubeGuy.tscn" id="6_idcqs"]
-[ext_resource type="PackedScene" uid="uid://dxecvs1ue856e" path="res://prefabs/Animal.tscn" id="7_3y2sx"]
 [ext_resource type="Texture2D" uid="uid://rmv1h4cn0m6w" path="res://assets/TorchBG.png" id="8_r3faa"]
 [ext_resource type="PackedScene" uid="uid://daavhwsrpaomr" path="res://prefabs/custom_cursor.tscn" id="10_r3faa"]
 [ext_resource type="PackedScene" uid="uid://ysxlk2d6grno" path="res://prefabs/portal.tscn" id="11_3wgc2"]
@@ -49,7 +45,6 @@ size = Vector2(185, 142)
 [node name="TorchRoom" type="Node2D" unique_id=5330240 node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_sv3j7")
 room_name = "TorchRoom"
-replacement_scenes = Array[PackedScene]([ExtResource("6_idcqs"), ExtResource("2_idcqs"), ExtResource("4_ambhg"), ExtResource("5_sv3j7"), ExtResource("6_4g2yf"), ExtResource("7_3y2sx")])
 spawn_point = NodePath("Spawn")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=198503830]

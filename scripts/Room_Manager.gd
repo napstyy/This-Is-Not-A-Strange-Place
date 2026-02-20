@@ -18,7 +18,7 @@ func _ready():
 	for i in GameManager.counters:
 		idDict[i] = count
 		count+=1
-	print(idDict)
+	#print(idDict)
 	spawn()
 	
 	#OldCode
@@ -31,7 +31,7 @@ func _ready():
 			#
 			#if instance is Node2D:
 				#instance.global_position = spawn_point.global_position
-	
+
 func spawn():
 	#Check counters & spawn things, Room code has to remove anything that is there by default
 	for instances in GameManager.counters: #For each object type, spawn them if counter > 0
@@ -39,5 +39,9 @@ func spawn():
 			for i in GameManager.counters[instances][room_name]:
 						var newObj = GameManager.replacement_scenes[idDict[instances]].instantiate()
 						add_child(newObj)
+						print(newObj.get_tree().g)
 						if newObj is Node2D:
 							newObj.global_position = spawn_point.global_position
+							
+func spawn_with_override():
+	pass

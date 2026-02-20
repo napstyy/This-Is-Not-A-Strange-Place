@@ -99,28 +99,10 @@ visible = false
 
 [node name="Level Transitions" type="Node" parent="." unique_id=335535766]
 
-[node name="Cave_Zone" parent="Level Transitions" unique_id=761841129 node_paths=PackedStringArray("mouseCursor") instance=ExtResource("11_1rj1m")]
-position = Vector2(86, 66)
-mouseCursor = NodePath("../../CustomCursor")
-hoverCursor = "cave"
-level = "res://scenes/CaveRoom.tscn"
-
-[node name="Torch_Zone" parent="Level Transitions" unique_id=1607652756 node_paths=PackedStringArray("mouseCursor") instance=ExtResource("11_1rj1m")]
-position = Vector2(1063, 66)
-mouseCursor = NodePath("../../CustomCursor")
-hoverCursor = "dark"
-level = "res://scenes/TorchRoom.tscn"
-
-[node name="Cube_Zone" parent="Level Transitions" unique_id=2139133167 node_paths=PackedStringArray("mouseCursor") instance=ExtResource("11_1rj1m")]
-position = Vector2(1047, 581)
-mouseCursor = NodePath("../../CustomCursor")
-hoverCursor = "cube"
-level = "res://scenes/CubeRoom.tscn"
-
 [node name="Teleporters" type="Node" parent="." unique_id=1674591379]
 
 [node name="Spawn" type="Node2D" parent="Teleporters" unique_id=2076033002]
-position = Vector2(450, 82)
+position = Vector2(284, 313)
 
 [node name="Cave_Drop" type="Area2D" parent="Teleporters" unique_id=1976469382]
 position = Vector2(93, 68)
@@ -131,14 +113,26 @@ target_room_name = "CaveRoom"
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_1rj1m")
 
+[node name="Cave_Zone" parent="Teleporters/Cave_Drop" unique_id=761841129 node_paths=PackedStringArray("mouseCursor") instance=ExtResource("11_1rj1m")]
+position = Vector2(-7, -2)
+mouseCursor = NodePath("../../../CustomCursor")
+hoverCursor = "cave"
+level = "res://scenes/CaveRoom.tscn"
+
 [node name="Cube_Drop" type="Area2D" parent="Teleporters" unique_id=42677965]
-position = Vector2(1058, 592)
+position = Vector2(577, 68)
 script = ExtResource("13_tlxbp")
 target_room_name = "CubeRoom"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporters/Cube_Drop" unique_id=704520403]
 position = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_1rj1m")
+
+[node name="Cube_Zone" parent="Teleporters/Cube_Drop" unique_id=2139133167 node_paths=PackedStringArray("mouseCursor") instance=ExtResource("11_1rj1m")]
+position = Vector2(-11, -11)
+mouseCursor = NodePath("../../../CustomCursor")
+hoverCursor = "cube"
+level = "res://scenes/CubeRoom.tscn"
 
 [node name="Torch_Drop" type="Area2D" parent="Teleporters" unique_id=1863593157]
 position = Vector2(1055, 71)
@@ -148,3 +142,9 @@ target_room_name = "TorchRoom"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporters/Torch_Drop" unique_id=1482835372]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_1rj1m")
+
+[node name="Torch_Zone" parent="Teleporters/Torch_Drop" unique_id=1607652756 node_paths=PackedStringArray("mouseCursor") instance=ExtResource("11_1rj1m")]
+position = Vector2(8, -5)
+mouseCursor = NodePath("../../../CustomCursor")
+hoverCursor = "dark"
+level = "res://scenes/TorchRoom.tscn"
