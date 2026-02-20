@@ -146,6 +146,8 @@ shape = SubResource("RectangleShape2D_1qrlg")
 sprite_frames = SubResource("SpriteFrames_ty728")
 animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.0007641303
+speed_scale = 5.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimSprite2D" unique_id=1469921985]
 libraries/ = SubResource("AnimationLibrary_hatuw")

@@ -1,0 +1,22 @@
+extends StaticBody2D
+
+@onready var area: Area2D = $Area2D 
+@onready var guysprite: AnimatedSprite2D = $Guysprite
+@onready var cartsprite: AnimatedSprite2D = $Cartsprite
+
+var is_pushed: bool = false
+var push_speed: float = 25.0
+
+func _ready():
+	area.body_entered.connect(_on_body_entered)
+	guysprite.play()
+
+func _physics_process(delta):
+	if is_pushed:
+		global_position.x += push_speed * delta
+
+func _on_body_entered(body):
+	if body.is_in_group("circle"):
+		guysprite.stop()
+		cartsprite.play("push")
+		is_pushed = true

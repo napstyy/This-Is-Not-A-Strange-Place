@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c8esr1mm2apye"]
 
-[ext_resource type="Script" uid="uid://cg5rb06wti1lw" path="res://scripts/SquareMovement.gd" id="2_ep1pc"]
+[ext_resource type="Script" uid="uid://h7qfwl46e4in" path="res://prefabs/SphereMovement.gd" id="1_ep1pc"]
 [ext_resource type="Texture2D" uid="uid://bnwsws3ly248r" path="res://assets/CirclePersonUpdated.png" id="2_vshiu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_di88p"]
@@ -103,11 +103,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ep1pc"]
 size = Vector2(21, 31)
 
-[node name="RigidBody2D" type="CharacterBody2D" unique_id=156628446 node_paths=PackedStringArray("sprite_2d")]
+[node name="RigidBody2D" type="CharacterBody2D" unique_id=156628446]
 input_pickable = true
-script = ExtResource("2_ep1pc")
-sprite_2d = NodePath("Sprite2D")
-prefab_id = 7
+script = ExtResource("1_ep1pc")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1383546910]
 sprite_frames = SubResource("SpriteFrames_s5ggb")

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cabjmmy5wr18j"]
+[gd_scene format=3 uid="uid://bgi8l7xltgpt5"]
 
 [ext_resource type="Script" uid="uid://bu65ypsgdof44" path="res://scripts/campfire.gd" id="1_0dg7e"]
 [ext_resource type="Texture2D" uid="uid://bfi1eebkkdki2" path="res://assets/unlitcampfire.png" id="1_8nxpw"]
@@ -10,7 +10,7 @@ size = Vector2(30, 30)
 [sub_resource type="CircleShape2D" id="CircleShape2D_lscuj"]
 radius = 13.0
 
-[node name="RigidBody2D" type="StaticBody2D" unique_id=1809265699]
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1809265699]
 disable_mode = 1
 script = ExtResource("1_0dg7e")
 normal_texture = ExtResource("1_8nxpw")

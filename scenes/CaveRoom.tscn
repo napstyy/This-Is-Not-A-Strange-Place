@@ -4,18 +4,13 @@
 [ext_resource type="Script" uid="uid://dp8nbpfl6vfjt" path="res://scripts/Room_Manager.gd" id="1_ga6sr"]
 [ext_resource type="Texture2D" uid="uid://b77v2ldoivfku" path="res://assets/all-current-posters-v0-evzgpsbdd5jg1.webp" id="1_m7vs3"]
 [ext_resource type="PackedScene" uid="uid://brni1ea1fo23o" path="res://prefabs/Human.tscn" id="1_tqoec"]
-[ext_resource type="PackedScene" uid="uid://br2jy4ris6au2" path="res://prefabs/CubeGuy.tscn" id="2_24su6"]
 [ext_resource type="PackedScene" uid="uid://bgi8l7xltgpt5" path="res://prefabs/Campfire.tscn" id="2_hfnui"]
-[ext_resource type="PackedScene" uid="uid://dqidpxlao7vx2" path="res://prefabs/Torch.tscn" id="3_24ulf"]
 [ext_resource type="PackedScene" uid="uid://c8esr1mm2apye" path="res://prefabs/SphereGuy.tscn" id="3_celd6"]
 [ext_resource type="PackedScene" uid="uid://ofmghndjf21h" path="res://prefabs/Light.tscn" id="4_qhogg"]
-[ext_resource type="PackedScene" uid="uid://btyv5g25njvh7" path="res://prefabs/Water.tscn" id="4_v7whj"]
-[ext_resource type="PackedScene" uid="uid://dxecvs1ue856e" path="res://prefabs/Animal.tscn" id="7_6fa50"]
-[ext_resource type="Texture2D" uid="uid://dds4kc00mckjp" path="res://assets/brickwagon.png" id="7_sh4bg"]
-[ext_resource type="Texture2D" uid="uid://b7ppsavxa8eb0" path="res://assets/brickpile.png" id="8_4l40k"]
 [ext_resource type="PackedScene" uid="uid://ysxlk2d6grno" path="res://prefabs/portal.tscn" id="9_t1umm"]
 [ext_resource type="PackedScene" uid="uid://bkeh62c4hysg5" path="res://prefabs/hoverable_zone.tscn" id="10_w4ggp"]
 [ext_resource type="PackedScene" uid="uid://daavhwsrpaomr" path="res://prefabs/custom_cursor.tscn" id="11_n1yii"]
+[ext_resource type="PackedScene" uid="uid://c1qvil12wh3bl" path="res://prefabs/BrickObjective.tscn" id="16_ga6sr"]
 [ext_resource type="Script" uid="uid://gadvn8jnxpyg" path="res://scripts/torch_drop.gd" id="17_24su6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ooh35"]
@@ -35,62 +30,12 @@ sources/0 = SubResource("TileSetAtlasSource_ooh35")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tqoec"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w0aye"]
-atlas = ExtResource("7_sh4bg")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t1umm"]
-atlas = ExtResource("7_sh4bg")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w4ggp"]
-atlas = ExtResource("7_sh4bg")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n1yii"]
-atlas = ExtResource("7_sh4bg")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0vp5r"]
-atlas = ExtResource("8_4l40k")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_eexvf"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w0aye")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t1umm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w4ggp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n1yii")
-}],
-"loop": true,
-"name": &"cart",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0vp5r")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_celd6"]
 size = Vector2(185, 142)
 
-[node name="CaveRoom" type="Node2D" unique_id=921493798 node_paths=PackedStringArray("spawn_point")]
+[node name="CaveRoom" type="Node2D" unique_id=921493798]
 script = ExtResource("1_ga6sr")
 room_name = "CaveRoom"
-replacement_scenes = Array[PackedScene]([ExtResource("2_24su6"), ExtResource("3_celd6"), ExtResource("4_v7whj"), ExtResource("3_24ulf"), ExtResource("1_tqoec"), ExtResource("7_6fa50")])
-spawn_point = NodePath("Spawn")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2133725666]
 tile_map_data = PackedByteArray("AAAAAAEAAAAAAAEAAAAAAAIAAAAAAAIAAAAAAAMAAAAAAAMAAAAAAAQAAAAAAAQAAAAAAAUAAAAAAAUAAAABAAEAAAAAAAEAAAABAAIAAAAAAAIAAAABAAMAAAAAAAMAAAABAAQAAAAAAAQAAAABAAUAAAAAAAUAAAACAAEAAAAAAAEAAAACAAIAAAAAAAIAAAACAAMAAAAAAAMAAAACAAQAAAAAAAQAAAACAAUAAAAAAAUAAAADAAEAAAAAAAEAAAADAAIAAAAAAAIAAAADAAMAAAAAAAMAAAADAAQAAAAAAAQAAAADAAUAAAAAAAUAAAAEAAEAAAAAAAEAAAAEAAIAAAAAAAIAAAAEAAMAAAAAAAMAAAAEAAQAAAAAAAQAAAAEAAUAAAAAAAUAAAAFAAEAAAAAAAEAAAAFAAIAAAAAAAIAAAAFAAMAAAAAAAMAAAAFAAQAAAAAAAQAAAAFAAUAAAAAAAUAAAAGAAEAAAAAAAEAAAAGAAIAAAAAAAIAAAAGAAMAAAAAAAMAAAAGAAQAAAAAAAQAAAAGAAUAAAAAAAUAAAAHAAEAAAAAAAEAAAAHAAIAAAAAAAIAAAAHAAMAAAAAAAMAAAAHAAQAAAAAAAQAAAAHAAUAAAAAAAUAAAAIAAEAAAAAAAEAAAAIAAIAAAAAAAIAAAAIAAMAAAAAAAMAAAAIAAQAAAAAAAQAAAAIAAUAAAAAAAUAAAAAAAYAAAAAAAYAAAABAAYAAAAAAAYAAAACAAYAAAAAAAYAAAADAAYAAAAAAAYAAAAEAAYAAAAAAAYAAAAFAAYAAAAAAAYAAAAGAAYAAAAAAAYAAAAHAAYAAAAAAAYAAAAIAAYAAAAAAAYAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAJAAEAAAAAAAEAAAAKAAEAAAAAAAEAAAALAAEAAAAAAAEAAAAJAAIAAAAAAAIAAAAKAAIAAAAAAAIAAAALAAIAAAAAAAIAAAAJAAMAAAAAAAMAAAAKAAMAAAAAAAMAAAALAAMAAAAAAAMAAAAJAAQAAAAAAAQAAAAKAAQAAAAAAAQAAAALAAQAAAAAAAQAAAAJAAUAAAAAAAUAAAAKAAUAAAAAAAUAAAALAAUAAAAAAAUAAAAJAAYAAAAAAAYAAAAKAAYAAAAAAAYAAAALAAYAAAAAAAYAAAA=")
@@ -133,7 +78,7 @@ shape = SubResource("WorldBoundaryShape2D_tqoec")
 [node name="CavePeople" type="Node" parent="." unique_id=1400962017]
 
 [node name="CavePerson" parent="CavePeople" unique_id=1029679774 instance=ExtResource("1_tqoec")]
-position = Vector2(267, 197)
+position = Vector2(243, 201)
 
 [node name="CavePerson2" parent="CavePeople" unique_id=154381190 instance=ExtResource("1_tqoec")]
 position = Vector2(132, 197)
@@ -149,20 +94,12 @@ light_scene = ExtResource("4_qhogg")
 position = Vector2(0, 6)
 scale = Vector2(1, 1)
 
-[node name="Torch" parent="." unique_id=1509374204 instance=ExtResource("3_24ulf")]
-position = Vector2(61, 206)
-
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1942765965]
 color = Color(0.49433076, 0.49433076, 0.49433064, 1)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1385911268]
 anchor_mode = 0
 zoom = Vector2(3, 3)
-
-[node name="Bricks" type="AnimatedSprite2D" parent="." unique_id=1627727516]
-position = Vector2(298, 200)
-sprite_frames = SubResource("SpriteFrames_eexvf")
-autoplay = "default"
 
 [node name="Portal" parent="." unique_id=1307911027 instance=ExtResource("9_t1umm")]
 position = Vector2(37, 133)
@@ -177,7 +114,7 @@ level = "res://scenes/WordRoom.tscn"
 visible = false
 
 [node name="Spawn" type="Node2D" parent="." unique_id=178329879]
-position = Vector2(235, 122)
+position = Vector2(104, 158)
 
 [node name="Drop" type="Area2D" parent="." unique_id=1514143038]
 position = Vector2(38, 132)
@@ -188,3 +125,9 @@ target_room_name = "WordRoom"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Drop" unique_id=158957141]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_celd6")
+
+[node name="RigidBody2D" parent="." unique_id=1984099935 instance=ExtResource("16_ga6sr")]
+position = Vector2(331, 216)
+
+[node name="RigidBody2D2" parent="." unique_id=156628446 instance=ExtResource("3_celd6")]
+position = Vector2(225, 142)
