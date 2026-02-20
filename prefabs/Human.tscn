@@ -26,7 +26,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_tg7xu")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -132,9 +132,15 @@ _data = {
 &"walk": SubResource("Animation_tg7xu")
 }
 
-[node name="RigidBody2D" type="CharacterBody2D" unique_id=1114350461]
+[node name="RigidBody2D2" type="CharacterBody2D" unique_id=1114350461]
 script = ExtResource("1_tg7xu")
 speed = 0.0
+min_pause = null
+max_pause = null
+min_walk = null
+max_walk = null
+prefab_id = null
+feet_area_path = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=47918763]
 position = Vector2(-1.4999971, 0)
@@ -143,8 +149,8 @@ shape = SubResource("RectangleShape2D_1qrlg")
 
 [node name="AnimSprite2D" type="AnimatedSprite2D" parent="." unique_id=1088753231]
 sprite_frames = SubResource("SpriteFrames_ty728")
-autoplay = "default"
-frame_progress = 0.7944387
+animation = &"idle"
+autoplay = "idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimSprite2D" unique_id=1469921985]
 libraries/ = SubResource("AnimationLibrary_hatuw")

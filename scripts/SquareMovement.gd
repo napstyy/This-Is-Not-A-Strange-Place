@@ -110,10 +110,12 @@ func _detach() -> void:
 func pick_new_state() -> void:
 	if randi() % 2 == 0:
 		state = "walk"
-		sprite_2d.play("walk")
+		if sprite_2d.get_sprite_frames().has_animation("walk"):
+			sprite_2d.play("walk")
 		direction = [-1, 1].pick_random()
 		timer = randf_range(min_walk, max_walk)
 	else:
 		state = "idle"
-		sprite_2d.play("idle")
+		if sprite_2d.get_sprite_frames().has_animation("idle"):
+			sprite_2d.play("idle")
 		timer = randf_range(min_pause, max_pause)
