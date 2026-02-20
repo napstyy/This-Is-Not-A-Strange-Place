@@ -13,7 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://bp6a5n2atpuwd" path="res://prefabs/ManLabel.tscn" id="9_1rj1m"]
 [ext_resource type="PackedScene" uid="uid://bkeh62c4hysg5" path="res://prefabs/hoverable_zone.tscn" id="11_1rj1m"]
 [ext_resource type="PackedScene" uid="uid://daavhwsrpaomr" path="res://prefabs/custom_cursor.tscn" id="12_tlxbp"]
+[ext_resource type="Script" uid="uid://c61lcf3li17tt" path="res://scripts/spawners.gd" id="13_pabv5"]
 [ext_resource type="Script" uid="uid://gadvn8jnxpyg" path="res://scripts/torch_drop.gd" id="13_tlxbp"]
+[ext_resource type="PackedScene" uid="uid://c61fgju6ndi7c" path="res://prefabs/spawner.tscn" id="16_fdrim"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_75evl"]
 font = ExtResource("1_fjgfx")
@@ -28,12 +30,12 @@ radius = 34.0147
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fjgfx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1rj1m"]
-size = Vector2(185, 142)
+size = Vector2(140.5, 95)
 
 [node name="WordRoom" type="Node2D" unique_id=1283631081 node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_vugbi")
 room_name = "WordRoom"
-spawn_point = NodePath("Teleporters/Spawn")
+spawn_point = NodePath("Spawners/Spawn")
 
 [node name="Background" type="ColorRect" parent="." unique_id=429987171]
 offset_right = 1152.0
@@ -101,16 +103,13 @@ visible = false
 
 [node name="Teleporters" type="Node" parent="." unique_id=1674591379]
 
-[node name="Spawn" type="Node2D" parent="Teleporters" unique_id=2076033002]
-position = Vector2(284, 313)
-
 [node name="Cave_Drop" type="Area2D" parent="Teleporters" unique_id=1976469382]
-position = Vector2(93, 68)
+position = Vector2(86, 62)
 script = ExtResource("13_tlxbp")
 target_room_name = "CaveRoom"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporters/Cave_Drop" unique_id=1788187004]
-position = Vector2(0, 4)
+position = Vector2(-7, -2)
 shape = SubResource("RectangleShape2D_1rj1m")
 
 [node name="Cave_Zone" parent="Teleporters/Cave_Drop" unique_id=761841129 node_paths=PackedStringArray("mouseCursor") instance=ExtResource("11_1rj1m")]
@@ -120,12 +119,12 @@ hoverCursor = "cave"
 level = "res://scenes/CaveRoom.tscn"
 
 [node name="Cube_Drop" type="Area2D" parent="Teleporters" unique_id=42677965]
-position = Vector2(577, 68)
+position = Vector2(574, 73)
 script = ExtResource("13_tlxbp")
 target_room_name = "CubeRoom"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporters/Cube_Drop" unique_id=704520403]
-position = Vector2(2, 1)
+position = Vector2(-11, -11)
 shape = SubResource("RectangleShape2D_1rj1m")
 
 [node name="Cube_Zone" parent="Teleporters/Cube_Drop" unique_id=2139133167 node_paths=PackedStringArray("mouseCursor") instance=ExtResource("11_1rj1m")]
@@ -135,12 +134,12 @@ hoverCursor = "cube"
 level = "res://scenes/CubeRoom.tscn"
 
 [node name="Torch_Drop" type="Area2D" parent="Teleporters" unique_id=1863593157]
-position = Vector2(1055, 71)
+position = Vector2(1063, 66)
 script = ExtResource("13_tlxbp")
 target_room_name = "TorchRoom"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporters/Torch_Drop" unique_id=1482835372]
-position = Vector2(0, 1)
+position = Vector2(8, -5)
 shape = SubResource("RectangleShape2D_1rj1m")
 
 [node name="Torch_Zone" parent="Teleporters/Torch_Drop" unique_id=1607652756 node_paths=PackedStringArray("mouseCursor") instance=ExtResource("11_1rj1m")]
@@ -148,3 +147,21 @@ position = Vector2(8, -5)
 mouseCursor = NodePath("../../../CustomCursor")
 hoverCursor = "dark"
 level = "res://scenes/TorchRoom.tscn"
+
+[node name="Spawners" type="Node" parent="." unique_id=966096494]
+
+[node name="Spawn" type="Node2D" parent="Spawners" unique_id=2076033002]
+position = Vector2(284, 313)
+script = ExtResource("13_pabv5")
+
+[node name="Spawner" parent="Spawners" unique_id=1040865886 instance=ExtResource("16_fdrim")]
+position = Vector2(392, 521)
+spawnID = 11
+
+[node name="Spawner2" parent="Spawners" unique_id=2117151011 instance=ExtResource("16_fdrim")]
+position = Vector2(653, 521)
+spawnID = 11
+
+[node name="Spawner3" parent="Spawners" unique_id=1334588064 instance=ExtResource("16_fdrim")]
+position = Vector2(915, 521)
+spawnID = 7

@@ -14,7 +14,7 @@ func _ready():
 	area.area_entered.connect(_on_area_entered)
 
 func _on_area_entered(other_area):
-	if other_area.get_parent().is_in_group("water"):
+	if other_area.get_parent().is_in_group("torch"):
 		sprite.texture = lit_texture
 		
 		if current_light == null and light_scene:

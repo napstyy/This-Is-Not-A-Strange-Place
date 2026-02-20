@@ -7,6 +7,35 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_2o12b"]
 radius = 2.0880911
 
+[sub_resource type="Curve" id="Curve_gspwy"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.59550565), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_j80e7"]
+curve = SubResource("Curve_gspwy")
+
+[sub_resource type="Gradient" id="Gradient_rq62p"]
+colors = PackedColorArray(0.75686276, 0.21568628, 0.22745098, 1, 0.99607843, 0.7411765, 0.34117648, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3vtpw"]
+gradient = SubResource("Gradient_rq62p")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x84kq"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, -1, 1)
+emission_shape = 2
+emission_sphere_radius = 11.0
+direction = Vector3(0, -1, 0)
+spread = 90.0
+initial_velocity_max = 20.0
+angular_velocity_min = -15.000016
+angular_velocity_max = 14.999984
+gravity = Vector3(0, -25, 0)
+scale_min = 0.59999996
+scale_max = 1.1999999
+color_initial_ramp = SubResource("GradientTexture1D_3vtpw")
+alpha_curve = SubResource("CurveTexture_j80e7")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gspwy"]
 size = Vector2(27, 32.25)
 
@@ -30,6 +59,10 @@ shape = SubResource("CircleShape2D_2o12b")
 [node name="Fire" type="Sprite2D" parent="." unique_id=472171824]
 position = Vector2(-1, -7)
 texture = ExtResource("3_gspwy")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1104887384]
+position = Vector2(0, -1)
+process_material = SubResource("ParticleProcessMaterial_x84kq")
 
 [node name="AttachArea" type="Area2D" parent="." unique_id=723502114]
 

@@ -2,18 +2,18 @@ extends Node
 
 var counters = {
 	#Counters get accessed when portal activated
-	"CubePeople": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0},
-	"SpherePeople": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0},
-	"Human": {"CubeRoom": 0, "CaveRoom": 3, "TorchRoom": 0, "WordRoom":0},
-	"Animal": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0},
-	"Fire": {"CubeRoom": 0, "CaveRoom": 1, "TorchRoom": 1, "WordRoom":0},
-	"Water": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0},
-	"CubeLabel": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0},
-	"SphereLabel": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0},
-	"HumanLabel": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0},
-	"AnimalLabel": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":1},
-	"FireLabel": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":1},
-	"WaterLabel": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0}
+	"CubePeople": {"CubeRoom": 0, "CaveRoom": 4, "TorchRoom": 0, "WordRoom":0}, #0
+	"SpherePeople": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0}, #1
+	"Human": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0}, #2
+	"Animal": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0}, #3
+	"Fire": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0}, #4
+	"Water": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0}, #5
+	"CubeLabel": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0},#6
+	"SphereLabel": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0}, #7
+	"HumanLabel": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0}, #8
+	"AnimalLabel": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0}, #9
+	"FireLabel": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0}, #10
+	"WaterLabel": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0} #11
 	}
 	
 var keys = {

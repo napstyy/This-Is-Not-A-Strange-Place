@@ -6,7 +6,8 @@ extends Node2D
 enum ObjectID {CUBE, SPHERE, HUMAN, ANIMAL, FIRE, WATER, CUBELABEL, SPHERELABEL, HUMANLABEL, ANIMALLABEL, FIRELABEL, WATERLABEL}
 var idDict = {} #Dictionary of ObjType:int
 @export var spawn_point: Node2D
-var spawn_override = [] #Maybe useful for positioning the spawns (does nothing currently)
+var spawn_points = {} #Spawns on spawners using ID & their position
+
 
 func _ready():
 	if spawn_point == null:
@@ -18,8 +19,15 @@ func _ready():
 	for i in GameManager.counters:
 		idDict[i] = count
 		count+=1
-	#print(idDict)
-	spawn()
+	
+	#For use with spawn with override
+	for i in range(GameManager.counters.size()):
+		spawn_points[i] = []
+		for x in get_tree().get_nodes_in_group("spawners"):
+			if x.get_ID() == i:
+				spawn_points[i].append(x.get_pos())
+	
+	spawn_with_override()
 	
 	#OldCode
 	#var items = GameState.get_room_items(room_name)
@@ -32,6 +40,7 @@ func _ready():
 			#if instance is Node2D:
 				#instance.global_position = spawn_point.global_position
 
+#Use this if you just have 1 generic spawner
 func spawn():
 	#Check counters & spawn things, Room code has to remove anything that is there by default
 	for instances in GameManager.counters: #For each object type, spawn them if counter > 0
@@ -42,9 +51,24 @@ func spawn():
 						#print(newObj)
 						if newObj is Node2D:
 							newObj.global_position = spawn_point.global_position
-							
+
+
+#Use this if you're using IDs for spawners
 func spawn_with_override():
-	pass
+	#Check counters & spawn things, Room code has to remove anything that is there by default
+	for instances in GameManager.counters: #For each object type, spawn them if counter > 0
+		if GameManager.counters[instances][room_name]>0:
+			var count = 0
+			for i in GameManager.counters[instances][room_name]:
+						var newObj = GameManager.replacement_scenes[idDict[instances]].instantiate()
+						add_child(newObj)
+						if count >= spawn_points[idDict[instances]].size(): #Generic spawner
+							if newObj is Node2D:
+								newObj.global_position = spawn_point.global_position
+						else:
+							if newObj is Node2D:
+								newObj.global_position = spawn_points[idDict[instances]][count]	
+							count += 1
 	
 func get_room_name():
 	return room_name
