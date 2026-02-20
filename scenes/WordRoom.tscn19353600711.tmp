@@ -120,7 +120,7 @@ level = "res://scenes/CubeRoom.tscn"
 [node name="Teleporters" type="Node" parent="." unique_id=1674591379]
 
 [node name="Spawn" type="Node2D" parent="Teleporters" unique_id=2076033002]
-position = Vector2(450, 82)
+position = Vector2(204, 244)
 
 [node name="Cave_Drop" type="Area2D" parent="Teleporters" unique_id=1976469382]
 position = Vector2(93, 68)

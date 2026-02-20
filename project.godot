@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameState="*uid://bvc1tojstys5l"
+GameManager="*uid://cdpto8txf3f3l"
 
 [file_customization]
 
