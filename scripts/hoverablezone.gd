@@ -24,4 +24,5 @@ func _on_mouse_exited() -> void:
 #change level on click
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed:
-		get_tree().change_scene_to_file(level)
+		var new_scene = load(level).instantiate()
+		get_tree().root.add_child(new_scene)

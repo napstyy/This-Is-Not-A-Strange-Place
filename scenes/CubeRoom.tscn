@@ -113,7 +113,7 @@ position = Vector2(93, 148)
 texture = ExtResource("2_l76xo")
 
 [node name="watercooler" type="Sprite2D" parent="TileMapLayer" unique_id=1727388893]
-position = Vector2(257, 147)
+position = Vector2(277, 147)
 texture = ExtResource("3_fstx5")
 
 [node name="treadmill" type="AnimatedSprite2D" parent="TileMapLayer" unique_id=800905528]
@@ -155,7 +155,7 @@ rotation = 3.1415927
 shape = SubResource("WorldBoundaryShape2D_pn0b1")
 
 [node name="CubeGuy" parent="." unique_id=929557763 instance=ExtResource("2_fht1v")]
-position = Vector2(247, 150)
+position = Vector2(228, 139)
 
 [node name="CustomCursor" parent="." unique_id=1188223711 instance=ExtResource("3_rc4vf")]
 visible = false
