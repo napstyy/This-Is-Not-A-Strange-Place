@@ -9,6 +9,10 @@ size = Vector2(262.5, 87)
 [sub_resource type="LabelSettings" id="LabelSettings_7wd0t"]
 font = ExtResource("2_maupw")
 font_size = 100
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 0.14117648)
 
 [node name="RigidBody2D" type="RigidBody2D" unique_id=2070540883]
 script = ExtResource("1_maupw")
