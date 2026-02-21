@@ -11,7 +11,6 @@ var attached_offset: Vector2 = Vector2.ZERO
 @onready var feet_area: Area2D = get_node_or_null(feet_area_path)
 
 func _ready() -> void:
-	add_to_group("circle")
 	if sprite_2d and sprite_2d.get_sprite_frames().has_animation("idle"):
 		sprite_2d.play("idle")
 	if feet_area:
