@@ -5,11 +5,6 @@ extends Room_Manager
 var minClamp = 7.0
 var maxClamp = 240.0
 
-@export var spawn_scene: PackedScene
-@export var letterspawn: Node2D
-
-var letters = ["N", "O", "T"]
-
 func _ready() -> void:
 	super._ready()
 
@@ -17,23 +12,16 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_timer_timeout() -> void:
+	print("WaterCooler: ", GameManager.keys.get("WaterCooler", false), " Treadmill: ", GameManager.keys.get("Treadmill", false))
+	
 	var increment: float
 	var currentMax: float
 
 	if GameManager.keys.get("WaterCooler", false) and GameManager.keys.get("Treadmill", false):
 		increment = RandomNumberGenerator.new().randf_range(5.0, 15.0)
-		currentMax = 240.0
+		currentMax = 240.0  # was 100.0, but 240 is the actual 100% mark
 	else:
 		increment = RandomNumberGenerator.new().randf_range(-6.0, 3.0)
 		currentMax = 40.0
 
 	cube_progress_bar.set_value(clamp(cube_progress_bar.get_value() + increment, minClamp, currentMax))
-
-	if cube_progress_bar.get_value() >= 240.0:
-		spawn_sprite()
-
-func spawn_sprite() -> void:
-	var instance = spawn_scene.instantiate()
-	add_child(instance)
-	instance.global_position = letterspawn.global_position
-	print(instance.get_children())

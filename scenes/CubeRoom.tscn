@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://d3kye77ikmw6s" path="res://scripts/cube_room.gd" id="1_fts0c"]
 [ext_resource type="PackedScene" uid="uid://br2jy4ris6au2" path="res://prefabs/CubeGuy.tscn" id="2_fht1v"]
 [ext_resource type="Texture2D" uid="uid://ci0jljvs8m18n" path="res://assets/desk.png" id="2_l76xo"]
-[ext_resource type="PackedScene" uid="uid://cmlkqvcxyp6q1" path="res://prefabs/NOTkeys.tscn" id="2_qc3qg"]
 [ext_resource type="PackedScene" uid="uid://daavhwsrpaomr" path="res://prefabs/custom_cursor.tscn" id="3_rc4vf"]
 [ext_resource type="Texture2D" uid="uid://bpasvim34ttdh" path="res://assets/cactus.png" id="5_wodt7"]
 [ext_resource type="PackedScene" uid="uid://hxdrkn7ptgyp" path="res://prefabs/cubeprogressbar.tscn" id="8_q01df"]
@@ -51,10 +50,8 @@ sources/0 = SubResource("TileSetAtlasSource_fht1v")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ht2y"]
 size = Vector2(185, 142)
 
-[node name="Node2D" type="Node2D" unique_id=770963908 node_paths=PackedStringArray("letterspawn", "spawn_point")]
+[node name="Node2D" type="Node2D" unique_id=770963908 node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_fts0c")
-spawn_scene = ExtResource("2_qc3qg")
-letterspawn = NodePath("Letterspawn")
 room_name = "CubeRoom"
 spawn_point = NodePath("Spawn")
 
