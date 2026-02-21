@@ -1,14 +1,18 @@
 [gd_scene format=4 uid="uid://dh88on2b31yws"]
 
-[ext_resource type="Script" uid="uid://dp8nbpfl6vfjt" path="res://scripts/Room_Manager.gd" id="1_sv3j7"]
+[ext_resource type="Script" uid="uid://dfdv4c5gcr74m" path="res://scripts/torch_room.gd" id="1_4g2yf"]
 [ext_resource type="Texture2D" uid="uid://b77v2ldoivfku" path="res://assets/all-current-posters-v0-evzgpsbdd5jg1.webp" id="4_dscsm"]
+[ext_resource type="Script" uid="uid://c61lcf3li17tt" path="res://scripts/spawners.gd" id="8_3y2sx"]
 [ext_resource type="PackedScene" uid="uid://c61fgju6ndi7c" path="res://prefabs/spawner.tscn" id="8_j5bll"]
 [ext_resource type="Texture2D" uid="uid://rmv1h4cn0m6w" path="res://assets/TorchBG.png" id="8_r3faa"]
 [ext_resource type="PackedScene" uid="uid://cmlkqvcxyp6q1" path="res://prefabs/NOTkeys.tscn" id="9_4g2yf"]
 [ext_resource type="PackedScene" uid="uid://daavhwsrpaomr" path="res://prefabs/custom_cursor.tscn" id="10_r3faa"]
 [ext_resource type="PackedScene" uid="uid://ysxlk2d6grno" path="res://prefabs/portal.tscn" id="11_3wgc2"]
+[ext_resource type="PackedScene" uid="uid://br2jy4ris6au2" path="res://prefabs/CubeGuy.tscn" id="11_51tyb"]
 [ext_resource type="PackedScene" uid="uid://bkeh62c4hysg5" path="res://prefabs/hoverable_zone.tscn" id="12_ju56b"]
+[ext_resource type="PackedScene" uid="uid://g1ttbdytgwir" path="res://prefabs/cube_detector.tscn" id="12_r3faa"]
 [ext_resource type="Script" uid="uid://gadvn8jnxpyg" path="res://scripts/torch_drop.gd" id="13_3wgc2"]
+[ext_resource type="Script" uid="uid://doqa4nupmpvvo" path="res://scripts/fire_detector.gd" id="13_ju56b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3wgc2"]
 texture = ExtResource("8_r3faa")
@@ -42,8 +46,10 @@ sources/0 = SubResource("TileSetAtlasSource_3wgc2")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ju56b"]
 size = Vector2(185, 142)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lq13v"]
+
 [node name="TorchRoom" type="Node2D" unique_id=5330240 node_paths=PackedStringArray("spawn_point")]
-script = ExtResource("1_sv3j7")
+script = ExtResource("1_4g2yf")
 room_name = "TorchRoom"
 spawn_point = NodePath("Spawners/Spawn")
 
@@ -121,12 +127,45 @@ shape = SubResource("RectangleShape2D_ju56b")
 
 [node name="Spawn" type="Node2D" parent="Spawners" unique_id=848601627]
 position = Vector2(275, 163)
+script = ExtResource("8_3y2sx")
 
 [node name="Spawner" parent="Spawners" unique_id=1040865886 instance=ExtResource("8_j5bll")]
 position = Vector2(45, 204)
 spawnID = 4
 
-[node name="Node2D" type="Node2D" parent="." unique_id=1085853844]
+[node name="Letterspawn" type="Node2D" parent="." unique_id=1085853844]
+visible = false
 position = Vector2(347, 100)
 
-[node name="AnimatedSprite2D" parent="Node2D" unique_id=1512500067 instance=ExtResource("9_4g2yf")]
+[node name="AnimatedSprite2D" parent="Letterspawn" unique_id=1512500067 instance=ExtResource("9_4g2yf")]
+animation = &"T"
+
+[node name="CubeDetector" parent="." unique_id=1943397129 instance=ExtResource("12_r3faa")]
+position = Vector2(188, 208)
+
+[node name="CubeDetector2" parent="." unique_id=1223674757 instance=ExtResource("12_r3faa")]
+position = Vector2(188, 170)
+
+[node name="CubeDetector3" parent="." unique_id=1193219930 instance=ExtResource("12_r3faa")]
+position = Vector2(188, 134)
+
+[node name="CubeGuy" parent="." unique_id=929557763 instance=ExtResource("11_51tyb")]
+position = Vector2(132, 189)
+
+[node name="CubeGuy2" parent="." unique_id=1890427506 instance=ExtResource("11_51tyb")]
+position = Vector2(65, 169)
+
+[node name="CubeGuy3" parent="." unique_id=725732998 instance=ExtResource("11_51tyb")]
+position = Vector2(314, 195)
+
+[node name="FireDetector" type="Area2D" parent="." unique_id=1428565050]
+position = Vector2(188, 118)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("13_ju56b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireDetector" unique_id=828478078]
+shape = SubResource("RectangleShape2D_lq13v")
+
+[connection signal="body_entered" from="FireDetector" to="FireDetector" method="_on_body_entered"]
+[connection signal="body_exited" from="FireDetector" to="FireDetector" method="_on_body_exited"]

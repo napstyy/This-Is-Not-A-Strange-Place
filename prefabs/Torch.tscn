@@ -40,6 +40,7 @@ alpha_curve = SubResource("CurveTexture_j80e7")
 size = Vector2(27, 32.25)
 
 [node name="Torch" type="RigidBody2D" unique_id=1509374204]
+input_pickable = true
 lock_rotation = true
 script = ExtResource("1_hl714")
 prefab_id = 4

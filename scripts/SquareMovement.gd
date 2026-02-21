@@ -26,6 +26,7 @@ var attached_offset: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	randomize()
+	add_to_group("cube")
 	pick_new_state()
 	if feet_area:
 		feet_area.body_entered.connect(_on_feet_body_entered)
@@ -93,13 +94,14 @@ func _on_feet_body_exited(body: Node) -> void:
 
 # clicking on the NPC
 func _input_event(viewport, event, shape_idx) -> void:
-	print("hi")
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		#print("input")
 		is_held = true
 
 # release anywhere
 func _input(event) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+		#print("releasedCube")
 		if is_held:
 			is_held = false
 
