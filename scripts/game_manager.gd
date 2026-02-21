@@ -2,7 +2,7 @@ extends Node
 
 var counters = {
 	#Counters get accessed when portal activated
-	"CubePeople": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0}, #0
+	"CubePeople": {"CubeRoom": 4, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0}, #0
 	"SpherePeople": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0}, #1
 	"Human": {"CubeRoom": 0, "CaveRoom": 3, "TorchRoom": 0, "WordRoom":0}, #2
 	"Animal": {"CubeRoom": 0, "CaveRoom": 0, "TorchRoom": 0, "WordRoom":0}, #3

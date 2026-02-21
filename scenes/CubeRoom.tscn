@@ -2,16 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://b2mkimk3c24mp" path="res://assets/officebg.png" id="1_3itya"]
 [ext_resource type="Script" uid="uid://d3kye77ikmw6s" path="res://scripts/cube_room.gd" id="1_fts0c"]
-[ext_resource type="PackedScene" uid="uid://br2jy4ris6au2" path="res://prefabs/CubeGuy.tscn" id="2_fht1v"]
 [ext_resource type="Texture2D" uid="uid://ci0jljvs8m18n" path="res://assets/desk.png" id="2_l76xo"]
 [ext_resource type="PackedScene" uid="uid://daavhwsrpaomr" path="res://prefabs/custom_cursor.tscn" id="3_rc4vf"]
 [ext_resource type="Texture2D" uid="uid://bpasvim34ttdh" path="res://assets/cactus.png" id="5_wodt7"]
+[ext_resource type="PackedScene" uid="uid://c61fgju6ndi7c" path="res://prefabs/spawner.tscn" id="8_628mu"]
 [ext_resource type="PackedScene" uid="uid://hxdrkn7ptgyp" path="res://prefabs/cubeprogressbar.tscn" id="8_q01df"]
 [ext_resource type="Script" uid="uid://c61lcf3li17tt" path="res://scripts/spawners.gd" id="8_qc3qg"]
 [ext_resource type="PackedScene" uid="uid://ysxlk2d6grno" path="res://prefabs/portal.tscn" id="9_peehg"]
 [ext_resource type="PackedScene" uid="uid://bkeh62c4hysg5" path="res://prefabs/hoverable_zone.tscn" id="10_pfh58"]
 [ext_resource type="PackedScene" uid="uid://bgnj0y5soutft" path="res://prefabs/Treadmill.tscn" id="13_7udly"]
-[ext_resource type="PackedScene" uid="uid://btyv5g25njvh7" path="res://prefabs/Water.tscn" id="13_628mu"]
 [ext_resource type="PackedScene" uid="uid://cmlkqvcxyp6q1" path="res://prefabs/NOTkeys.tscn" id="14_628mu"]
 [ext_resource type="PackedScene" uid="uid://c4mfd7uqnh276" path="res://prefabs/Watercooler.tscn" id="17_6ht2y"]
 [ext_resource type="Script" uid="uid://gadvn8jnxpyg" path="res://scripts/torch_drop.gd" id="17_w00ee"]
@@ -55,7 +54,7 @@ size = Vector2(185, 142)
 [node name="Node2D" type="Node2D" unique_id=770963908 node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_fts0c")
 room_name = "CubeRoom"
-spawn_point = NodePath("Spawn")
+spawn_point = NodePath("Node/Spawn")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=802128227]
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAIAAAAAAAIAAAAEAAAAAAAAAAMAAAACAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAACAAQAAAABAAIAAAAEAAIAAAABAAMAAAAEAAIAAAABAAQAAAAEAAQAAAABAAUAAAAAAAAAAAACAAAAAAAEAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAACAAQAAAAAAAAAAAACAAUAAAAEAAAAAAADAAAAAAACAAAAAAADAAEAAAAEAAIAAAADAAIAAAAAAAAAAAADAAMAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAACAAIAAAAEAAAAAAAEAAIAAAAEAAEAAAAEAAIAAAAEAAIAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAAAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAMAAAAAAAQAAAAFAAQAAAAEAAAAAAAFAAUAAAACAAIAAAAGAAAAAAACAAQAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAIAAAAGAAMAAAAEAAQAAAAGAAQAAAAEAAQAAAAGAAUAAAAEAAAAAAAHAAAAAAAEAAAAAAAHAAEAAAAAAAAAAAAHAAIAAAAEAAQAAAAHAAMAAAAAAAAAAAAHAAQAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAEAAAAEAAQAAAAIAAIAAAAEAAQAAAAIAAMAAAACAAQAAAAIAAQAAAAAAAAAAAAIAAUAAAAAAAIAAAAJAAAAAAAAAAIAAAAJAAEAAAAEAAAAAAAJAAIAAAACAAAAAAAJAAMAAAAEAAIAAAAJAAQAAAAEAAQAAAAJAAUAAAAEAAAAAAA=")
@@ -105,9 +104,6 @@ rotation = 3.1415927
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/roof" unique_id=542953814]
 shape = SubResource("WorldBoundaryShape2D_pn0b1")
 
-[node name="CubeGuy" parent="." unique_id=929557763 instance=ExtResource("2_fht1v")]
-position = Vector2(15, 146)
-
 [node name="CustomCursor" parent="." unique_id=1188223711 instance=ExtResource("3_rc4vf")]
 visible = false
 
@@ -119,9 +115,27 @@ zoom = Vector2(4, 4)
 [node name="CubeProgressBar" parent="." unique_id=8158731 instance=ExtResource("8_q01df")]
 position = Vector2(5, 5)
 
-[node name="Spawn" type="Node2D" parent="." unique_id=898311912]
-position = Vector2(96, 112)
+[node name="Node" type="Node" parent="." unique_id=1718490564]
+
+[node name="Spawn" type="Node2D" parent="Node" unique_id=898311912]
+position = Vector2(92, 95)
 script = ExtResource("8_qc3qg")
+
+[node name="Spawner" parent="Node" unique_id=1040865886 instance=ExtResource("8_628mu")]
+position = Vector2(25, 147)
+spawnID = 0
+
+[node name="Spawner2" parent="Node" unique_id=1097270265 instance=ExtResource("8_628mu")]
+position = Vector2(250, 147)
+spawnID = 0
+
+[node name="Spawner3" parent="Node" unique_id=872575498 instance=ExtResource("8_628mu")]
+position = Vector2(182, 148)
+spawnID = 0
+
+[node name="Spawner4" parent="Node" unique_id=1404505116 instance=ExtResource("8_628mu")]
+position = Vector2(109, 147)
+spawnID = 0
 
 [node name="Drop" type="Area2D" parent="." unique_id=1321877250]
 position = Vector2(21.000002, 67)
@@ -149,12 +163,11 @@ autostart = true
 
 [node name="WaterCooler" parent="." unique_id=1809265699 instance=ExtResource("17_6ht2y")]
 position = Vector2(273, 147)
+collision_layer = 2
 
 [node name="Treadmill" parent="." unique_id=1433706398 instance=ExtResource("13_7udly")]
 position = Vector2(226, 140)
-
-[node name="RigidBody2D2" parent="." unique_id=1131744029 instance=ExtResource("13_628mu")]
-position = Vector2(167, 108)
+collision_layer = 2
 
 [node name="Letterspawn" type="Node2D" parent="." unique_id=989134115]
 visible = false

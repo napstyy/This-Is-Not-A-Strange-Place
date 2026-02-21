@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cmlkqvcxyp6q1" path="res://prefabs/NOTkeys.tscn" id="9_4g2yf"]
 [ext_resource type="PackedScene" uid="uid://daavhwsrpaomr" path="res://prefabs/custom_cursor.tscn" id="10_r3faa"]
 [ext_resource type="PackedScene" uid="uid://ysxlk2d6grno" path="res://prefabs/portal.tscn" id="11_3wgc2"]
-[ext_resource type="PackedScene" uid="uid://br2jy4ris6au2" path="res://prefabs/CubeGuy.tscn" id="11_51tyb"]
 [ext_resource type="PackedScene" uid="uid://bkeh62c4hysg5" path="res://prefabs/hoverable_zone.tscn" id="12_ju56b"]
 [ext_resource type="PackedScene" uid="uid://g1ttbdytgwir" path="res://prefabs/cube_detector.tscn" id="12_r3faa"]
 [ext_resource type="Script" uid="uid://gadvn8jnxpyg" path="res://scripts/torch_drop.gd" id="13_3wgc2"]
@@ -148,15 +147,6 @@ position = Vector2(188, 170)
 
 [node name="CubeDetector3" parent="." unique_id=1193219930 instance=ExtResource("12_r3faa")]
 position = Vector2(188, 134)
-
-[node name="CubeGuy" parent="." unique_id=929557763 instance=ExtResource("11_51tyb")]
-position = Vector2(132, 189)
-
-[node name="CubeGuy2" parent="." unique_id=1890427506 instance=ExtResource("11_51tyb")]
-position = Vector2(65, 169)
-
-[node name="CubeGuy3" parent="." unique_id=725732998 instance=ExtResource("11_51tyb")]
-position = Vector2(314, 195)
 
 [node name="FireDetector" type="Area2D" parent="." unique_id=1428565050]
 position = Vector2(188, 118)
