@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_timer_timeout() -> void:
-	print("WaterCooler: ", GameManager.keys.get("WaterCooler", false), " Treadmill: ", GameManager.keys.get("Treadmill", false))
+	#print("WaterCooler: ", GameManager.keys.get("WaterCooler", false), " Treadmill: ", GameManager.keys.get("Treadmill", false))
 	
 	var increment: float
 	var currentMax: float

@@ -159,27 +159,27 @@ position = Vector2(193, 345)
 script = ExtResource("13_pabv5")
 
 [node name="SpawnCube" parent="Spawners" unique_id=1040865886 instance=ExtResource("16_fdrim")]
-position = Vector2(193, 607)
+position = Vector2(547, 607)
 spawnID = 6
 
 [node name="SpawnSphere" parent="Spawners" unique_id=2117151011 instance=ExtResource("16_fdrim")]
-position = Vector2(193, 509)
+position = Vector2(547, 509)
 spawnID = 7
 
 [node name="SpawnerHuman" parent="Spawners" unique_id=1334588064 instance=ExtResource("16_fdrim")]
-position = Vector2(547, 509)
+position = Vector2(193, 607)
 spawnID = 8
 
 [node name="SpawnerAnimal" parent="Spawners" unique_id=623863595 instance=ExtResource("16_fdrim")]
-position = Vector2(547, 607)
+position = Vector2(193, 509)
 spawnID = 9
 
 [node name="SpawnFire" parent="Spawners" unique_id=1371879876 instance=ExtResource("16_fdrim")]
-position = Vector2(903, 509)
+position = Vector2(903, 607)
 spawnID = 10
 
 [node name="SpawnWater" parent="Spawners" unique_id=1254482894 instance=ExtResource("16_fdrim")]
-position = Vector2(903, 607)
+position = Vector2(903, 509)
 spawnID = 11
 
 [node name="LetterN" type="Node2D" parent="." unique_id=172540398]

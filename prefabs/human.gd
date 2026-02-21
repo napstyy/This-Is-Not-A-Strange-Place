@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var prefab_id := 6
-@onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+@onready var sprite_2d: AnimatedSprite2D = $AnimSprite2D
 
 var is_held: bool = false
 var attached_to: CharacterBody2D = null

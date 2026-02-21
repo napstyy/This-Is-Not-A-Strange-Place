@@ -9,6 +9,8 @@ size = Vector2(188, 82)
 [sub_resource type="LabelSettings" id="LabelSettings_7wd0t"]
 font = ExtResource("2_g1n42")
 font_size = 100
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 0.14117648)
 
 [node name="RigidBody2D" type="RigidBody2D" unique_id=2070540883]
 script = ExtResource("2_04lgr")

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://7k4s3co8ha3l" path="res://prefabs/Brickmove.gd" id="2_b3ihr"]
 [ext_resource type="Texture2D" uid="uid://b7ppsavxa8eb0" path="res://assets/brickpile.png" id="2_pymea"]
 [ext_resource type="Texture2D" uid="uid://dds4kc00mckjp" path="res://assets/brickwagon.png" id="3_b3ihr"]
+[ext_resource type="Texture2D" uid="uid://pf3juvqsiv57" path="res://assets/leglesscircle.png" id="5_b3ihr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_go5ro"]
 size = Vector2(16, 12)
@@ -93,7 +94,15 @@ frame_progress = 0.80735517
 [node name="Cartsprite" type="AnimatedSprite2D" parent="." unique_id=2055230014]
 position = Vector2(9, -16)
 sprite_frames = SubResource("SpriteFrames_t2fah")
-animation = &"push"
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Sprite2D" type="Sprite2D" parent="Cartsprite" unique_id=203379145]
+position = Vector2(4.7683716e-07, 8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_b3ihr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cartsprite/Sprite2D" unique_id=2012713282]
 
 [node name="Area2D" type="Area2D" parent="." unique_id=99318957]
 

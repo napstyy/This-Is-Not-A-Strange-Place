@@ -10,7 +10,8 @@ var push_speed: float = 25.0
 func _ready():
 	area.body_entered.connect(_on_body_entered)
 	guysprite.play()
-
+	if GameManager.keys["Cart"]:
+		self.queue_free() #Decided to remove the cart if you succeed its check
 func _physics_process(delta):
 	if is_pushed:
 		global_position.x += push_speed * delta
@@ -20,3 +21,4 @@ func _on_body_entered(body):
 		guysprite.stop()
 		cartsprite.play("push")
 		is_pushed = true
+		GameManager.keys["Cart"] = true
