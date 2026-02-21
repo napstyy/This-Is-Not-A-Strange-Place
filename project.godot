@@ -15,9 +15,13 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="This Is Not A Strange Place"
-run/main_scene="uid://u1f5i0nqpyee"
+run/main_scene="uid://63hhkfdnrbcr"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://cjtt6x6bhsv6q"
 
 [autoload]
 

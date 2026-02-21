@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://g1ttbdytgwir" path="res://prefabs/cube_detector.tscn" id="12_r3faa"]
 [ext_resource type="Script" uid="uid://gadvn8jnxpyg" path="res://scripts/torch_drop.gd" id="13_3wgc2"]
 [ext_resource type="Script" uid="uid://doqa4nupmpvvo" path="res://scripts/fire_detector.gd" id="13_ju56b"]
+[ext_resource type="AudioStream" uid="uid://b4utft5gfs8p2" path="res://assets/audio/6Terminal.wav" id="14_ju56b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3wgc2"]
 texture = ExtResource("8_r3faa")
@@ -161,6 +162,11 @@ script = ExtResource("13_ju56b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FireDetector" unique_id=828478078]
 shape = SubResource("RectangleShape2D_lq13v")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1956188786]
+stream = ExtResource("14_ju56b")
+autoplay = true
+bus = &"Music"
 
 [connection signal="body_entered" from="FireDetector" to="FireDetector" method="_on_body_entered"]
 [connection signal="body_exited" from="FireDetector" to="FireDetector" method="_on_body_exited"]

@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://gadvn8jnxpyg" path="res://scripts/torch_drop.gd" id="13_tlxbp"]
 [ext_resource type="PackedScene" uid="uid://c61fgju6ndi7c" path="res://prefabs/spawner.tscn" id="16_fdrim"]
 [ext_resource type="PackedScene" uid="uid://cmlkqvcxyp6q1" path="res://prefabs/NOTkeys.tscn" id="17_u3v64"]
+[ext_resource type="AudioStream" uid="uid://co54neekyu3nc" path="res://assets/audio/さりい＿夜空に溶けるオルゴール .wav" id="18_nelqk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_75evl"]
 font = ExtResource("1_fjgfx")
@@ -243,3 +244,8 @@ scale = Vector2(2, 2)
 
 [node name="T" parent="LetterT" unique_id=1522059688 instance=ExtResource("17_u3v64")]
 animation = &"T"
+
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=690786664]
+stream = ExtResource("18_nelqk")
+autoplay = true
+bus = &"Music"

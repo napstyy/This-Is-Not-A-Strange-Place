@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dtvf6txec5rlw"
+path="res://.godot/imported/Cretaceous Dawn.mp3-e74dcb0922799e88af4fde21672a7991.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Cretaceous Dawn.mp3"
+dest_files=["res://.godot/imported/Cretaceous Dawn.mp3-e74dcb0922799e88af4fde21672a7991.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bkeh62c4hysg5" path="res://prefabs/hoverable_zone.tscn" id="10_pfh58"]
 [ext_resource type="PackedScene" uid="uid://bgnj0y5soutft" path="res://prefabs/Treadmill.tscn" id="13_7udly"]
 [ext_resource type="PackedScene" uid="uid://cmlkqvcxyp6q1" path="res://prefabs/NOTkeys.tscn" id="14_628mu"]
+[ext_resource type="AudioStream" uid="uid://dfxfwamyrdxlk" path="res://assets/audio/さりい＿ぽんぽん作業日和 .wav" id="15_qc3qg"]
 [ext_resource type="PackedScene" uid="uid://c4mfd7uqnh276" path="res://prefabs/Watercooler.tscn" id="17_6ht2y"]
 [ext_resource type="Script" uid="uid://gadvn8jnxpyg" path="res://scripts/torch_drop.gd" id="17_w00ee"]
 
@@ -175,5 +176,10 @@ position = Vector2(210, 79)
 
 [node name="AnimatedSprite2D" parent="Letterspawn" unique_id=1512500067 instance=ExtResource("14_628mu")]
 animation = &"O"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=539658789]
+stream = ExtResource("15_qc3qg")
+autoplay = true
+bus = &"Music"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
