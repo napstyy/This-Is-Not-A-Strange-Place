@@ -122,18 +122,15 @@ _data = {
 &"RESET": SubResource("Animation_kixv0")
 }
 
-[node name="Node" type="Node" unique_id=84275779]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1512500067]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" unique_id=1512500067]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_l3cj4")
 animation = &"N"
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="AnimatedSprite2D" unique_id=1352896348]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1352896348]
 z_index = -1
 rotation = 3.1415927
 scale = Vector2(4.4590464, -0.99999994)
-emitting = false
 amount = 5
 amount_ratio = 0.8
 texture = ExtResource("2_pqd1g")
@@ -141,5 +138,6 @@ lifetime = 0.65
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_nytar")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D" unique_id=2080389753]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2080389753]
 libraries/ = SubResource("AnimationLibrary_yg1xs")
+autoplay = &"Float"

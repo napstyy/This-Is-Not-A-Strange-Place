@@ -21,6 +21,9 @@ var keys = {
 	"Treadmill": false,
 	"Campfire": false,
 	"Cart": false,
+	"NKey": false,
+	"OKey": false,
+	"TKey": false
 	}
 
 var replacement_scenes = {
