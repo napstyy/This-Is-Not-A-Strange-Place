@@ -114,6 +114,7 @@ prefab_id = 0
 feet_area_path = NodePath("Area2D")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=167601114]
+position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_n2y7o")
 animation = &"idle"
 autoplay = "idle"

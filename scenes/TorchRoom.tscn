@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b77v2ldoivfku" path="res://assets/all-current-posters-v0-evzgpsbdd5jg1.webp" id="4_dscsm"]
 [ext_resource type="PackedScene" uid="uid://c61fgju6ndi7c" path="res://prefabs/spawner.tscn" id="8_j5bll"]
 [ext_resource type="Texture2D" uid="uid://rmv1h4cn0m6w" path="res://assets/TorchBG.png" id="8_r3faa"]
+[ext_resource type="PackedScene" uid="uid://cmlkqvcxyp6q1" path="res://prefabs/NOTkeys.tscn" id="9_4g2yf"]
 [ext_resource type="PackedScene" uid="uid://daavhwsrpaomr" path="res://prefabs/custom_cursor.tscn" id="10_r3faa"]
 [ext_resource type="PackedScene" uid="uid://ysxlk2d6grno" path="res://prefabs/portal.tscn" id="11_3wgc2"]
 [ext_resource type="PackedScene" uid="uid://bkeh62c4hysg5" path="res://prefabs/hoverable_zone.tscn" id="12_ju56b"]
@@ -124,3 +125,8 @@ position = Vector2(275, 163)
 [node name="Spawner" parent="Spawners" unique_id=1040865886 instance=ExtResource("8_j5bll")]
 position = Vector2(45, 204)
 spawnID = 4
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1085853844]
+position = Vector2(347, 100)
+
+[node name="AnimatedSprite2D" parent="Node2D" unique_id=1512500067 instance=ExtResource("9_4g2yf")]
