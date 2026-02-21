@@ -183,14 +183,12 @@ position = Vector2(903, 607)
 spawnID = 11
 
 [node name="LetterN" type="Node2D" parent="." unique_id=172540398]
-visible = false
 position = Vector2(79, 170)
 scale = Vector2(2, 2)
 
 [node name="N" parent="LetterN" unique_id=1512500067 instance=ExtResource("17_u3v64")]
 
 [node name="LetterO" type="Node2D" parent="." unique_id=1821469131]
-visible = false
 position = Vector2(563, 170)
 scale = Vector2(2, 2)
 
@@ -198,9 +196,12 @@ scale = Vector2(2, 2)
 animation = &"O"
 
 [node name="LetterT" type="Node2D" parent="." unique_id=401875596]
-visible = false
 position = Vector2(1071, 170)
 scale = Vector2(2, 2)
 
 [node name="T" parent="LetterT" unique_id=1522059688 instance=ExtResource("17_u3v64")]
 animation = &"T"
+
+[node name="Timer" type="Timer" parent="." unique_id=227425256]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
