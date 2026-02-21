@@ -11,12 +11,19 @@ func _ready() -> void:
 	super._ready()
 	campfire.objComplete.connect(_on_objComplete)
 	cart.objComplete.connect(_on_objComplete)
+	for x in get_tree().get_nodes_in_group("human"):
+		if GameManager.keys["Campfire"]:
+			x.play_anim("walk")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
 func _on_objComplete():
+	if GameManager.keys["Campfire"]:
+		for x in get_tree().get_nodes_in_group("human"):
+			x.stop_anim()
+			x.play_anim("walk")
 	if GameManager.keys["Campfire"] and GameManager.keys["Cart"]:
 		GameManager.keys["NKey"] = true
 		spawnKey()

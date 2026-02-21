@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var prefab_id := 6
 @onready var sprite_2d: AnimatedSprite2D = $AnimSprite2D
+@onready var animation_player: AnimationPlayer = $AnimSprite2D/AnimationPlayer
 
 var is_held: bool = false
 var attached_to: CharacterBody2D = null
@@ -11,8 +12,10 @@ var attached_offset: Vector2 = Vector2.ZERO
 @onready var feet_area: Area2D = get_node_or_null(feet_area_path)
 
 func _ready() -> void:
+	add_to_group("human")
 	if sprite_2d and sprite_2d.get_sprite_frames().has_animation("idle"):
 		sprite_2d.play("idle")
+	
 	if feet_area:
 		feet_area.body_entered.connect(_on_feet_body_entered)
 		feet_area.body_exited.connect(_on_feet_body_exited)
@@ -66,3 +69,9 @@ func _input(event) -> void:
 func _detach() -> void:
 	attached_to = null
 	attached_offset = Vector2.ZERO
+
+func play_anim(animname):
+	animation_player.play(animname)
+
+func stop_anim():
+	animation_player.stop()
