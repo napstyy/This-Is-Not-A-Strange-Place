@@ -15,7 +15,8 @@ func _ready() -> void:
 	super._ready()
 	treadmill.objComplete.connect(_on_objComplete)
 	water_cooler.objComplete.connect(_on_objComplete)
-
+	if GameManager.keys["OKey"]:
+		cube_progress_bar.set_value(240)
 func _process(delta: float) -> void:
 	pass
 

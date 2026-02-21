@@ -26,5 +26,8 @@ func _on_body_entered(body):
 		is_pushed = true
 		spherewheel.set_visible(true)
 		animation_player.play("sphereroll")
+		body.queue_free()
+		area.body_entered.disconnect(_on_body_entered)
 		GameManager.keys["Cart"] = true
 		objComplete.emit()
+		GameManager.counters["SpherePeople"]["CaveRoom"] = GameManager.counters["SpherePeople"]["CaveRoom"] - 1
