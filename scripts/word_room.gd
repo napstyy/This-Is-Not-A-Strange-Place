@@ -3,6 +3,11 @@ extends Room_Manager
 @export var letter_n: Node2D
 @export var letter_o: Node2D
 @export var letter_t: Node2D
+@onready var oglabel: Label = $Background/Label
+@onready var newlabel: Label = $Background/Label2
+@onready var congratslabel: Label = $Background/Label3
+@onready var color_rect: ColorRect = $ColorRect
+
 var tween: Tween
 var LetterPos = {}
 var LetterDestination = [Vector2(725.0,258.0), Vector2(790.0, 258.0), Vector2(855.0, 258.0)]
@@ -33,8 +38,33 @@ func letterCheck():
 			tween.tween_property(letter_n, "global_position", LetterDestination[0], 1.0)
 			tween.tween_property(letter_o, "global_position", LetterDestination[1], 1.0)
 			tween.tween_property(letter_t, "global_position", LetterDestination[2], 1.0)
-
+			tween.tween_interval(1.2)
+			await tween.finished
+			finalAnimation()
 func reset_tween() -> void:
 	if tween:
 		tween.kill()
 	tween = create_tween()
+
+func finalAnimation():
+	reset_tween()
+	tween.set_parallel(true)
+	tween.tween_property(letter_n, "modulate:a", 0, 3.0)
+	tween.tween_property(letter_o, "modulate:a", 0, 3.0)
+	tween.tween_property(letter_t, "modulate:a", 0, 3.0)
+	tween.tween_property(oglabel, "modulate:a", 0, 3.0)
+	tween.tween_property(color_rect, "modulate:a", 0, 3.0)
+	tween.set_parallel(false)
+	await tween.finished
+	
+	reset_tween()
+	newlabel.set_visible(true)
+	tween.tween_interval(2.0)
+	tween.tween_property(newlabel, "modulate:a", 1, 5.0)
+	await tween.finished
+	
+	reset_tween()
+	congratslabel.set_visible(true)
+	tween.tween_interval(2.0)
+	tween.tween_property(congratslabel,"modulate:a", 1, 3.0)
+	

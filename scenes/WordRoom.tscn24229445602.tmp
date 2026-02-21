@@ -28,14 +28,7 @@ shadow_color = Color(0, 0, 0, 0.14117648)
 [sub_resource type="LabelSettings" id="LabelSettings_u3v64"]
 font = ExtResource("1_fjgfx")
 font_size = 100
-font_color = Color(0, 0, 0, 1)
-shadow_size = 8
-shadow_color = Color(0, 0, 0, 0.14117648)
-
-[sub_resource type="LabelSettings" id="LabelSettings_nelqk"]
-font = ExtResource("1_fjgfx")
-font_size = 75
-font_color = Color(0, 0, 0, 1)
+font_color = Color(0, 0, 0, 0)
 shadow_size = 8
 shadow_color = Color(0, 0, 0, 0.14117648)
 
@@ -80,29 +73,13 @@ text = "This is not
 a strange place."
 label_settings = SubResource("LabelSettings_75evl")
 
-[node name="Label2" type="Label" parent="Background" unique_id=1389966063]
-visible = false
-modulate = Color(1, 1, 1, 0)
+[node name="Label" type="Label" parent="Background/Label" unique_id=1389966063]
 layout_mode = 0
-offset_left = 284.0
-offset_top = 195.0
-offset_right = 843.0
-offset_bottom = 470.8
+offset_right = 40.0
+offset_bottom = 23.0
 text = "This is
 a strange place."
 label_settings = SubResource("LabelSettings_u3v64")
-horizontal_alignment = 1
-
-[node name="Label3" type="Label" parent="Background" unique_id=358956999]
-visible = false
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 284.0
-offset_top = 461.0
-offset_right = 854.0
-offset_bottom = 597.4
-text = "Congratulations."
-label_settings = SubResource("LabelSettings_nelqk")
 horizontal_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=831964667]
