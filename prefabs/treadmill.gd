@@ -17,3 +17,5 @@ func _on_body_entered(body):
 		treadmillsprite.play("default")
 		animalanim.play("walk")
 		body.queue_free()
+		GameManager.keys["Treadmill"]=true
+		GameManager.counters["Animal"]["CubeRoom"] - 1
