@@ -64,7 +64,8 @@ func spawn_with_override():
 						add_child(newObj)
 						if count >= spawn_points[idDict[instances]].size(): #Generic spawner
 							if newObj is Node2D:
-								newObj.global_position = spawn_point.global_position
+								newObj.global_position = spawn_point.global_position + Vector2(count,0)
+								count+=1
 						else:
 							if newObj is Node2D:
 								newObj.global_position = spawn_points[idDict[instances]][count]	

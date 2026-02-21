@@ -6,7 +6,7 @@ extends Node2D
 @export var normal_texture: Texture2D
 @export var lit_texture: Texture2D
 @export var light_scene: PackedScene
-
+signal objComplete
 var current_light: PointLight2D = null
 
 func _ready():
@@ -18,12 +18,13 @@ func _ready():
 			add_child(current_light)
 			current_light.position = Vector2.ZERO
 			sprite.texture = lit_texture
+			
 func _on_area_entered(other_area):
 	if other_area.get_parent().is_in_group("torch"):
-		
 		if current_light == null and light_scene:
 			current_light = light_scene.instantiate()
 			add_child(current_light)
 			current_light.position = Vector2.ZERO
 			sprite.texture = lit_texture
 			GameManager.keys["Campfire"]=true
+			objComplete.emit()

@@ -4,7 +4,7 @@ extends StaticBody2D
 @onready var animalsprite: Sprite2D = $AnimalSprite
 @onready var treadmillsprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animalanim: AnimationPlayer = $AnimalSprite/AnimationPlayer
-
+signal objComplete
 
 func _ready():
 	area.body_entered.connect(_on_body_entered)
@@ -13,6 +13,7 @@ func _ready():
 		treadmillsprite.play("default")
 		animalanim.play("walk")
 		animalsprite.set_visible(true)
+		area.body_entered.disconnect(_on_body_entered) #Disables the objective
 
 
 func _on_body_entered(body):
@@ -21,5 +22,7 @@ func _on_body_entered(body):
 		treadmillsprite.play("default")
 		animalanim.play("walk")
 		body.queue_free()
+		area.body_entered.disconnect(_on_body_entered) #Disables the Objective
 		GameManager.keys["Treadmill"]=true
+		objComplete.emit() #this has to come after setting the key to true
 		GameManager.counters["Animal"]["CubeRoom"] = GameManager.counters["Animal"]["CubeRoom"] - 1

@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://c358intsx2h3q"]
 
 [ext_resource type="Texture2D" uid="uid://cfrpl0nvunqc0" path="res://assets/CaveBG.png" id="1_asb7r"]
-[ext_resource type="Script" uid="uid://dp8nbpfl6vfjt" path="res://scripts/Room_Manager.gd" id="1_ga6sr"]
 [ext_resource type="Texture2D" uid="uid://b77v2ldoivfku" path="res://assets/all-current-posters-v0-evzgpsbdd5jg1.webp" id="1_m7vs3"]
+[ext_resource type="Script" uid="uid://dvt0prow0eivm" path="res://scripts/cave_room.gd" id="1_w4ggp"]
 [ext_resource type="PackedScene" uid="uid://bgi8l7xltgpt5" path="res://prefabs/Campfire.tscn" id="2_hfnui"]
 [ext_resource type="PackedScene" uid="uid://ofmghndjf21h" path="res://prefabs/Light.tscn" id="4_qhogg"]
 [ext_resource type="PackedScene" uid="uid://ysxlk2d6grno" path="res://prefabs/portal.tscn" id="9_t1umm"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://daavhwsrpaomr" path="res://prefabs/custom_cursor.tscn" id="11_n1yii"]
 [ext_resource type="Script" uid="uid://c61lcf3li17tt" path="res://scripts/spawners.gd" id="11_w4ggp"]
 [ext_resource type="PackedScene" uid="uid://c61fgju6ndi7c" path="res://prefabs/spawner.tscn" id="12_n1yii"]
+[ext_resource type="PackedScene" uid="uid://cmlkqvcxyp6q1" path="res://prefabs/NOTkeys.tscn" id="13_n1yii"]
 [ext_resource type="PackedScene" uid="uid://c1qvil12wh3bl" path="res://prefabs/BrickObjective.tscn" id="16_ga6sr"]
 [ext_resource type="Script" uid="uid://gadvn8jnxpyg" path="res://scripts/torch_drop.gd" id="17_24su6"]
 
@@ -34,7 +35,7 @@ sources/0 = SubResource("TileSetAtlasSource_ooh35")
 size = Vector2(185, 142)
 
 [node name="CaveRoom" type="Node2D" unique_id=921493798 node_paths=PackedStringArray("spawn_point")]
-script = ExtResource("1_ga6sr")
+script = ExtResource("1_w4ggp")
 room_name = "CaveRoom"
 spawn_point = NodePath("Node/Spawn")
 
@@ -134,3 +135,9 @@ spawnID = 2
 [node name="Spawner3" parent="Node" unique_id=902193498 instance=ExtResource("12_n1yii")]
 position = Vector2(266, 200)
 spawnID = 2
+
+[node name="Letterspawn" type="Node2D" parent="." unique_id=1105417954]
+visible = false
+position = Vector2(272, 130)
+
+[node name="AnimatedSprite2D" parent="Letterspawn" unique_id=1512500067 instance=ExtResource("13_n1yii")]

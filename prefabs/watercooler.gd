@@ -5,7 +5,7 @@ extends Node2D
 
 @export var normal_texture: Texture2D
 @export var lit_texture: Texture2D
-
+signal objComplete
 func _ready():
 	area.area_entered.connect(_on_area_entered)
 	if GameManager.keys["WaterCooler"]:
@@ -14,4 +14,5 @@ func _on_area_entered(other_area):
 	if other_area.get_parent().is_in_group("water"):
 		sprite.texture = lit_texture
 		GameManager.keys["WaterCooler"] = true
+		objComplete.emit()#this has to come after setting key to true
 		print("WaterCooler key set to: ", GameManager.keys["WaterCooler"])
