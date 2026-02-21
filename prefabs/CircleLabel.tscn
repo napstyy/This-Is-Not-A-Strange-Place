@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://jcagdl68pown" path="res://assets/fonts/Parisienne/Parisienne-Regular.ttf" id="2_g1n42"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svafy"]
-size = Vector2(188, 82)
+size = Vector2(198, 79)
 
 [sub_resource type="LabelSettings" id="LabelSettings_7wd0t"]
 font = ExtResource("2_g1n42")
@@ -19,7 +19,7 @@ script = ExtResource("2_04lgr")
 prefab_id = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=794037456]
-position = Vector2(0, 5)
+position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_svafy")
 
 [node name="Label" type="Label" parent="." unique_id=1464385172]
@@ -35,7 +35,7 @@ offset_bottom = 86.399994
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(109, 50)
-text = "circle"
+text = "sphere"
 label_settings = SubResource("LabelSettings_7wd0t")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
