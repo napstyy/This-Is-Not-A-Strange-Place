@@ -8,7 +8,8 @@ extends Node2D
 
 func _ready():
 	area.area_entered.connect(_on_area_entered)
-
+	if GameManager.keys["WaterCooler"]:
+		sprite.texture = lit_texture
 func _on_area_entered(other_area):
 	if other_area.get_parent().is_in_group("water"):
 		sprite.texture = lit_texture
