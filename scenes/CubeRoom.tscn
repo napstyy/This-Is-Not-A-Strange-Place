@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://ysxlk2d6grno" path="res://prefabs/portal.tscn" id="9_peehg"]
 [ext_resource type="PackedScene" uid="uid://bkeh62c4hysg5" path="res://prefabs/hoverable_zone.tscn" id="10_pfh58"]
 [ext_resource type="PackedScene" uid="uid://bgnj0y5soutft" path="res://prefabs/Treadmill.tscn" id="13_7udly"]
-[ext_resource type="PackedScene" uid="uid://brni1ea1fo23o" path="res://prefabs/Human.tscn" id="13_628mu"]
 [ext_resource type="PackedScene" uid="uid://c4mfd7uqnh276" path="res://prefabs/Watercooler.tscn" id="17_6ht2y"]
 [ext_resource type="Script" uid="uid://gadvn8jnxpyg" path="res://scripts/torch_drop.gd" id="17_w00ee"]
 
@@ -148,8 +147,5 @@ position = Vector2(273, 147)
 
 [node name="StaticBody2D" parent="." unique_id=1433706398 instance=ExtResource("13_7udly")]
 position = Vector2(226, 140)
-
-[node name="RigidBody2D2" parent="." unique_id=1114350461 instance=ExtResource("13_628mu")]
-position = Vector2(127, 113)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
