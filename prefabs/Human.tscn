@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://brni1ea1fo23o"]
 
 [ext_resource type="Texture2D" uid="uid://dwglfki61as02" path="res://assets/Bowman.png" id="1_4kiml"]
-[ext_resource type="Script" uid="uid://cg5rb06wti1lw" path="res://scripts/SquareMovement.gd" id="1_tg7xu"]
 [ext_resource type="Texture2D" uid="uid://gl3ugv1k37p0" path="res://assets/cavepersonpush.png" id="2_1qrlg"]
+[ext_resource type="Script" uid="uid://cbclernh2sxkk" path="res://prefabs/human.gd" id="4_hatuw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qrlg"]
 size = Vector2(5.531501, 6.637801)
@@ -132,11 +132,9 @@ _data = {
 &"walk": SubResource("Animation_tg7xu")
 }
 
-[node name="RigidBody2D2" type="CharacterBody2D" unique_id=1114350461 node_paths=PackedStringArray("sprite_2d")]
-script = ExtResource("1_tg7xu")
-speed = 0.0
-sprite_2d = NodePath("AnimSprite2D")
-prefab_id = 2
+[node name="RigidBody2D2" type="CharacterBody2D" unique_id=1114350461]
+input_pickable = true
+script = ExtResource("4_hatuw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=47918763]
 position = Vector2(-1.4999971, 0)
