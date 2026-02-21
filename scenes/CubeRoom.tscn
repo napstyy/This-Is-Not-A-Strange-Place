@@ -80,7 +80,7 @@ texture = ExtResource("5_wodt7")
 [node name="Boundary" type="Node" parent="." unique_id=793141304]
 
 [node name="bottom" type="StaticBody2D" parent="Boundary" unique_id=1333651794]
-position = Vector2(149, 164)
+position = Vector2(149, 162)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/bottom" unique_id=140963770]
 shape = SubResource("WorldBoundaryShape2D_l76xo")

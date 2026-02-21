@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dfdv4c5gcr74m" path="res://scripts/torch_room.gd" id="1_4g2yf"]
 [ext_resource type="Texture2D" uid="uid://c83imc0cq6va4" path="res://assets/obelisk.png" id="3_3wgc2"]
-[ext_resource type="Texture2D" uid="uid://b77v2ldoivfku" path="res://assets/all-current-posters-v0-evzgpsbdd5jg1.webp" id="4_dscsm"]
 [ext_resource type="Script" uid="uid://c61lcf3li17tt" path="res://scripts/spawners.gd" id="8_3y2sx"]
 [ext_resource type="PackedScene" uid="uid://c61fgju6ndi7c" path="res://prefabs/spawner.tscn" id="8_j5bll"]
 [ext_resource type="Texture2D" uid="uid://rmv1h4cn0m6w" path="res://assets/TorchBG.png" id="8_r3faa"]
@@ -65,7 +64,7 @@ texture = ExtResource("3_3wgc2")
 [node name="World Boundaries" type="Node" parent="." unique_id=1134368051]
 
 [node name="bottom" type="StaticBody2D" parent="World Boundaries" unique_id=905524752]
-position = Vector2(538.00006, 219)
+position = Vector2(538.00006, 216.00002)
 scale = Vector2(15.125, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World Boundaries/bottom" unique_id=452824086]
@@ -94,12 +93,6 @@ shape = SubResource("WorldBoundaryShape2D_ju56b")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1337817144]
 color = Color(0.6028429, 0.6028429, 0.602843, 1)
-
-[node name="AllCurrentPostersV0Evzgpsbdd5Jg1" type="Sprite2D" parent="." unique_id=200384428]
-visible = false
-position = Vector2(610, 342.00003)
-scale = Vector2(1.5799179, 0.7081379)
-texture = ExtResource("4_dscsm")
 
 [node name="CustomCursor" parent="." unique_id=1188223711 instance=ExtResource("10_r3faa")]
 visible = false

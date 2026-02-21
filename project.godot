@@ -27,6 +27,7 @@ buses/default_bus_layout="uid://cjtt6x6bhsv6q"
 
 GameState="*uid://bvc1tojstys5l"
 GameManager="*uid://cdpto8txf3f3l"
+Clicksfx="*uid://bytrulnpyxg66"
 
 [file_customization]
 

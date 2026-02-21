@@ -45,6 +45,12 @@ radius = 34.0147
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fjgfx"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nelqk"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sf8bh"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_msoy2"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1rj1m"]
 size = Vector2(140.5, 95)
 
@@ -131,14 +137,35 @@ replacement_scenes = Array[PackedScene]([ExtResource("4_i2bln"), ExtResource("4_
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Area2D" unique_id=1811734576]
 shape = SubResource("CircleShape2D_svafy")
 
-[node name="World Border Bottom" type="StaticBody2D" parent="." unique_id=1115365397]
-position = Vector2(588, 761)
+[node name="Borders" type="Node" parent="." unique_id=1812004610]
+
+[node name="World Border Bottom" type="StaticBody2D" parent="Borders" unique_id=1115365397]
+position = Vector2(588, 648.99994)
 scale = Vector2(1382.8175, 2.0408833)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World Border Bottom" unique_id=1489506687]
-position = Vector2(0.0007231612, -55.858196)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/World Border Bottom" unique_id=1489506687]
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("WorldBoundaryShape2D_fjgfx")
+
+[node name="World Border Top" type="StaticBody2D" parent="Borders" unique_id=1959149472]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/World Border Top" unique_id=206338348]
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_nelqk")
+
+[node name="World Border Left" type="StaticBody2D" parent="Borders" unique_id=344734591]
+position = Vector2(0, 104)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/World Border Left" unique_id=2050436588]
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_sf8bh")
+
+[node name="World Border Right" type="StaticBody2D" parent="Borders" unique_id=91912049]
+position = Vector2(1152, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/World Border Right" unique_id=1643219815]
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_msoy2")
 
 [node name="CustomCursor" parent="." unique_id=1188223711 instance=ExtResource("12_tlxbp")]
 visible = false
